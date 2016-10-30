@@ -11,3 +11,13 @@ api-endpoints.md
 component-hierarchy.md
 sample-state.md
 schema.md
+
+
+1) Heroku Link:
+2) MVP
+3) Wireframes
+4) React component-hierarchy
+5) Sample State
+6) DB schema
+7) API Endpoints
+8) Timeline
