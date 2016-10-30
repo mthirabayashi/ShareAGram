@@ -14,8 +14,22 @@ schema.md
 
 
 1) Heroku Link:
+  got ssh key connected and can push to Heroku
+  can see app connected in terminal using heroku apps
+  page can't be reached when opening heroku link
 2) MVP
-3) Wireframes
+  Hosting on Heroku
+  New account creation, login, and guest/demo login
+  Images
+  Likes
+  Comments on images
+  Infinite Scroll
+  Bonus: Following & photo feed
+  Bonus: direct messaging
+  Bonus: hashtags
+
+3) [Wireframes](https://google.com)
+
 4) React component-hierarchy
 5) Sample State
 6) DB schema
