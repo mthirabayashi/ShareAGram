@@ -5,15 +5,15 @@
   can see app connected in terminal using heroku apps
   page can't be reached when opening heroku link
 ## Minimum Viable Product
-  - [] Hosting on Heroku
-  - [] New account creation, login, and guest/demo login
-  - [] Images
-  - [] Likes
-  - [] Comments on images
-  - [] Infinite Scroll
-  - [] Bonus: Following & photo feed
-  - [] Bonus: direct messaging
-  - [] Bonus: hashtags
+  - [ ] Hosting on Heroku
+  - [ ] New account creation, login, and guest/demo login
+  - [ ] Images
+  - [ ] Likes
+  - [ ] Comments on images
+  - [ ] Infinite Scroll
+  - [ ] Bonus: Following & photo feed
+  - [ ] Bonus: direct messaging
+  - [ ] Bonus: hashtags
 
 ## Design Docs
   * [Wireframes](./wireframes/)
