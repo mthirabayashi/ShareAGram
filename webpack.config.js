@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   context: __dirname,
-  entry: "./frontend/index.jsx",
+  entry: "./frontend/index",
   output: {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
@@ -14,9 +14,12 @@ module.exports = {
   module: {
     loaders: [
     {
-      test: /\.jsx?$/,
+      test: [/\.jsx?$/, /\.js?$/],
       exclude: /(node_modules|bower_components)/,
-      loader: 'babel'
+      loader: 'babel',
+      query: {
+        presets: ['es2015', 'react']
+      }
     },
     {
       test: /\.node$/,
