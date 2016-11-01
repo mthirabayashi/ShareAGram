@@ -4,25 +4,30 @@
  - AuthForm
 
 **PostsIndexContainer**
- - Posts
+ - PostsIndex
  - Nav Bar
  - Create Post
 
 **UserProfileContainer**
- - Profile Info
- - User posts
+ - UserProfile
+ - UserPosts
 
 **PostContainer**
  - Post
 
 **NavBarContainer**
+ - NavBar
  - Search bar
  - Profile
 
 **ProfileInfoContainer**
+ - ProfileInfo
  - Posts
  - followers
  - followings
+
+**CreatePost**
+ - CreatePost
 
 ## Routes
 
@@ -32,4 +37,4 @@
 | "/sign-in" | "AuthFormContainer" |
 | "/posts" | "PostsIndexContainer" |
 | "/users/:userId" | "UserProfileContainer" |
-| "/posts/create" | "PostContainer" |
+| "/posts/create" | "CreateContainer" |
