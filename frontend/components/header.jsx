@@ -1,0 +1,31 @@
+import React from 'react';
+import { withRouter } from 'react-router';
+
+const Header = ({ router }) => {
+  // const handleClick = url => () => router.push(url);
+
+  return(
+    <div className='header'>
+      <section className='logo'>
+        <img src='http://3835642c2693476aa717-d4b78efce91b9730bcca725cf9bb0b37.r51.cf1.rackcdn.com/Instagram_App_Large_May2016_200.png' alt='LOGO' />
+      </section>
+      <section className='title'>
+        ShareAGram
+      </section>
+      <nav className='navbar'>
+        <ul className='navbar-list'>
+      		<li className='navbar-item'>
+            <img src='http://www.freeiconspng.com/uploads/profile-icon-9.png' alt='Profile' />
+      		</li>
+      		<li className='navbar-item'>
+            <button>Logout</button>
+      		</li>
+        </ul>
+      </nav>
+    </div>
+
+  );
+};
+
+
+export default withRouter(Header);

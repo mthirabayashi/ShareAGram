@@ -1,0 +1,34 @@
+// Place all the styles related to the api::users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.footer {
+  display: flex;
+  border: 1px solid black;
+}
+
+.footer-item {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.footer img {
+  height: 40px;
+  width: 40px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+}
+
+
+.navbar button {
+  cursor: pointer;
+}

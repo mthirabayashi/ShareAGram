@@ -16,8 +16,9 @@
       author_id: 1,
       likes: 3,
       comments: {
-        '1': {user1: 'great pic'},
-        '2': {user2: 'cool'}
+        '1': {id: 1, username: 'user1', body: 'great pic'},
+        '2': {id: 2, username: 'user2', body: 'greadfaat pic'},
+        '3': {id: 3, username: 'user3', body: 'cool photo'}
       }
     }
   },
