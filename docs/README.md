@@ -14,8 +14,8 @@
   - [ ] Images
   - [ ] Likes
   - [ ] Comments on images
-  - [ ] Infinite Scroll
   - [ ] Following & photo feed
+  - [ ] Bonus: Infinite Scroll
   - [ ] Bonus: direct messaging
   - [ ] Bonus: hashtags
 

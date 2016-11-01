@@ -11,6 +11,8 @@
 ### Users
 
 - `POST /api/users`
+- `GET /api/users`
+- `DELETE /api/users/:id`
 
 ### Session
 
@@ -27,18 +29,16 @@
 - `DELETE /api/posts/:id`
 
 ### Comments
-
-- `GET /api/comments`
-- `POST /api/comments`
-- `DELETE /api/comments/:id`
+  <!-- should comments be nested under photos or posts? -->
+- `POST /api/photos/comments`
+- `DELETE /api/photos/comments/:id`
 
 ### Likes
 
-- `GET /api/likes`
-- `POST /api/likes`
-- `DELETE /api/likes/:id`
+- `POST /api/photos/likes`
+- `DELETE /api/photos/likes/:id`
 
 ### Follows
 
-- `POST /api/follows`
-- `DELETE /api/follows/:id`
+- `POST /api/users/follows`
+- `DELETE /api/users/follows/:id`

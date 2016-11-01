@@ -7,6 +7,7 @@ id              | integer   | not null, primary key
 username        | string    | not null, indexed, unique
 email           | string    | not null, indexed, unique
 full_name       | string    |
+profile_pic     | string    |
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
 
