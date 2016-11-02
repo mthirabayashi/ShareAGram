@@ -34,7 +34,9 @@ const Root = ({ store }) => {
       <Router history={hashHistory}>
         <Route path="/" component={App} onEnter={_ensureSignedIn}>
           <IndexRoute component={Posts} onEnter={_ensureSignedIn}/>
-          <Route path='posts' onEnter={_ensureSignedIn} component={Posts}/>
+          <Route path='posts' onEnter={_ensureSignedIn} component={Posts}>
+            <Route path=':postId' />
+          </Route>
         </Route>
         <Route path="/login" component={LoginFormContainer} onEnter={_redirectIfLoggedIn} />
         <Route path="/signup" component={SignUpFormContainer} onEnter={_redirectIfLoggedIn} />

@@ -5,6 +5,11 @@ class User < ApplicationRecord
 
   attr_reader :password
 
+  has_many :posts,
+    class_name: "Post",
+    foreign_key: :author_id,
+    primary_key: :id
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)
