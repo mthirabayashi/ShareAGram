@@ -5,7 +5,6 @@ class LoginForm extends React.Component {
 
   constructor(props){
     super(props);
-    console.log(props);
     this.state = {
       username: '',
       password: ''
@@ -45,7 +44,7 @@ class LoginForm extends React.Component {
     // debugger
     if (this.props.errors.session.length>0) {
       return (
-        <ul>Errors:
+        <ul>
           {this.props.errors.session.map( (error, idx) => (
             <li key={idx}>{error}</li>
           ))}
@@ -59,9 +58,11 @@ class LoginForm extends React.Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit} className='session-form'>
+        <div className='session-image'>
+          <img src='http://us.mullenlowe.com/wp-content/uploads//2013/10/instagramlogo.jpg' alt='LOGO'/>
+        </div>
         <div className='session-box'>
           <h2>ShareAGram</h2>
-          {this.renderSignInErrors()}
           <label>
             <input type='text' onChange={this.updateField('username')} value={this.state.username} placeholder='Username'className='session-input' ></input>
           </label>
@@ -74,6 +75,7 @@ class LoginForm extends React.Component {
           <br/>
           <br/>
         </div>
+        {this.renderSignInErrors()}
         <div className='session-link'>
           <label>Don't have an account?
             <Link to='/signup'> Sign Up</Link>

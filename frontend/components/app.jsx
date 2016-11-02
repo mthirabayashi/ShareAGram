@@ -1,14 +1,14 @@
 import React from 'react';
 import GreetingContainer from './greeting_container';
 import Footer from './footer';
-import Header from './header';
+import HeaderContainer from './header/header_container';
 
 const App = ({ children, route }) => {
 
   // <GreetingContainer />
   return (
     <div className='app'>
-      <Header />
+      <HeaderContainer />
       {children}
       <Footer />
     </div>

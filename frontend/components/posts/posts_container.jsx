@@ -1,0 +1,21 @@
+import { connect } from 'react-redux';
+import Posts from './posts';
+import {logout} from '../../actions/session_actions';
+
+const mapStateToProps = (state) => {
+  return ({
+
+  });
+};
+
+const mapDispatchToProps = (dispatch) => {
+
+  return ({
+
+  });
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Posts);

@@ -4,8 +4,12 @@
 
 
 .footer {
-  display: flex;
   border: 1px solid black;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
 }
 
 .footer-item {
@@ -22,13 +26,52 @@
 .header {
   display: flex;
   justify-content: space-between;
+  border: 1px solid black;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-title {
+  border-left: 1px solid black;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+}
+
+.search-bar {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
 }
 
 .navbar {
   display: flex;
 }
 
+.navbar-list {
+  display: flex;
+  justify-content: space-around;
+  align-self: flex-end;
+}
+
+.navbar-item {
+  display: flex;
+  padding: 5px;
+  margin-bottom: auto;
+  border: 1px solid black;
+  margin-right: 10px;
+}
 
 .navbar button {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.navbar img {
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }

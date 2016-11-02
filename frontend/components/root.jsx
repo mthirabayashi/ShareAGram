@@ -5,6 +5,7 @@ import App from './app';
 import LoginFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/sign_up_form_container';
 import {clearErrors} from '../actions/session_actions';
+import Posts from './posts/posts_container';
 
 
 const Root = ({ store }) => {
@@ -16,13 +17,6 @@ const Root = ({ store }) => {
     }
     _clearErrors();
   };
-
-  // const _redirectIfNotLoggedIn = (nextState, replace) => {
-  //   const currentUser = store.getState().session.currentUser;
-  //   if (Boolean(currentUser)===false) {
-  //     replace('/login');
-  //   }
-  // };
 
   const _ensureSignedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
@@ -38,8 +32,9 @@ const Root = ({ store }) => {
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path="/" component={App}>
-          
+        <Route path="/" component={App} onEnter={_ensureSignedIn}>
+          <IndexRoute component={Posts} onEnter={_ensureSignedIn}/>
+          <Route path='posts' onEnter={_ensureSignedIn} component={Posts}/>
         </Route>
         <Route path="/login" component={LoginFormContainer} onEnter={_redirectIfLoggedIn} />
         <Route path="/signup" component={SignUpFormContainer} onEnter={_redirectIfLoggedIn} />

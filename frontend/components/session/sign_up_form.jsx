@@ -47,7 +47,7 @@ class SignUpForm extends React.Component {
     // debugger
     if (this.props.errors.user.length>0) {
       return (
-        <ul>Errors:
+        <ul>
           {this.props.errors.user.map( (error, idx) => (
             <li key={idx}>{error}</li>
           ))}
@@ -61,10 +61,12 @@ class SignUpForm extends React.Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit} className='session-form'>
+        <div className='session-image'>
+          <img src='http://us.mullenlowe.com/wp-content/uploads//2013/10/instagramlogo.jpg' alt='LOGO'/>
+        </div>
         <div className='session-box'>
           <h2>ShareAGram</h2>
           <p>Sign up to see photos from your friends.</p>
-          {this.renderSignUpErrors()}
           <label>
             <input type='text' onChange={this.updateField('email')} value={this.state.email} placeholder='Email' className='session-input'></input>
           </label>
@@ -86,6 +88,8 @@ class SignUpForm extends React.Component {
           <br/>
           <br/>
         </div>
+
+        {this.renderSignUpErrors()}
 
         <div className='session-link'>
           <label>Have an account?

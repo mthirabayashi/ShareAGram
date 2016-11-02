@@ -1,6 +1,6 @@
 div, a, html, p, a, img, h1, h2, h3, h4, h5, h6, button, input, label, form, section, span, nav, ul, li {
-  margin: 0;
-  padding: 0;
   background-color: inherit;
   text-decoration: none;
+  list-style: none;
+  text-align: inherit;
 }

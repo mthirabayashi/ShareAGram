@@ -4,11 +4,11 @@
 
 
 .session-form {
-  margin-left: 55em;
-  margin-right: 20em;
+  margin: 0 auto;
+  margin-top: 15%;
   border: 1px solid red;
-  width: 400px;
-  height: 600px;
+  width: 600px;
+  min-height: 400px;
   padding: 10px;
   text-align: center;
   background-color: #fff;
@@ -19,7 +19,18 @@
   flex-direction: column;
   padding: 10px;
   margin: 10px;
+  margin-left: 50%;
   background-color: inherit;
+}
+
+.session-image img {
+  position: relative;
+  width: 40%;
+  height: 350px;
+  float: left;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
 }
 
 .session-input {
@@ -43,4 +54,5 @@
   flex-direction: column;
   padding: 10px;
   text-decoration: none;
+  margin-left: 50%;
 }
