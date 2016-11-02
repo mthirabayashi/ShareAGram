@@ -67,6 +67,8 @@ class SignUpForm extends React.Component {
         <div className='session-box'>
           <h2>ShareAGram</h2>
           <p>Sign up to see photos from your friends.</p>
+          <button type='submit' className='session-input'>Log in as guest</button>
+          <br/>
           <label>
             <input type='text' onChange={this.updateField('email')} value={this.state.email} placeholder='Email' className='session-input'></input>
           </label>
