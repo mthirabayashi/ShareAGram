@@ -3,6 +3,7 @@ import LoginForm from './login_form';
 import {login, signup} from '../../actions/session_actions';
 
 const mapStateToProps = (state) => {
+  console.log(state);
   let currentUser = state.session.currentUser;
   currentUser = Boolean(currentUser);
   return ({
@@ -14,6 +15,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return ({
     processForm: (user) => dispatch(login(user)),
+    guestLogin: () => dispatch(login({user: {username: 'guest', password: 'password'}})),
     formType: 'Log In'
   });
 };

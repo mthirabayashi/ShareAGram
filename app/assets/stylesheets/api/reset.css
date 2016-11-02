@@ -4,3 +4,7 @@ div, a, html, p, a, img, h1, h2, h3, h4, h5, h6, button, input, label, form, sec
   list-style: none;
   text-align: inherit;
 }
+
+html {
+  background-color: #fafafa;
+}

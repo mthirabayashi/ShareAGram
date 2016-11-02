@@ -25,30 +25,49 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   border: 1px solid black;
 }
 
 .logo img {
   width: 40px;
   height: 40px;
+  // border: 1px solid black;
 }
 
 .logo-title {
-  border-left: 1px solid black;
   display: flex;
   justify-content: flex-end;
   padding: 5px;
+  // border: 1px solid black;
+}
+
+.header-app-title {
+  border-left: 1px solid black;
+  margin-left: 5px;
+  padding-left: 5px;
+  font-family: 'Lobster', cursive;
+  font-size: 28px;
 }
 
 .search-bar {
-  padding: 10px;
-  margin: 10px;
-  border-radius: 8px;
+  margin-right: 30px;
+  // border: 1px solid black;
+  height: 25px;
+  width: 130px;
+}
+
+.search-bar input {
+  border-radius: 7px;
+  font-size: 16px;
+  height: 20px;
+  width: 110px;
 }
 
 .navbar {
   display: flex;
+  // border: 1px solid black;
 }
 
 .navbar-list {
@@ -61,7 +80,7 @@
   display: flex;
   padding: 5px;
   margin-bottom: auto;
-  border: 1px solid black;
+  // border: 1px solid black;
   margin-right: 10px;
 }
 

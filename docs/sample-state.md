@@ -4,12 +4,12 @@
     username: "username1",
     full_name: "user name"
   },
-  forms: {
-    signUp: {errors: []},
-    logIn: {errors: []},
-    createPost: {errors: []}
+  errors: {
+    signUp: [],
+    logIn: [],
+    createPost: []
   },
-  Post: {
+  Posts: {
     1: {
       description: "example",
       img_url: "example.com",

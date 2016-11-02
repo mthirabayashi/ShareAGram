@@ -4,8 +4,9 @@ import {RECEIVE_CURRENT_USER, RECEIVE_SIGN_IN_ERRORS, RECEIVE_SIGN_UP_ERRORS, CL
 const _nullUser = {
   currentUser: null,
   errors: {
-    session: [],
-    user: []
+    logIn: [],
+    signUp: [],
+    createPost: []
   }
 };
 
@@ -17,18 +18,18 @@ const SessionReducer = (state = _nullUser, action) => {
       return merge({}, state, action.currentUser);
     case RECEIVE_SIGN_IN_ERRORS:
       newState = merge({}, state);
-      newState.errors.session = action.errors.session;
-      newState.errors.user = [];
+      newState.errors.logIn = action.errors.logIn;
+      newState.errors.signUp = [];
       return newState;
     case RECEIVE_SIGN_UP_ERRORS:
       newState = merge({}, state);
-      newState.errors.user = action.errors.user;
-      newState.errors.session = [];
+      newState.errors.signUp = action.errors.signUp;
+      newState.errors.logIn = [];
       return newState;
     case CLEAR_ERRORS:
       newState = merge({}, state);
-      newState.errors.user = [];
-      newState.errors.session = [];
+      newState.errors.signUp = [];
+      newState.errors.logIn = [];
       return newState;
     case LOGOUT:
       return _nullUser;
