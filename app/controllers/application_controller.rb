@@ -9,7 +9,11 @@ class ApplicationController < ActionController::Base
 
   def login(user)
     @current_user = user
-    session[:session_token] = user.reset_session_token!
+    if @current_user.username == 'guest'
+      session[:session_token] = user.session_token
+    else
+      session[:session_token] = user.reset_session_token!
+    end
   end
 
   def logout
