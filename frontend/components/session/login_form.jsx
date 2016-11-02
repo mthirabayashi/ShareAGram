@@ -74,6 +74,9 @@ class LoginForm extends React.Component {
           <button type='submit' className='session-input'>{this.props.formType}</button>
           <br/>
           <br/>
+          <br/>
+          <button type='submit' className='session-input'>Log in as guest</button>
+          <br/>
         </div>
         {this.renderSignInErrors()}
         <div className='session-link'>

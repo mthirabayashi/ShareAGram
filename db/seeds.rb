@@ -11,6 +11,8 @@ User.destroy_all;
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
 idx = 1
+User.create!(username: "guest", email: "guest@email.com", password: "password")
+idx += 1
 User.create!(username: "mike", email: "mike@email.com", password: "password")
 idx += 1
 User.create!(username: "mike#{idx}", email: "mike#{idx}@email.com", password: "password")
