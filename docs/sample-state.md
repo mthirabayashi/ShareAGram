@@ -9,8 +9,9 @@
     logIn: [],
     createPost: []
   },
-  Posts: {
+  posts: {
     1: {
+      id: 1,
       description: "example",
       img_url: "example.com",
       author_id: 1,

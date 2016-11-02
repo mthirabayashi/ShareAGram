@@ -8,7 +8,9 @@
 
 
 User.destroy_all;
+Post.destroy_all;
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
+ActiveRecord::Base.connection.reset_pk_sequence!('posts')
 
 idx = 1
 User.create!(username: "guest", email: "guest@email.com", password: "password")
@@ -22,3 +24,49 @@ idx += 1
 User.create!(username: "mike#{idx}", email: "mike#{idx}@email.com", password: "password")
 idx += 1
 User.create!(username: "mike#{idx}", email: "mike#{idx}@email.com", password: "password")
+
+
+idx = 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+idx += 1
+Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)

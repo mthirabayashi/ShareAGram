@@ -32,3 +32,7 @@ store.dispatch({
   type: "LOGIN",
   user: {user:{username: 'mike', password: 'password'}}
 }, (data)=>(console.log(data)))
+
+store.dispatch({
+  type: "FETCH_ALL_POSTS"
+}, (data)=>(console.log(data)))
