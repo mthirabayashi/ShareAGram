@@ -10,6 +10,13 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    # remember how to use includes(:posts)
+    # @user_posts = Post.where(author_id: params[:id])
+    render :profile
+  end
+
   private
   def user_params
     params.require(:user).permit(:username, :password, :email, :full_name)

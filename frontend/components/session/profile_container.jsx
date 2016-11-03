@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import Posts from './posts';
-import {fetchAllPosts, createPost} from '../../actions/posts_actions';
+import Profile from './profile';
+import {fetchProfile} from '../../actions/session_actions';
 
 const mapStateToProps = (state) => {
   console.log(state);
@@ -13,12 +13,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 
   return ({
-    fetchAllPosts: () => dispatch(fetchAllPosts()),
-    createPost: (post) => dispatch(createPost(post))
+    fetchProfile: (id) => dispatch(fetchProfile(id))
   });
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Posts);
+)(Profile);

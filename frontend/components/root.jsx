@@ -4,8 +4,9 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import App from './app';
 import LoginFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/sign_up_form_container';
-import {clearErrors} from '../actions/session_actions';
+import {clearErrors, fetchProfile} from '../actions/session_actions';
 import Posts from './posts/posts_container';
+import Profile from './session/profile_container';
 
 
 const Root = ({ store }) => {
@@ -29,6 +30,10 @@ const Root = ({ store }) => {
     store.dispatch(clearErrors())
   );
 
+  const _fetchProfile = () => (
+    store.dispatch(fetchProfile(store.getState().session.currentUser.id))
+  );
+
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
@@ -37,6 +42,7 @@ const Root = ({ store }) => {
           <Route path='posts' onEnter={_ensureSignedIn} component={Posts}>
             <Route path=':postId' />
           </Route>
+          <Route path='user' component={Profile} onEnter={_fetchProfile}/>
         </Route>
         <Route path="/login" component={LoginFormContainer} onEnter={_redirectIfLoggedIn} />
         <Route path="/signup" component={SignUpFormContainer} onEnter={_redirectIfLoggedIn} />

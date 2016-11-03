@@ -9,7 +9,7 @@
  [Trello Link](https://trello.com/b/evKyRSbN)
 
 ## Minimum Viable Product
-  - [ ] Hosting on Heroku
+  - [x] Hosting on Heroku
   - [ ] New account creation, login, and guest/demo login
   - [ ] Images
   - [ ] Likes

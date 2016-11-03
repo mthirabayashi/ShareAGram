@@ -1,12 +1,13 @@
 class Api::PostsController < ApplicationController
   def index
-    @posts = Post.where.not(author_id: current_user.id)
+    @posts = Post.all
   end
 
   def create
     @post = Post.new(post_params)
     if @post.save
-      render :show
+      @posts = Post.all
+      render :index
     else
       render json: {createPost: @post.errors.full_messages}, status: 422
     end

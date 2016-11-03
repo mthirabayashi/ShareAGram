@@ -6,7 +6,11 @@ const _nullPost = {
     id: 0,
     description: '',
     img_url: '',
-    author_id: 0
+    author: {
+      author_id: -1,
+      author_pic: '',
+      author_username: ''
+    }
   }
 };
 

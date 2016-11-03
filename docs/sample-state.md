@@ -14,7 +14,11 @@
       id: 1,
       description: "example",
       img_url: "example.com",
-      author_id: 1,
+      author: {
+        author_id: 1,
+        author_pic: '',
+        author_username: ''
+      }
       likes: 3,
       comments: {
         '1': {id: 1, username: 'user1', body: 'great pic'},
