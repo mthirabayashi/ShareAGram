@@ -1,11 +1,4 @@
 .app {
   background-color: #fafafa;
-}
-
-.posts-feed {
-  text-align: center;
-}
-
-.posts {
-  text-align: center;
+  min-width: 550px;
 }

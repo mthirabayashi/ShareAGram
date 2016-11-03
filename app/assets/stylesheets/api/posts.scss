@@ -1,3 +1,79 @@
 // Place all the styles related to the api::posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.posts {
+  text-align: center;
+}
+
+.post-feed {
+  position: relative;
+  display: flex;
+}
+
+.post-item {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 500px;
+}
+
+.post-item-photo img {
+  width: 400px;
+  height: 300px;
+  // border: 1px solid black;
+}
+
+.comment {
+  // border: 1px solid black;
+  margin: 10px 0;
+}
+
+.comment input {
+  width: 400px;
+  min-height: 25px;
+}
+
+.post-description {
+  // border: 1px solid black;
+  width: 400px;
+  min-height: 25px;
+  position: relative;
+  line-height: 0;
+  padding: 2px;
+  // display: flex;
+  // align-items: center;
+}
+
+.post-description h4 {
+  // border: 1px solid black;
+  display: inline-block;
+  // float: left;
+
+}
+.post-description p {
+  // border: 1px solid black;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.post-description .like-count {
+  display: block;
+  margin-top: 0px;
+  padding-top: 3px;
+}
+
+.poster-pic-name {
+  width: 400px;
+}
+
+.create-post-button {
+    position: fixed;
+    height: 30px;
+    bottom: 40px;
+    right: 0;
+    width: 100%;
+}

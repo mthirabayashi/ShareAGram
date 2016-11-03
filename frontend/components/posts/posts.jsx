@@ -16,12 +16,14 @@ class Posts extends React.Component {
   }
 
   displayAllPosts() {
-    // NOTE: move to another component
     return (
       <div>
         {this.props.posts.map(post => (
-          <div>
-            <PostItem post={post}/>
+          <div key={post.id} >
+            <PostItem post={post} />
+            <br />
+            <br />
+            <br />
             <br />
           </div>
         ))}
@@ -35,7 +37,9 @@ class Posts extends React.Component {
         <h1 className='posts'>posts feed here</h1>
         <br/>
         {this.displayAllPosts()}
-        <br/>
+        <span className='create-post-button'>
+          <img alt='create post button'/>
+        </span>
       </div>
     );
   }
