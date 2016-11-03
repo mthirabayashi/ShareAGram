@@ -17,6 +17,7 @@
   flex-direction: column;
   border: 1px solid black;
   width: 500px;
+  border-radius: 8px;
 }
 
 .post-item-photo img {
@@ -104,4 +105,9 @@
 
 .modal > * {
   margin-top: 10px;
+}
+
+.profile-pic-thumbnail {
+  width: 25px;
+  height: 25px;
 }

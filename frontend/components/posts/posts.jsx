@@ -2,29 +2,35 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import PostItem from './post_item';
 import Modal from 'react-modal';
+import merge from 'lodash/merge';
 
 class Posts extends React.Component {
 
   constructor(props){
     super(props);
-    console.log(props);
+    // console.log(props);
     this.displayAllPosts = this.displayAllPosts.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
+    this.updateModalField = this.updateModalField.bind(this);
+    this.handleCreatePost = this.handleCreatePost.bind(this);
     this.state = {
-      modalOpen: false
+      modalOpen: false,
+      modal: {
+        img_url: '',
+        description: ''
+      }
     };
   }
 
   componentDidMount() {
     this.props.fetchAllPosts();
-    console.log('fetching posts');
   }
 
   displayAllPosts() {
     return (
       <div>
-        {this.props.posts.map(post => (
+        {this.props.posts.slice(0).reverse().map(post => (
           <div key={post.id} >
             <PostItem post={post} />
             <br />
@@ -45,6 +51,21 @@ class Posts extends React.Component {
     this.setState({ modalOpen: true });
   }
 
+  updateModalField(field) {
+    return (e) => {
+      const newState = merge({}, this.state.modal, {[field]: e.target.value});
+      this.setState({modal: newState});
+    };
+  }
+
+  handleCreatePost(e) {
+    e.preventDefault();
+    let post = this.state.modal;
+    post['author_id'] = this.props.currentUser.id;
+    console.log(post);
+    this.props.createPost({post: post});
+    // this.props.router.push(`/user`);
+  }
 
   render () {
     const style = {
@@ -83,13 +104,15 @@ class Posts extends React.Component {
         className='modal'>
           <h2>New Post</h2>
           <br />
-          <button>Add Image</button>
+            <label>
+              <input type='text' onChange={this.updateModalField('img_url')} value={this.state.modal.img_url} placeholder='Add an image url' ></input>
+            </label>
           <br />
           <br />
-          <textarea type='text' placeholder='Add a description' rows="3" cols="30"></textarea>
+          <textarea type='text' placeholder='Add a description' rows="3" cols="30" onChange={this.updateModalField('description')}></textarea>
           <br />
           <br />
-          <button onClick={()=>(console.log('submit modal'))}>Create Post</button>
+          <button onClick={this.handleCreatePost}>Create Post</button>
           <br />
           <button onClick={this.closeModal}>Close</button>
 
