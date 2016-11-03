@@ -1,6 +1,6 @@
 class Api::PostsController < ApplicationController
   def index
-    @posts = Post.where(author_id: current_user.id)
+    @posts = Post.where.not(author_id: current_user.id)
   end
 
   def create
