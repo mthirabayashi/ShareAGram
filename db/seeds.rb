@@ -27,46 +27,46 @@ User.create!(username: "mike#{idx}", email: "mike#{idx}@email.com", password: "p
 
 
 idx = 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 1)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 1)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 1)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 1)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 1)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 1)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 1)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 1)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 1)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 1)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 1)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 1)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 1)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 2)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 2)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 2)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 2)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 2)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 2)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 2)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 2)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 2)
 idx += 1
-Post.create!(img_url: "img#{idx}", description: "description for post#{idx}", author_id: 2)
+Post.create!(img_url: "https://thumbs.dreamstime.com/z/simple-doodle-funny-face-hand-drawn-56785681.jpg", description: "description for post#{idx}", author_id: 2)

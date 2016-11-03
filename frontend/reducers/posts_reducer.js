@@ -15,9 +15,7 @@ const SessionReducer = (state = _nullPost, action) => {
   let newState;
   switch(action.type){
     case RECEIVE_ALL_POSTS:
-      console.log('received all posts with: ');
-      console.log(action.posts);
-      newState = merge({}, state, action.posts);
+      newState = merge({}, action.posts);
       return newState;
     default:
       return state;
