@@ -7,8 +7,7 @@
 }
 
 .post-feed {
-  position: relative;
-  display: flex;
+  position: absolute;
 }
 
 .post-item {
@@ -24,6 +23,7 @@
   width: 400px;
   height: 300px;
   // border: 1px solid black;
+  cursor: pointer;
 }
 
 .comment {
@@ -72,8 +72,36 @@
 
 .create-post-button {
     position: fixed;
-    height: 30px;
-    bottom: 40px;
-    right: 0;
-    width: 100%;
+    display: inline;
+    bottom: 20%;
+    right: 10%;
+    opacity: .5;
+}
+.create-post-button img {
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+}
+
+.modal {
+  text-align: center;
+  line-height: 1;
+  margin: 10px;
+  margin: 0 auto;
+  min-width: 250px;
+  max-width: 450px;
+}
+
+.modal textarea {
+  resize:vertical;
+  max-height: 75px;
+}
+
+.modal button {
+  width: 120px;
+  height: 30px;
+}
+
+.modal > * {
+  margin-top: 10px;
 }
