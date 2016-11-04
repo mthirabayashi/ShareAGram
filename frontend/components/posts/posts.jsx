@@ -109,7 +109,7 @@ class Posts extends React.Component {
             </label>
           <br />
           <br />
-          <textarea type='text' placeholder='Add a description' rows="3" cols="30" onChange={this.updateModalField('description')}></textarea>
+          <textarea type='text' placeholder='Add a description' rows="3" cols="30" maxLength="150" onChange={this.updateModalField('description')}></textarea>
           <br />
           <br />
           <button onClick={this.handleCreatePost}>Create Post</button>

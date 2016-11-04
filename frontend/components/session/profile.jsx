@@ -6,17 +6,18 @@ class Profile extends React.Component {
 
   constructor(props){
     super(props);
+    this.userPosts = this.userPosts.bind(this);
   }
 
   componentDidMount() {
   }
 
-  postList() {
+  userPosts() {
 
     return (
       <div>
         {this.props.posts.slice(0).reverse().map(post => (
-          <img src={post.img_url} className='profile-pic-uploads' key={post.id}/>
+          <img src={post.img_url}  alt='NO IMAGE HERE, ok' className='profile-pic-uploads' key={post.id}  />
         ))}
       </div>
     );
@@ -28,7 +29,7 @@ class Profile extends React.Component {
       <div>
         <h1>You are probably {this.props.currentUser.username}?</h1>
         <h3>with userid: {this.props.currentUser.id}</h3>
-        {this.postList()}
+        {this.userPosts()}
       </div>
     );
   }
