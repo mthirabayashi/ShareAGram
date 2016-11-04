@@ -2,12 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@-webkit-keyframes background {
+  0% { background-color: #f99; }
+  33% { background-color: #9f9; }
+  67% { background-color: #99f; }
+  100% { background-color: #f99; }
+}
+
+@keyframes background {
+  0% { background-color: #f99; }
+  33% { background-color: #9f9; }
+  67% { background-color: #99f; }
+  100% { background-color: #f99; }
+}
+
 .posts {
   text-align: center;
 }
 
-.post-feed {
-  position: absolute;
+.posts-feed {
+  // -webkit-animation: background .5s cubic-bezier(1,0,0,1) infinite;
+  // animation: background .5s cubic-bezier(1,0,0,1) infinite;
 }
 
 .post-item {
@@ -59,6 +74,8 @@
   display: inline;
   margin: 0;
   padding: 0;
+  line-height: 1;
+  word-wrap: break-word;
 }
 
 .post-description .like-count {

@@ -17,12 +17,12 @@ class PostItem extends React.Component {
           <p>{this.props.post.author.author_username}</p>
         </div>
         <div className='post-item-photo'>
-          <img src={this.props.post.img_url} />
+          <img src={this.props.post.img_url} alt='IMAGE NO HERE'/>
         </div>
         <div className='post-description'>
           <div className='like-count'># of likes</div>
           <h4> {this.props.post.author.author_username} </h4>
-          <p> {this.props.post.description} additional comment detail that makes it wrap around #greatcoment #bestduckever</p>
+          <p> {this.props.post.description} additional comment detail that makes it wrap around #greatcoment #makethisareallylonghashtagthatwillcausethetexttogooutofboundsofmycontainertestestestestestestestestestestestest</p>
         </div>
 
         <form className='comment'>
