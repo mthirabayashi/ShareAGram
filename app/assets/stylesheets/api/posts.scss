@@ -31,13 +31,13 @@
   align-items: center;
   flex-direction: column;
   border: 1px solid black;
-  width: 500px;
+  width: 600px;
   border-radius: 8px;
 }
 
 .post-item-photo img {
-  width: 400px;
-  height: 300px;
+  width: 600px;
+  height: 600px;
   // border: 1px solid black;
   cursor: pointer;
 }
@@ -48,17 +48,17 @@
 }
 
 .comment input {
-  width: 400px;
+  width: 520px;
   min-height: 25px;
 }
 
 .post-description {
   // border: 1px solid black;
-  width: 400px;
-  min-height: 25px;
+  width: 570px;
+  min-height: 50px;
   position: relative;
   line-height: 0;
-  padding: 2px;
+  // margin: 10px;
   // display: flex;
   // align-items: center;
 }
@@ -67,25 +67,47 @@
   // border: 1px solid black;
   display: inline-block;
   // float: left;
-
+  margin: 0;
+  padding: 0;
+  line-height: 1;
 }
 .post-description p {
   // border: 1px solid black;
   display: inline;
   margin: 0;
   padding: 0;
+  // float: left;
   line-height: 1;
   word-wrap: break-word;
 }
 
 .post-description .like-count {
   display: block;
-  margin-top: 0px;
-  padding-top: 3px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 3px 0;
 }
 
 .poster-pic-name {
-  width: 400px;
+  width: 600px;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic-thumbnail {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border-radius: 50%;
+  padding: 4px;
+  padding-left: 8px;
+}
+.poster-pic-name > p {
+  display: inline;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 5px;
 }
 
 .create-post-button {
@@ -96,8 +118,8 @@
     opacity: .5;
 }
 .create-post-button img {
-    height: 60px;
-    width: 60px;
+    height: 90px;
+    width: 90px;
     cursor: pointer;
 }
 
@@ -123,9 +145,4 @@
 
 .modal > * {
   margin-top: 10px;
-}
-
-.profile-pic-thumbnail {
-  width: 25px;
-  height: 25px;
 }

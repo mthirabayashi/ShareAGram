@@ -4,6 +4,11 @@ div, a, html, p, a, img, h1, h2, h3, h4, h5, h6, button, input, label, form, sec
   text-align: inherit;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background-color: #fafafa;
   /*background-color: magenta;*/
