@@ -2,10 +2,12 @@ import { connect } from 'react-redux';
 import Profile from './profile';
 import {fetchProfile} from '../../actions/session_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   console.log(state);
+  console.log(ownProps);
+  console.log(ownProps.routeParams);
   return ({
-    currentUser: state.session.currentUser,
+    user: state.session.currentUser,
     posts: Object.keys(state.posts).map(id => state.posts[id])
   });
 };

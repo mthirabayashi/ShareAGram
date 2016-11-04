@@ -10,6 +10,7 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
+    this.props.fetchProfile(this.props.user.id);
   }
 
   userPosts() {
@@ -27,8 +28,8 @@ class Profile extends React.Component {
     // console.log(this.props);
     return (
       <div>
-        <h1>You are probably {this.props.currentUser.username}?</h1>
-        <h3>with userid: {this.props.currentUser.id}</h3>
+        <h1>You are probably {this.props.user.username}?</h1>
+        <h3>with userid: {this.props.user.id}</h3>
         {this.userPosts()}
       </div>
     );

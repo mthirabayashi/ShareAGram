@@ -42,7 +42,7 @@ const Root = ({ store }) => {
           <Route path='posts' onEnter={_ensureSignedIn} component={Posts}>
             <Route path=':postId' />
           </Route>
-          <Route path='user' component={Profile} onEnter={_fetchProfile}/>
+          <Route path='user/:userId' component={Profile} onEnter={_fetchProfile} />
         </Route>
         <Route path="/login" component={LoginFormContainer} onEnter={_redirectIfLoggedIn} />
         <Route path="/signup" component={SignUpFormContainer} onEnter={_redirectIfLoggedIn} />

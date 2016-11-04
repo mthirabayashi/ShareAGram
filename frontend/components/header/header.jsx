@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 class Header extends React.Component {
   constructor (props) {
     super(props);
-    console.log(props);
+    // console.log(props);
     this._ensureSignedIn = this._ensureSignedIn.bind(this);
     this.goToProfile = this.goToProfile.bind(this);
     this.goToHome = this.goToHome.bind(this);
@@ -22,7 +22,7 @@ class Header extends React.Component {
 
   goToProfile(e) {
     e.preventDefault();
-    this.props.router.push(`/user`);
+    this.props.router.push(`/user/${this.props.currentUser.id}`);
   }
 
   goToHome(e) {

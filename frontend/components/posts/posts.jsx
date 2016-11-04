@@ -75,8 +75,8 @@ class Posts extends React.Component {
         left            : 0,
         right           : 0,
         bottom          : 0,
-        backgroundColor : 'rgba(255, 255, 255, 0.75)',
-        zIndex      : 10
+        backgroundColor : 'rgba(255, 255, 255, 0.8)',
+        zIndex          : 10
       },
       content : {
         position        : 'fixed',
@@ -86,7 +86,7 @@ class Posts extends React.Component {
         bottom          : '150px',
         border          : '1px solid #ccc',
         padding         : '20px',
-        zIndex         : 11
+        zIndex          : 11
       }
     };
     return (
