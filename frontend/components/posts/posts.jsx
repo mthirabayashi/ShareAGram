@@ -4,6 +4,8 @@ import PostItem from './post_item';
 import Modal from 'react-modal';
 import merge from 'lodash/merge';
 
+// TODO: move Modal into its own component/container
+
 class Posts extends React.Component {
 
   constructor(props){
@@ -44,7 +46,13 @@ class Posts extends React.Component {
   }
 
   closeModal() {
-    this.setState({ modalOpen: false });
+    this.setState({
+      modalOpen: false,
+      modal: {
+        img_url: '',
+        description: ''
+      }
+    });
   }
 
   openModal() {
@@ -65,6 +73,24 @@ class Posts extends React.Component {
     console.log(post);
     this.props.createPost({post: post});
     // this.props.router.push(`/user`);
+  }
+
+  uploadImage(e) {
+    e.preventDefault();
+    window.cloudinary.openUploadWidget(
+      window.cloudinary_options,
+      (error, image) => {
+        if (error===null) {
+          //success
+          console.log(image[0]);
+          const newState = merge({}, this.state.modal, {['img_url']: image[0].url});
+          this.setState({modal: newState});
+          console.log(this.state);
+        } else {
+          // errors
+        }
+      }
+    );
   }
 
   render () {
@@ -105,7 +131,7 @@ class Posts extends React.Component {
           <h2>New Post</h2>
           <br />
             <label>
-              <input type='text' onChange={this.updateModalField('img_url')} value={this.state.modal.img_url} placeholder='Add an image url' ></input>
+              <button onClick={this.uploadImage.bind(this)}>Add an image</button>
             </label>
           <br />
           <br />
