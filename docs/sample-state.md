@@ -4,6 +4,12 @@
     username: "username1",
     full_name: "user name"
   },
+  userProfile: {
+    id: 2,
+    username: "username2",
+    full_name: "full name2",
+    profile_pic: "pic"
+  },
   errors: {
     signUp: [],
     logIn: [],

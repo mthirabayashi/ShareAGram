@@ -1,5 +1,6 @@
 import merge from 'lodash/merge';
 import {RECEIVE_ALL_POSTS} from '../actions/posts_actions';
+import {RECEIVE_PROFILE} from '../actions/users_actions';
 
 const _nullPost = {
   0: {
@@ -14,16 +15,20 @@ const _nullPost = {
   }
 };
 
-const SessionReducer = (state = _nullPost, action) => {
+const PostsReducer = (state = _nullPost, action) => {
   Object.freeze(state);
   let newState;
+  // debugger
   switch(action.type){
     case RECEIVE_ALL_POSTS:
       newState = merge({}, action.posts);
+      return newState;
+    case RECEIVE_PROFILE:
+      newState = merge({}, action.profile.posts);
       return newState;
     default:
       return state;
   }
 };
 
-export default SessionReducer;
+export default PostsReducer;

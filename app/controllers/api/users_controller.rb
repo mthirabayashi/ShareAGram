@@ -14,7 +14,11 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
     # remember how to use includes(:posts)
     # @user_posts = Post.where(author_id: params[:id])
-    render :profile
+    if @user.nil?
+      render json: {profilePage: ['No user with that id']}, status: 404
+    else
+      render "api/users/profile", status: 200
+    end
   end
 
   private
