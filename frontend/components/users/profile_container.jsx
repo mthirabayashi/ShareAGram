@@ -2,12 +2,10 @@ import { connect } from 'react-redux';
 import Profile from './profile';
 import {fetchProfile} from '../../actions/session_actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   console.log(state);
-  console.log(ownProps);
-  console.log(ownProps.routeParams);
   return ({
-    user: state.session.currentUser,
+    user: state.userProfile,
     posts: Object.keys(state.posts).map(id => state.posts[id])
   });
 };
@@ -15,7 +13,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
 
   return ({
-    fetchProfile: (id) => dispatch(fetchProfile(id))
   });
 };
 

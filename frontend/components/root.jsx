@@ -4,9 +4,10 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import App from './app';
 import LoginFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/sign_up_form_container';
-import {clearErrors, fetchProfile} from '../actions/session_actions';
+import {clearErrors} from '../actions/session_actions';
+import {fetchProfile} from '../actions/users_actions';
 import Posts from './posts/posts_container';
-import Profile from './session/profile_container';
+import Profile from './users/profile_container';
 
 
 const Root = ({ store }) => {
@@ -30,8 +31,8 @@ const Root = ({ store }) => {
     store.dispatch(clearErrors())
   );
 
-  const _fetchProfile = () => (
-    store.dispatch(fetchProfile(store.getState().session.currentUser.id))
+  const _fetchProfile = (nextState) => (
+    store.dispatch(fetchProfile(nextState.params.userId))
   );
 
   return (

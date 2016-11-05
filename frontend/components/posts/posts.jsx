@@ -33,7 +33,7 @@ class Posts extends React.Component {
     return (
       <div>
         {this.props.posts.slice(0).reverse().map(post => (
-          <div key={post.id} >
+          <div key={"postIndex" + post.id} >
             <PostItem post={post} />
             <br />
             <br />

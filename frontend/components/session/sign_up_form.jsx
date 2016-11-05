@@ -67,6 +67,7 @@ class SignUpForm extends React.Component {
   render () {
     return (
       <form onSubmit={this.handleSubmit} className='session-form'>
+        <button className='default-session-button' type='submit'></button>
         <div className='session-image'>
           <img src='http://us.mullenlowe.com/wp-content/uploads//2013/10/instagramlogo.jpg' alt='LOGO'/>
         </div>

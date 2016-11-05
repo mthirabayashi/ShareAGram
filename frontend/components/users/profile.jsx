@@ -10,7 +10,6 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchProfile(this.props.user.id);
   }
 
   userPosts() {
@@ -18,7 +17,7 @@ class Profile extends React.Component {
     return (
       <div>
         {this.props.posts.slice(0).reverse().map(post => (
-          <img src={post.img_url}  alt='NO IMAGE HERE, ok' className='profile-pic-uploads' key={post.id}  />
+          <img src={post.img_url}  alt='NO IMAGE HERE, ok' className='profile-pic-uploads' key={"profile-upload" + post.id}  />
         ))}
       </div>
     );

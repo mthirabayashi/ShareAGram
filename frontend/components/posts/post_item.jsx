@@ -6,15 +6,21 @@ class PostItem extends React.Component {
   constructor(props){
     super(props);
     // console.log(props);
+    this.goToProfile = this.goToProfile.bind(this);
   }
 
+  goToProfile(e) {
+    e.preventDefault();
+    this.props.router.push(`/user/${this.props.post.author.author_id}`);
+  }
 
   render () {
+    const prof_url = `/user/${this.props.post.author.author_id}`;
     return (
       <div className='post-item' >
         <div className='poster-pic-name'>
           <img src='http://fc07.deviantart.net/fs38/f/2008/344/c/5/Punk_Band_Rubber_Duck_by_Oriana_X_Myst.jpg' alt='posters profile pic' className='profile-pic-thumbnail'/>
-          <p>{this.props.post.author.author_username}</p>
+          <Link to={prof_url} className='profile-link' >{this.props.post.author.author_username}</Link>
         </div>
         <div className='post-item-photo'>
           <img src={this.props.post.img_url} alt='IMAGE NO HERE'/>
