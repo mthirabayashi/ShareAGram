@@ -13,9 +13,9 @@ ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('posts')
 
 idx = 1
-User.create!(username: "guest", email: "guest@email.com", password: "password")
+User.create!(username: "guest", email: "guest@email.com", password: "password", profile_pic: "http://res.cloudinary.com/duep1w4tv/raw/upload/v1478320098/guest_prof_pic_xw4j4f.png")
 idx += 1
-User.create!(username: "mike", email: "mike@email.com", password: "password")
+User.create!(username: "mike", email: "mike@email.com", password: "password", profile_pic: "http://res.cloudinary.com/duep1w4tv/raw/upload/v1478320148/Hirabayashi_lrvbra.jpg")
 
 while (idx < 5)
   idx += 1
