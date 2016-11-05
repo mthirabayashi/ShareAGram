@@ -4,12 +4,14 @@
 
 
 .footer {
-  border: 1px solid black;
+  border-top: 1px solid lightgray;
   position: relative;
   bottom: 0;
   left: 0;
   display: flex;
   width: 100%;
+  margin: 0;
+  padding: 10px 0 0 0;
 }
 
 .footer-item {
@@ -33,7 +35,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid black;
+  border-bottom: 1px solid lightgray;
   // background-color: orange;
 }
 
@@ -104,10 +106,69 @@
   cursor: pointer;
 }
 
-.profile-pic-uploads {
-  width: 200px;
-  height: 200px;
+.profile-uploads-container {
+  width: 75%;
+  border: 1px solid black;
   position: relative;
-  float: left;
+  margin: 0 auto;
+}
+
+.profile-uploads {
+  width: 250px;
+  height: 250px;
   margin: 50px;
+}
+
+.modal-profile {
+  max-width: 935px;
+  max-height: 600px;
+  min-width: 650px;
+  min-height: 500px;
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-profile-img-container {
+  border: 1px solid green;
+  width: 64%;
+  height: 100%;
+}
+
+.modal-profile-img {
+  border: 5px solid red;
+  width: 10%;
+  height: 10%;
+  display: flex;
+}
+
+.modal-profile-postInfo {
+  display: flex;
+  border: 1px solid yellow;
+  width: 36%;
+  flex-direction: column;
+}
+
+.modal-profile-userInfo {
+  border: 2px solid magenta;
+  display: flex;
+  padding-top: 1%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  max-height: 30px;
+}
+
+.modal-profile-likes {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-pic {
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
 }

@@ -18,11 +18,14 @@
 
 .posts {
   text-align: center;
+  margin: 0;
 }
 
 .posts-feed {
   // -webkit-animation: background .5s cubic-bezier(1,0,0,1) infinite;
   // animation: background .5s cubic-bezier(1,0,0,1) infinite;
+  background-color: #fafafa;
+  margin: 0;
 }
 
 .post-item {
@@ -30,9 +33,10 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 1px solid black;
   width: 600px;
   border-radius: 8px;
+  border: 1px solid lightgray;
+  overflow: hidden;
 }
 
 .post-item-photo img {
@@ -40,6 +44,8 @@
   height: 600px;
   // border: 1px solid black;
   cursor: pointer;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
 .comment {
@@ -93,6 +99,7 @@
   min-height: 30px;
   display: flex;
   align-items: center;
+  background-color: white;
 }
 
 .profile-pic-thumbnail {
@@ -132,7 +139,12 @@
   margin: 0 auto;
   min-width: 250px;
   max-width: 450px;
-  background-color: oldlace;
+  border: 2px solid lightgray;
+  outline: none;
+  background-color: white;
+  border-radius: 10px;
+  // background-image: url("http://res.cloudinary.com/duep1w4tv/image/upload/v1478319420/ShareAGram/jrqiudj9xrt4s6hxupim.jpg");
+  // background-size: cover;
 }
 
 .modal textarea {
