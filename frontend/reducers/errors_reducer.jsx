@@ -1,6 +1,8 @@
 import merge from 'lodash/merge';
 import {RECEIVE_SIGN_IN_ERRORS, RECEIVE_SIGN_UP_ERRORS, CLEAR_ERRORS, LOGOUT} from '../actions/session_actions';
 
+import {RECEIVE_POST_ERRORS} from '../actions/posts_actions';
+
 const _nullUser = {
   logIn: [],
   signUp: [],
@@ -22,6 +24,12 @@ const ErrorsReducer = (state = _nullUser, action) => {
       newState.signUp = action.errors.signUp;
       newState.logIn = [];
       newState.createPost = [];
+      return newState;
+    case RECEIVE_POST_ERRORS:
+      newState = merge({}, state);
+      newState.signUp = [];
+      newState.logIn = [];
+      newState.createPost = action.errors.createPost;
       return newState;
     case CLEAR_ERRORS:
       newState = merge({}, state);

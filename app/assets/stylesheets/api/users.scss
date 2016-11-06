@@ -70,7 +70,7 @@
 }
 
 .search-bar input {
-  border-radius: 7px;
+  border-radius: 5px;
   font-size: 16px;
   height: 20px;
   width: 110px;
@@ -247,7 +247,7 @@
   // border: 1px solid black;
   position: relative;
   line-height: 0;
-  padding-left: 7px;
+  padding-left: 5px;
 }
 
 .modal-profile-author-description {
@@ -256,6 +256,7 @@
   margin: 0;
   line-height: 1;
   word-wrap: break-word;
+  padding-left: 5px;
 }
 
 .modal-profile-author-username {

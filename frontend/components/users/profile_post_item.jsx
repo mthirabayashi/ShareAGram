@@ -115,7 +115,9 @@ class ProfilePostItem extends React.Component {
               </section>
               <section className='modal-profile-author'>
                 <h4 className='modal-profile-author-username'>{this.props.userProfile.author_username}</h4>
-                <p className='modal-profile-author-description'>  post description from author test test test test test test test test test test</p>
+                <p className='modal-profile-author-description'>
+                  {this.props.post.description}
+                </p>
               </section>
               <section className='modal-profile-comments'>
                 <ul>

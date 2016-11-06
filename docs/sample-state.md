@@ -1,8 +1,10 @@
 {
-  currentUser: {
-    id: 1,
-    username: "username1",
-    full_name: "user name"
+  session {
+    currentUser: {
+      id: 1,
+      username: "username1",
+      full_name: "user name"
+    }
   },
   userProfile: {
     id: 2,
