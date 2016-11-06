@@ -15,7 +15,7 @@ export default ({ getState, dispatch }) => next => action => {
   // debugger
   switch(action.type) {
     case FETCH_PROFILE:
-      console.log('got to posts middleware profile fetch');
+      console.log('got to users middleware profile fetch');
       fetchProfile(action.id, fetchProfileSuccessCallback, ErrorCallback);
       return next(action);
     default:

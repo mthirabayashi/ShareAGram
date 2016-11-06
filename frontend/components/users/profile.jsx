@@ -50,7 +50,9 @@ class Profile extends React.Component {
     return (
       <div className='profile-uploads-container'>
         {this.props.posts.slice(0).reverse().map(post => (
-          <ProfilePostItem key={"profile-upload" + post.id} post={post} userProfile={post.author} currentUser={this.props.currentUser} deletePost={this.props.deletePost} className='profile-uploads'/>
+          <ProfilePostItem key={"profile-upload" + post.id} post={post} userProfile={post.author} currentUser={this.props.currentUser} deletePost={this.props.deletePost}
+          updatePost={this.props.updatePost}
+          className='profile-uploads'/>
         ))}
       </div>
     );

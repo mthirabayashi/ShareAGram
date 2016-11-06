@@ -10,16 +10,22 @@ class ProfilePostItem extends React.Component {
     super(props);
     this.state = {
       modalOpen: false,
-      modal: {
-        imgUrl: '',
-        description: ''
+      editModalOpen: false,
+      editModal: {
+        id: this.props.post.id,
+        imgUrl: this.props.post.img_url,
+        description: this.props.post.description,
+        author_id: this.props.post.author.author_id
       }
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.updateModalField = this.updateModalField.bind(this);
+    this.editOpenModal = this.editOpenModal.bind(this);
+    this.editCloseModal = this.editCloseModal.bind(this);
+    this.updateEditModal = this.updateEditModal.bind(this);
     this.deletePost = this.deletePost.bind(this);
     this.adminButton = this.adminButton.bind(this);
+    this.updatePost = this.updatePost.bind(this);
   }
 
   componentDidMount() {
@@ -33,36 +39,65 @@ class ProfilePostItem extends React.Component {
     this.setState({ modalOpen: true });
   }
 
-  updateModalField() {
-    return (e) => {
-      // console.log(e.target);
-      let selectedPhoto = e.target.src;
-      // console.log(selectedPhoto);
-      const newState = merge({}, this.state.modal, {['imgUrl']: selectedPhoto});
-      this.setState({modal: newState});
-      this.openModal();
-    };
+  editCloseModal() {
+    this.setState({ editModalOpen: false });
   }
 
-  deletePost() {
-    return (e) => {
-      console.log('delete post' + this.props.post.id);
-      console.log(this.props);
-      this.props.deletePost(this.props.post.id);
-    };
+  editOpenModal() {
+    this.setState({
+      modalOpen: false,
+      editModalOpen: true
+    });
+  }
+
+  updateEditModal(e) {
+    console.log('post description updated');
+    // console.log(e);
+    // console.log(e.target);
+    // console.log(e.target.value);
+    const newState = merge({}, this.state.editModal, {['description']: e.target.value});
+    this.setState({
+      editModal: newState
+    });
   }
 
   adminButton() {
     if (this.props.currentUser.id === this.props.post.author.author_id) {
       return (
         <section className='modal-profile-button-container'>
-          <button className='modal-profile-button' onClick={this.deletePost()}>
+          <button className='modal-profile-button' onClick={this.deletePost}>
             Delete Post
           </button>
-          <button className='modal-profile-button'>
+          <button className='modal-profile-button' onClick={this.editOpenModal}>
             Edit Post
           </button>
         </section>
+      );
+    }
+  }
+
+  deletePost() {
+    this.props.deletePost(this.props.post.id);
+  }
+
+  updatePost() {
+    // console.log('update post with');
+    // console.log(this.state.editModal);
+    this.props.updatePost(this.state.editModal);
+    // this.setState({
+    //   modalOpen: true,
+    //   editModalOpen: false
+    // });
+  }
+
+  updateErrors() {
+    if (this.props.errors) {
+      return (
+        <ul>
+          {this.props.errors.createPost.map( (error, idx) => (
+            <li key={'updatePost' + idx}>{error}</li>
+          ))}
+        </ul>
       );
     }
   }
@@ -93,18 +128,18 @@ class ProfilePostItem extends React.Component {
 
     return (
       <div>
-        <img src={this.props.post.img_url} onClick={this.updateModalField()} className='profile-uploads'/>
+        <img src={this.props.post.img_url} onClick={this.openModal} className='profile-uploads'/>
         <Modal
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}
           style={style}
           className='modal-profile'>
             <div className='modal-profile-img-container'>
-              <img src={this.state.modal.imgUrl} className='modal-profile-img' />
+              <img src={this.props.post.img_url} className='modal-profile-img' />
             </div>
             <div className="modal-profile-postInfo">
               <div className='modal-profile-userInfo'>
-                <img src='http://fc07.deviantart.net/fs38/f/2008/344/c/5/Punk_Band_Rubber_Duck_by_Oriana_X_Myst.jpg' alt='posters profile pic' className='profile-pic-thumbnail'/>
+                <img src={this.props.post.author.author_pic} alt='posters profile pic' className='profile-pic-thumbnail'/>
                 <h3 >
                   {this.props.userProfile.author_username}
                 </h3>
@@ -125,6 +160,43 @@ class ProfilePostItem extends React.Component {
                 </ul>
               </section>
               {this.adminButton()}
+            </div>
+
+        </Modal>
+
+
+        <Modal
+          isOpen={this.state.editModalOpen}
+          onRequestClose={this.editCloseModal}
+          style={style}
+          className='modal-profile'>
+            <div className='modal-profile-img-container'>
+              <img src={this.state.editModal.imgUrl} className='modal-profile-img' />
+            </div>
+            <div className="modal-profile-postInfo">
+              <div className='modal-profile-userInfo'>
+                <img src={this.props.post.author.author_pic} alt='posters profile pic' className='profile-pic-thumbnail'/>
+                <h3 >
+                  {this.props.userProfile.author_username}
+                </h3>
+              </div>
+              <section className='modal-profile-likes'>
+                <p><span>500</span> likes</p>
+                <p>oldness</p>
+              </section>
+              <section className='modal-profile-author'>
+                <h4 className='modal-profile-author-username'>{this.props.userProfile.author_username}</h4>
+                <input type='text' value={this.state.editModal.description} onChange={this.updateEditModal} className='modal-profile-author-description'></input>
+              </section>
+              <section className='modal-profile-comments'>
+                <ul>
+                  Comments
+                </ul>
+              </section>
+              {this.updateErrors.bind(this)}
+              <button onClick={this.updatePost}>
+                Save
+              </button>
             </div>
 
         </Modal>
