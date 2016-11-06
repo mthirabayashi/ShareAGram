@@ -8,6 +8,7 @@ class Api::PostsController < ApplicationController
     if @post.save
       @posts = Post.all
       render :index
+      # render json: {createPost: ['Successfully uploaded post']}
     else
       render json: {createPost: @post.errors.full_messages}, status: 422
     end

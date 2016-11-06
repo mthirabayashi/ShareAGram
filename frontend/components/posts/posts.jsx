@@ -10,12 +10,13 @@ class Posts extends React.Component {
 
   constructor(props){
     super(props);
-    // console.log(props);
+    console.log(props);
     this.displayAllPosts = this.displayAllPosts.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
     this.updateModalField = this.updateModalField.bind(this);
     this.handleCreatePost = this.handleCreatePost.bind(this);
+    this.createPostErrors = this.createPostErrors.bind(this);
     this.state = {
       modalOpen: false,
       modal: {
@@ -27,6 +28,12 @@ class Posts extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllPosts();
+  }
+
+  componentDidUpdate() {
+    if (this.props.errors.createPost.length ===1 && this.props.errors.createPost[0] === 'Successfully uploaded post') {
+      this.props.router.replace('/');
+    }
   }
 
   displayAllPosts() {
@@ -46,6 +53,9 @@ class Posts extends React.Component {
   }
 
   closeModal() {
+    if (this.props.errors){
+      this.props.clearErrors();
+    }
     this.setState({
       modalOpen: false,
       modal: {
@@ -91,6 +101,18 @@ class Posts extends React.Component {
         }
       }
     );
+  }
+
+  createPostErrors () {
+    if (this.props.errors.createPost) {
+      return (
+        <ul className='create-post-error-list'>
+          {this.props.errors.createPost.map((error, idx) => (
+            <li key={"createError" + idx} className='create-post-error' >-{error}</li>
+          ))}
+        </ul>
+      );
+    }
   }
 
   render () {
@@ -141,7 +163,7 @@ class Posts extends React.Component {
           <button onClick={this.handleCreatePost}>Create Post</button>
           <br />
           <button onClick={this.closeModal}>Close</button>
-
+          {this.createPostErrors()}
       </Modal>
       </div>
     );

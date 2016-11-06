@@ -14,7 +14,10 @@ import { fetchAllPosts, fetchPost, createPost, updatePost, deletePost } from '..
 import { FETCH_PROFILE, fetchProfile } from '../actions/users_actions';
 
 export default ({ getState, dispatch }) => next => action => {
-  const fetchAllPostsSuccessCallback = posts => dispatch(receiveAllPosts(posts));
+  const fetchAllPostsSuccessCallback = posts =>  dispatch(receiveAllPosts(posts));
+  const createPostSuccessCallback = () => {
+
+  };
   const ErrorCallback = xhr => dispatch(receivePostErrors(xhr.responseJSON));
   const deletePostSuccessCallback = (id) =>
   dispatch(fetchProfile(id));
