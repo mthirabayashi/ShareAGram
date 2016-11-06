@@ -35,7 +35,7 @@ export const updatePost = (post, success, error) => {
 };
 export const deletePost = (id, success, error) => {
   $.ajax({
-    method: 'patch',
+    method: 'delete',
     url: `api/posts/${id}`,
     data: id,
     success,

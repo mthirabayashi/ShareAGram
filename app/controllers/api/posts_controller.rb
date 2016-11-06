@@ -20,7 +20,14 @@ class Api::PostsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
+    @post = Post.find(params[:id]);
+    @post_author = @post.author_id
+    if @post.destroy
+      render json: @post_author
+    else
+      render json: {deletePost: @post.errors.full_messages}, status: 422
+    end
   end
 
   private
