@@ -11,15 +11,24 @@ import { FETCH_ALL_POSTS,
 
 import { fetchAllPosts, fetchPost, createPost, updatePost, deletePost } from '../util/posts_api_util';
 
+import { FETCH_PROFILE, fetchProfile } from '../actions/users_actions';
+
 export default ({ getState, dispatch }) => next => action => {
   const fetchAllPostsSuccessCallback = posts => dispatch(receiveAllPosts(posts));
   const ErrorCallback = xhr => dispatch(receivePostErrors(xhr.responseJSON));
+  const deletePostSuccessCallback = (id) =>
+  dispatch(fetchProfile(id));
+
+  // debugger
   switch(action.type) {
     case FETCH_ALL_POSTS:
       fetchAllPosts(fetchAllPostsSuccessCallback, ErrorCallback);
       return next(action);
     case CREATE_POST:
       createPost(action.post, fetchAllPostsSuccessCallback, ErrorCallback);
+      return next(action);
+    case DELETE_POST:
+      deletePost(action.id, deletePostSuccessCallback, ErrorCallback);
       return next(action);
     default:
       return next(action);

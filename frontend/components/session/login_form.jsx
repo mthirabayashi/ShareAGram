@@ -66,7 +66,7 @@ class LoginForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className='session-form'>
         <div className='session-image'>
-          <img src='http://us.mullenlowe.com/wp-content/uploads//2013/10/instagramlogo.jpg' alt='LOGO'/>
+          <img src='http://res.cloudinary.com/duep1w4tv/image/upload/c_scale,q_100,r_30,w_1191/v1478367833/vertical_camera_on_desk_fb93oj.jpg' alt='LOGO'/>
         </div>
         <div className='session-box'>
           <h2 className='session-app-title'>ShareAGram</h2>
