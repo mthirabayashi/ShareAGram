@@ -21,7 +21,7 @@ export default ({ getState, dispatch }) => next => action => {
   const ErrorCallback = xhr => dispatch(receivePostErrors(xhr.responseJSON));
   const deletePostSuccessCallback = (id) =>
   dispatch(fetchProfile(id));
-
+  const updatePostSuccessCallback = (id) => dispatch(fetchProfile(id));
   // debugger
   switch(action.type) {
     case FETCH_ALL_POSTS:
@@ -29,6 +29,10 @@ export default ({ getState, dispatch }) => next => action => {
       return next(action);
     case CREATE_POST:
       createPost(action.post, fetchAllPostsSuccessCallback, ErrorCallback);
+      return next(action);
+    case UPDATE_POST:
+      console.log('posts middleware - updating post');
+      updatePost(action.post, updatePostSuccessCallback, ErrorCallback);
       return next(action);
     case DELETE_POST:
       deletePost(action.id, deletePostSuccessCallback, ErrorCallback);

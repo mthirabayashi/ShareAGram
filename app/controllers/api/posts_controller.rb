@@ -19,6 +19,14 @@ class Api::PostsController < ApplicationController
   end
 
   def update
+    # debugger
+    @post = Post.find(params[:id])
+    # debugger
+    if @post.update(post_params)
+      render json: @post.author_id
+    # else
+    #   render json: {createPost: @post.errors.full_messages}, status 422
+    end
   end
 
   def destroy
