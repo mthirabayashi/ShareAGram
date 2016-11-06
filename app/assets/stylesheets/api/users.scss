@@ -154,6 +154,11 @@
   justify-content: space-between;
 }
 
+.profile-stats > * {
+  // border: 1px solid black;
+  font-size: 18px;
+}
+
 .profile-pic {
   border: 1px solid black;
   border-radius: 50%;
@@ -163,7 +168,7 @@
 }
 
 .profile-uploads-container {
-  width: 85%;
+  width: 75%;
   // border: 1px solid black;
   display: flex;
   justify-content: space-around;
@@ -174,7 +179,7 @@
 .profile-uploads {
   width: 250px;
   height: 250px;
-  margin: 50px;
+  margin: 25px;
   display: flex;
 }
 
@@ -237,9 +242,8 @@
   padding-left: 7px;
 }
 
-.modal-profile-likes p {
+.modal-profile-likes p:last-child {
   color: gray;
-  font-weight: bold;
   padding-right: 10px;
 }
 
@@ -288,4 +292,9 @@
   height: 30px;
   width: 100px;
   cursor: pointer;
+}
+
+span {
+  font-weight: bold;
+  color: black;
 }
