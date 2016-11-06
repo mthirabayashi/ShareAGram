@@ -4,7 +4,7 @@ import { deletePost } from '../../actions/posts_actions';
 import { fetchProfile } from '../../actions/session_actions';
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
   return ({
     currentUser: state.session.currentUser,
     user: state.userProfile,
