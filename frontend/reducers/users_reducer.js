@@ -11,7 +11,6 @@ const _nullProfile = {
 const UsersReducer = (state = _nullProfile, action) => {
   Object.freeze(state);
   let newState;
-  // debugger
   switch(action.type){
     case RECEIVE_PROFILE:
       newState = merge({}, action.profile.userProfile);

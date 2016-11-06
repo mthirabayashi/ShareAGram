@@ -25,11 +25,13 @@ const Root = ({ store }) => {
     if (!currentUser){
       replace('/login');
     }
+    _clearErrors();
   };
 
-  const _clearErrors = () => (
-    store.dispatch(clearErrors())
-  );
+  const _clearErrors = () => {
+    console.log('clearing errors');
+    store.dispatch(clearErrors());
+  };
 
   const _fetchProfile = (nextState) => (
     store.dispatch(fetchProfile(nextState.params.userId))

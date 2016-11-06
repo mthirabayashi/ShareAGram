@@ -3,7 +3,7 @@ import Posts from './posts';
 import {fetchAllPosts, createPost} from '../../actions/posts_actions';
 
 const mapStateToProps = (state) => {
-  console.log(state);
+  // console.log(state);
   return ({
     currentUser: state.session.currentUser,
     posts: Object.keys(state.posts).map(id => state.posts[id])
