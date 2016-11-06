@@ -67,7 +67,7 @@ class Profile extends React.Component {
           <section className='profile-stats-container'>
             <h1>{this.props.user.username}</h1>
             <div className='profile-stats'>
-              <section># Posts</section>
+              <section>{this.props.posts.length} Posts</section>
               <section># followers</section>
               <section># following</section>
             </div>
