@@ -30,12 +30,14 @@ class PostItem extends React.Component {
           <h4><Link to={prof_url} className='profile-link' >{this.props.post.author.author_username}</Link></h4>
           <p> {this.props.post.description} additional comment detail that makes it wrap around #greatcoment #makethisareallylonghashtagthatwillcausethetexttogooutofboundsofmycontainertestestestestestestestestestestestest</p>
         </div>
+        <section className='comment-like-container'>
+          <button className='like-button'></button>
+          <form className='comment'>
+            <input type='text' placeholder='Add a comment...'>
 
-        <form className='comment'>
-          <input type='text' placeholder='Add a comment...'>
-
-          </input>
-        </form>
+            </input>
+          </form>
+        </section>
       </div>
     );
   }

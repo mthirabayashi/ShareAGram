@@ -110,7 +110,7 @@ class ProfilePostItem extends React.Component {
                 </h3>
               </div>
               <section className='modal-profile-likes'>
-                <h5># of Likes</h5>
+                <p><span>500</span> likes</p>
                 <p>oldness</p>
               </section>
               <section className='modal-profile-author'>

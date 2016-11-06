@@ -37,15 +37,34 @@
   border-radius: 8px;
   border: 1px solid lightgray;
   overflow: hidden;
+  background-color: white;
 }
 
 .post-item-photo img {
   width: 600px;
   height: 600px;
   // border: 1px solid black;
-  cursor: pointer;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
+}
+
+.comment-like-container {
+  // border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  // background-color: white;
+}
+
+.like-button {
+  margin: 10px 10px;
+  width: 40px;
+  height: 35px;
+  background-image: url("https://cdn1.thehunt.com/app/public/system/note_images/2220538/note_view/855921417cec94926e05331c9ec5bc92.jpg");
+  background-size: cover;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
 }
 
 .comment {
@@ -59,6 +78,7 @@
   border-radius: 10px;
   outline: none;
   font-size: 16px;
+  border: none;
 }
 
 .post-description {
