@@ -5,9 +5,10 @@ div, a, html, p, a, img, h1, h2, h3, h4, h5, h6, button, input, label, form, sec
 }
 
 html, body {
-  max-width: 100%;
+  width: 100%;
+  /*border: 1px solid green;*/
   overflow-x: hidden;
-  background-color: white; 
+  background-color: white;
 }
 
 body {

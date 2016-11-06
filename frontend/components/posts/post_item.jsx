@@ -19,7 +19,7 @@ class PostItem extends React.Component {
     return (
       <div className='post-item' >
         <div className='poster-pic-name'>
-          <img src='http://fc07.deviantart.net/fs38/f/2008/344/c/5/Punk_Band_Rubber_Duck_by_Oriana_X_Myst.jpg' alt='posters profile pic' className='profile-pic-thumbnail'/>
+          <img src={this.props.post.author.author_pic} alt='posters profile pic' className='profile-pic-thumbnail'/>
           <Link to={prof_url} className='profile-link' >{this.props.post.author.author_username}</Link>
         </div>
         <div className='post-item-photo'>
@@ -27,7 +27,7 @@ class PostItem extends React.Component {
         </div>
         <div className='post-description'>
           <div className='like-count'># of likes</div>
-          <h4> {this.props.post.author.author_username} </h4>
+          <h4><Link to={prof_url} className='profile-link' >{this.props.post.author.author_username}</Link></h4>
           <p> {this.props.post.description} additional comment detail that makes it wrap around #greatcoment #makethisareallylonghashtagthatwillcausethetexttogooutofboundsofmycontainertestestestestestestestestestestestest</p>
         </div>
 

@@ -96,14 +96,70 @@
 }
 
 .navbar button {
-  margin-top: 10px;
+  margin-top: 1.5px;
   cursor: pointer;
+  height: 30px;
+  width: 60px;
+  text-align: center;
+  background: #fafafa;
+  font-weight: bold;
 }
 
 .navbar img {
   width: 40px;
   height: 40px;
   cursor: pointer;
+}
+
+.profile-container {
+  background-color: #fafafa;
+}
+
+.profile-userInfo {
+  // border: 1px solid black;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  padding: 30px 0;
+}
+
+.profile-stats-container > h1 {
+  font-size: 40px;
+  color: #262626;
+  font-weight: 200;
+}
+
+.profile-stats {
+  // border: 1px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-stats-container {
+  // border: 1px solid red;
+  text-align: center;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.profile-stats {
+  // border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  min-width: 300px;
+  justify-content: space-between;
+}
+
+.profile-pic {
+  border: 1px solid black;
+  border-radius: 50%;
+  max-height: 150px;
+  max-width: 150px;
+  background-color: white;
 }
 
 .profile-uploads-container {
@@ -122,12 +178,6 @@
   display: flex;
 }
 
-.profile-pic {
-  border: 1px solid black;
-  border-radius: 50%;
-  height: 100px;
-  width: 100px;
-}
 
 .modal-profile {
   max-width: 935px;
@@ -152,6 +202,7 @@
   width: 500px;
   height: 500px;
   display: flex;
+  background-color: white;
 }
 
 .modal-profile-postInfo {

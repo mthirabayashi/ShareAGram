@@ -61,10 +61,18 @@ class Profile extends React.Component {
 
 
     return (
-      <div>
-        <img src={this.props.user.profile_pic} className='profile-pic'/>
-        <h1>You are probably {this.props.user.username}?</h1>
-        <h3>with userid: {this.props.user.id}</h3>
+      <div className='profile-container'>
+        <div className='profile-userInfo'>
+          <img src={this.props.user.profile_pic} className='profile-pic'/>
+          <section className='profile-stats-container'>
+            <h1>{this.props.user.username}</h1>
+            <div className='profile-stats'>
+              <section># Posts</section>
+              <section># followers</section>
+              <section># following</section>
+            </div>
+          </section>
+        </div>
         {this.userPosts()}
       </div>
     );

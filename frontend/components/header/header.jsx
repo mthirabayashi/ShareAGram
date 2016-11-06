@@ -35,7 +35,7 @@ class Header extends React.Component {
       <div className='header'>
         <section className='logo-title'>
           <section className='logo'>
-            <img src='http://3835642c2693476aa717-d4b78efce91b9730bcca725cf9bb0b37.r51.cf1.rackcdn.com/Instagram_App_Large_May2016_200.png' alt='LOGO' onClick={this.goToHome}/>
+            <img src='http://res.cloudinary.com/duep1w4tv/image/upload/v1478393435/Instagram_App_Logo_wumc6c.png' alt='LOGO' onClick={this.goToHome}/>
           </section>
           <section className='header-app-title' onClick={this.goToHome}>
             ShareAGram
@@ -47,7 +47,7 @@ class Header extends React.Component {
         <nav className='navbar'>
           <ul className='navbar-list'>
         		<li className='navbar-item'>
-              <img src='http://www.freeiconspng.com/uploads/profile-icon-9.png' alt='Profile' onClick={this.goToProfile}/>
+              <img src='http://res.cloudinary.com/duep1w4tv/image/upload/v1478393435/profile-icon_kc9txj.png' alt='Profile' onClick={this.goToProfile}/>
         		</li>
         		<li className='navbar-item'>
               <button onClick={this.props.logout}>Logout</button>
