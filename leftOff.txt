@@ -1,0 +1,6 @@
+SUNDAY - 11/6
+  + left off on likes component.
+  + have createLike working from the PostsIndex -> PostItem
+  - need to add a likedPosts array under currentUser
+  - need to have createLike success update currentUsers list of liked posts
+  -+ createPost might already be updating PostsIndex so may only have to add an update currentUser call on createPost success callback

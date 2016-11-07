@@ -10,7 +10,7 @@ class Posts extends React.Component {
 
   constructor(props){
     super(props);
-    console.log(props);
+    // console.log(props);
     this.displayAllPosts = this.displayAllPosts.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.openModal = this.openModal.bind(this);
@@ -37,11 +37,13 @@ class Posts extends React.Component {
   }
 
   displayAllPosts() {
+    console.log(this.props);
     return (
       <div>
         {this.props.posts.slice(0).reverse().map(post => (
           <div key={"postIndex" + post.id} >
-            <PostItem post={post} />
+            <PostItem post={post} createLike={this.props.createLike} deleteLike={this.props.deleteLike}
+            currentUserLikedPosts={this.props.currentUser.likedPosts}  />
             <br />
             <br />
             <br />

@@ -3,7 +3,8 @@
     currentUser: {
       id: 1,
       username: "username1",
-      full_name: "user name"
+      full_name: "user name",
+      liked_posts: []
     }
   },
   userProfile: {

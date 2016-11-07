@@ -11,7 +11,8 @@ const _nullPost = {
       author_id: -1,
       author_pic: '',
       author_username: ''
-    }
+    },
+    likes: 0
   }
 };
 

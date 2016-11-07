@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import Posts from './posts';
-import {fetchAllPosts, createPost} from '../../actions/posts_actions';
-import {clearErrors} from '../../actions/session_actions';
+import { fetchAllPosts, createPost } from '../../actions/posts_actions';
+import { clearErrors } from '../../actions/session_actions';
+import { createLike, deleteLike } from '../../actions/likes_actions';
 
 const mapStateToProps = (state) => {
   // console.log(state);
@@ -13,11 +14,12 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-
   return ({
     fetchAllPosts: () => dispatch(fetchAllPosts()),
     createPost: (post) => dispatch(createPost(post)),
-    clearErrors: () => dispatch(clearErrors())
+    clearErrors: () => dispatch(clearErrors()),
+    createLike: (post_id) => dispatch(createLike(post_id)),
+    deleteLike: (post_id) => dispatch(deleteLike(post_id))
   });
 };
 
