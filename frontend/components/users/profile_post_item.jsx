@@ -52,7 +52,7 @@ class ProfilePostItem extends React.Component {
   }
 
   updateEditModal(e) {
-    console.log('post description updated');
+    // console.log('post description updated');
     // console.log(e);
     // console.log(e.target);
     // console.log(e.target.value);
@@ -104,7 +104,7 @@ class ProfilePostItem extends React.Component {
   }
 
   render () {
-    // console.log(this.props);
+    console.log(this.props);
     const style = {
       overlay : {
         position        : 'fixed',
@@ -117,10 +117,10 @@ class ProfilePostItem extends React.Component {
       },
       content : {
         position        : 'fixed',
-        left            : '15%',
-        right           : '15%',
-        top             : '100px',
-        bottom          : '150px',
+        left            : '25%',
+        right           : '25%',
+        top             : '20%',
+        bottom          : '20%',
         border          : '1px solid #ccc',
         padding         : '0',
         zIndex          : 11
@@ -146,7 +146,7 @@ class ProfilePostItem extends React.Component {
                 </h3>
               </div>
               <section className='modal-profile-likes'>
-                <p><span>500</span> likes</p>
+                <p><span>{this.props.post.likes}</span> likes</p>
                 <p>oldness</p>
               </section>
               <section className='modal-profile-author'>
@@ -182,7 +182,7 @@ class ProfilePostItem extends React.Component {
                 </h3>
               </div>
               <section className='modal-profile-likes'>
-                <p><span>500</span> likes</p>
+                <p><span>{this.props.post.likes}</span> likes</p>
                 <p>oldness</p>
               </section>
               <section className='modal-profile-author'>

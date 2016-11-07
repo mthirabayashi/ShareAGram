@@ -5,7 +5,7 @@ class PostItem extends React.Component {
 
   constructor(props){
     super(props);
-    console.log(props);
+    // console.log(props);
     const liked = this.props.post.likes === 1 ? true : false;
 
     this.state = {
@@ -21,13 +21,13 @@ class PostItem extends React.Component {
   }
 
   toggleLike () {
-    console.log('toggle like');
+    // console.log('toggle like');
     // debugger
     if (this.props.currentUserLikedPosts.includes(this.props.post.id)) {
-      console.log('delete like for post' + this.props.post.id);
+      // console.log('delete like for post' + this.props.post.id);
       this.props.deleteLike(this.props.post.id);
     } else {
-      console.log('create like for post' + this.props.post.id);
+      // console.log('create like for post' + this.props.post.id);
       this.props.createLike(this.props.post.id);
     }
   }

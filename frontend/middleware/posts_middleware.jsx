@@ -19,7 +19,6 @@ import { createLike, deleteLike } from '../util/likes_api_util';
 import { receiveCurrentUser } from '../actions/session_actions';
 
 export default ({ getState, dispatch }) => next => action => {
-  console.log(getState());
   const fetchAllPostsSuccessCallback = posts =>  dispatch(receiveAllPosts(posts));
   const createPostSuccessCallback = () => {
   };
@@ -44,18 +43,15 @@ export default ({ getState, dispatch }) => next => action => {
       createPost(action.post, fetchAllPostsSuccessCallback, ErrorCallback);
       return next(action);
     case UPDATE_POST:
-      console.log('posts middleware - updating post');
       updatePost(action.post, updatePostSuccessCallback, ErrorCallback);
       return next(action);
     case DELETE_POST:
       deletePost(action.id, deletePostSuccessCallback, ErrorCallback);
       return next(action);
     case CREATE_LIKE:
-      console.log('creating like');
       createLike(action.post_id, toggleLikeSuccessCallback, ErrorCallback);
       return next(action);
     case DELETE_LIKE:
-      console.log('deleting like from middleware');
       deleteLike(action.post_id, toggleLikeSuccessCallback, ErrorCallback);
       return next(action);
     default:

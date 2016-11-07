@@ -37,7 +37,7 @@ class Posts extends React.Component {
   }
 
   displayAllPosts() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div>
         {this.props.posts.slice(0).reverse().map(post => (
@@ -82,7 +82,7 @@ class Posts extends React.Component {
     e.preventDefault();
     let post = this.state.modal;
     post['author_id'] = this.props.currentUser.id;
-    console.log(post);
+    // console.log(post);
     this.props.createPost({post: post});
     // this.props.router.push(`/user`);
   }
@@ -94,10 +94,10 @@ class Posts extends React.Component {
       (error, image) => {
         if (error===null) {
           //success
-          console.log(image[0]);
+          // console.log(image[0]);
           const newState = merge({}, this.state.modal, {['img_url']: image[0].url});
           this.setState({modal: newState});
-          console.log(this.state);
+          // console.log(this.state);
         } else {
           // errors
         }

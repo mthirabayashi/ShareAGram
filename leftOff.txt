@@ -4,3 +4,8 @@ SUNDAY - 11/6
   - need to add a likedPosts array under currentUser
   - need to have createLike success update currentUsers list of liked posts
   -+ createPost might already be updating PostsIndex so may only have to add an update currentUser call on createPost success callback
+
+MONDAY - 11/7
+  + finished like component
+  + ended up having to update currentUser and PostIndex separately. Have weird issue where I have to return a nested currentUser object...
+  - need to start Comments
