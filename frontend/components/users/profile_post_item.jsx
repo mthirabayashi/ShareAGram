@@ -186,7 +186,8 @@ class ProfilePostItem extends React.Component {
               </section>
               <section className='modal-profile-author'>
                 <h4 className='modal-profile-author-username'>{this.props.userProfile.author_username}</h4>
-                <input type='text' value={this.state.editModal.description} onChange={this.updateEditModal} className='modal-profile-author-description'></input>
+
+                <textarea maxLength="150" value={this.state.editModal.description} onChange={this.updateEditModal} className='modal-profile-author-edit-description'></textarea>
               </section>
               <section className='modal-profile-comments'>
                 <ul>
@@ -194,9 +195,11 @@ class ProfilePostItem extends React.Component {
                 </ul>
               </section>
               {this.updateErrors.bind(this)}
-              <button onClick={this.updatePost}>
-                Save
-              </button>
+              <section className='modal-profile-button-container'>
+                <button onClick={this.updatePost} className='modal-profile-update-button'>
+                  Save
+                </button>
+              </section>
             </div>
 
         </Modal>
