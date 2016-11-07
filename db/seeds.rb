@@ -28,14 +28,14 @@ guest_images = [
   "http://res.cloudinary.com/duep1w4tv/raw/upload/v1478235288/snow_zmmor5.jpeg",
   "http://res.cloudinary.com/duep1w4tv/raw/upload/v1478235287/garden_burger_r3njyi.jpeg",
   "http://res.cloudinary.com/duep1w4tv/raw/upload/v1478235284/voltage_lines_tscpty.jpeg",
-  "http://res.cloudinary.com/duep1w4tv/raw/upload/v1478235280/croissant_k80ukz.jpeg"
+  "http://res.cloudinary.com/duep1w4tv/raw/upload/v1478235280/croissant_k80ukz.jpeg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/c_limit,h_600,w_600/v1478234962/batch01/bird_kmtrqs.jpg"
 ]
 
 mike_images = [
   "http://res.cloudinary.com/duep1w4tv/image/upload/v1478336952/ShareAGram/ay3amk3wdyrjuimxkukk.jpg",
   "http://res.cloudinary.com/duep1w4tv/image/upload/c_scale,w_1866/v1478367602/camera_leftside_kjb7za.jpg",
   "http://res.cloudinary.com/duep1w4tv/image/upload/c_scale,w_1152/v1478367842/vertical_hanging_camera_exuvlq.jpg",
-
 ]
 
 idx = 1

@@ -37,6 +37,7 @@ class ProfilePostItem extends React.Component {
 
   openModal() {
     this.setState({ modalOpen: true });
+    // might want to delete current unsaved data upon closing
   }
 
   editCloseModal() {

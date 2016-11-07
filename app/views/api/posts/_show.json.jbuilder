@@ -6,3 +6,5 @@ json.author do
   json.author_username post.author.username
   json.author_pic post.author.profile_pic
 end
+json.likes post.likes.count
+# json.likes post.likes  -> to get array of like objects
