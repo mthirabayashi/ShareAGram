@@ -5,4 +5,9 @@ class Post < ApplicationRecord
   class_name: "User",
   foreign_key: :author_id,
   primary_key: :id
+
+  has_many :likes
+	has_many :liked_posts,
+		through: :likes,
+		source: :user
 end

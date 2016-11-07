@@ -255,14 +255,28 @@
 }
 
 .modal-profile-author-description {
-  // border: 1px solid black;
   display: inline;
   margin: 0;
   line-height: 1;
   word-wrap: break-word;
   padding-left: 5px;
+}
+
+.modal-profile-author-edit-description {
+  display: inline;
+  min-width: 70%;
+  max-height: 150px;
+  margin: 0;
+  line-height: 1;
+  word-wrap: break-word;
+  resize: vertical;
+  vertical-align: top;
+  padding-left: 5px;
   outline: none;
   border: none;
+  font-size: 14px;
+  min-height: 80px;
+  overflow-y: scroll;
 }
 
 .modal-profile-author-username {
@@ -289,6 +303,14 @@
 }
 
 .modal-profile-button {
+  display: inline-block;
+  float: right;
+  height: 30px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.modal-profile-update-button {
   display: inline-block;
   float: right;
   height: 30px;
