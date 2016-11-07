@@ -33,6 +33,13 @@ class PostItem extends React.Component {
   }
 
   render () {
+    const userLiked = (this.props.currentUserLikedPosts.includes(this.props.post.id));
+    let heartColor;
+    if (userLiked) {
+      heartColor = 'like-button-red';
+    } else {
+      heartColor = 'like-button';
+    }
     const prof_url = `/user/${this.props.post.author.author_id}`;
     return (
       <div className='post-item' >
@@ -49,7 +56,7 @@ class PostItem extends React.Component {
           <p> {this.props.post.description} additional comment detail that makes it wrap around #greatcoment #makethisareallylonghashtagthatwillcausethetexttogooutofboundsofmycontainertestestestestestestestestestestestest</p>
         </div>
         <section className='comment-like-container'>
-          <button className='like-button' onClick={this.toggleLike}></button>
+          <button className={heartColor} onClick={this.toggleLike}></button>
           <form className='comment'>
             <input type='text' placeholder='Add a comment...'>
 

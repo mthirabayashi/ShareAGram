@@ -21,18 +21,15 @@ import { receiveCurrentUser } from '../actions/session_actions';
 export default ({ getState, dispatch }) => next => action => {
   const fetchAllPostsSuccessCallback = posts =>  dispatch(receiveAllPosts(posts));
   const createPostSuccessCallback = () => {
+    //hashhistory replace('/')?
   };
   const ErrorCallback = xhr => dispatch(receivePostErrors(xhr.responseJSON));
   const deletePostSuccessCallback = (id) =>
   dispatch(fetchProfile(id));
   const updatePostSuccessCallback = (id) => dispatch(fetchProfile(id));
   const toggleLikeSuccessCallback = (data) => {
-
-    // dispatch(fetchProfile(getState().session.currentUser.id));
-    // debugger
     dispatch(receiveCurrentUser(data.currentUser));
     dispatch(receiveAllPosts(data.posts));
-    // dispatch(fetchAllPosts());
   };
   // debugger
   switch(action.type) {
