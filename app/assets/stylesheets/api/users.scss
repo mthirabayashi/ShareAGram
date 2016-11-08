@@ -242,19 +242,19 @@
 }
 
 .modal-profile-likes > * {
-  padding-left: 7px;
+  padding-left: 8px;
 }
 
 .modal-profile-likes p:last-child {
   color: gray;
-  padding-right: 10px;
+  padding-right: 15px;
 }
 
 .modal-profile-author {
   // border: 1px solid black;
   position: relative;
   line-height: 0;
-  padding-left: 5px;
+  padding-left: 8px;
 }
 
 .modal-profile-author-description {
@@ -292,12 +292,15 @@
 }
 
 .modal-profile-comments{
-  height: 80%;
-  // border: 1px solid pink;
+  height: 75%;
+  border: 1px solid pink;
+  padding: 8px;
+  overflow-y: scroll;
 }
 
 .modal-profile-comments * {
-  padding-left: 7px;
+  // padding-left: 7px;
+  // border: 1px solid black;
 }
 
 .modal-profile-button-container {
