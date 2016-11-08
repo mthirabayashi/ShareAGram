@@ -59,9 +59,17 @@ class PostItem extends React.Component {
     this.state.comment.body = '';
   }
 
+  deleteComment(id) {
+    return (e) => {
+      e.preventDefault();
+      this.props.deleteComment(id);
+    };
+  }
+
   showComments() {
     // console.log(this.props);
     const prof_url = `/user/${this.props.post.author.author_id}`;
+    let commentAuthorClass = "comment-instance-button";
     if (this.props.post.comments) {
       return (
         <section className='comments-container'>
@@ -69,6 +77,9 @@ class PostItem extends React.Component {
             <div className='comment-instance' key={'comment' + comment.id}>
               <h4><Link to={prof_url} className='profile-link' >{comment.username}</Link></h4>
               <p> {comment.body}</p>
+              <button className={comment.username === this.props.currentUsername ? "comment-instance-button" : "comment-instance-button-hidden"} onClick={this.deleteComment(comment.id)}>
+                X
+              </button>
             </div>
           ))}
         </section>

@@ -26,6 +26,7 @@
 .comment-instance {
   // border: 1px solid black;
   padding-top: 1px;
+  padding-bottom: 1px;
 }
 
 .comment-instance > h4 {
@@ -44,6 +45,25 @@
   // float: left;
   line-height: 1;
   word-wrap: break-word;
+  // border: 1px solid black;
+}
+
+.comment-instance-button {
+  display: inline;
+  margin: 0;
+  padding: 0px;
+  border: none;
+  background: transparent;
+  color: lightgray;
+  font-size: 16px;
+  float: right;
+  cursor: pointer;
+  outline: none;
+  vertical-align: top;
+}
+
+.comment-instance-button-hidden {
+  display: none;
 }
 
 .comment-submit {
