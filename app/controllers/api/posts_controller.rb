@@ -6,8 +6,7 @@ class Api::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      @posts = Post.all
-      render :index
+      render :show
       # render json: {createPost: ['Successfully uploaded post']}
     else
       render json: {createPost: @post.errors.full_messages}, status: 422
@@ -15,7 +14,6 @@ class Api::PostsController < ApplicationController
   end
 
   def show
-    # @post = Post.find_by(params[:userId])
   end
 
   def update

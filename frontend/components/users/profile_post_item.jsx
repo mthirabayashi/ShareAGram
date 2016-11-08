@@ -6,7 +6,7 @@ import merge from 'lodash/merge';
 class ProfilePostItem extends React.Component {
 
   constructor(props){
-    // console.log(props);
+    console.log(props);
     super(props);
     this.state = {
       modalOpen: false,
@@ -16,6 +16,11 @@ class ProfilePostItem extends React.Component {
         imgUrl: this.props.post.img_url,
         description: this.props.post.description,
         author_id: this.props.post.author.author_id
+      },
+      comment: {
+        profile_id: this.props.userProfile.author_id,
+        body: '',
+        post_id: this.props.post.id
       }
     };
     this.openModal = this.openModal.bind(this);
@@ -27,6 +32,10 @@ class ProfilePostItem extends React.Component {
     this.adminButton = this.adminButton.bind(this);
     this.updatePost = this.updatePost.bind(this);
     this.showComments = this.showComments.bind(this);
+    this.deleteComment = this.deleteComment.bind(this);
+    this.addComment = this.addComment.bind(this);
+    this.toggleLike = this.toggleLike.bind(this);
+    this.updateComment = this.updateComment.bind(this);
   }
 
   componentDidMount() {
@@ -63,21 +72,6 @@ class ProfilePostItem extends React.Component {
     });
   }
 
-  adminButton() {
-    if (this.props.currentUser.id === this.props.post.author.author_id) {
-      return (
-        <section className='modal-profile-button-container'>
-          <button className='modal-profile-button' onClick={this.deletePost}>
-            Delete Post
-          </button>
-          <button className='modal-profile-button' onClick={this.editOpenModal}>
-            Edit Post
-          </button>
-        </section>
-      );
-    }
-  }
-
   deletePost() {
     this.props.deletePost(this.props.post.id);
   }
@@ -104,8 +98,63 @@ class ProfilePostItem extends React.Component {
     }
   }
 
+  toggleLike () {
+    // console.log('toggle like');
+    // debugger
+    if (this.props.currentUser.likedPosts.includes(this.props.post.id)) {
+      // console.log('delete like for post' + this.props.post.id);
+      this.props.deleteLike(this.props.post.id);
+    } else {
+      // console.log('create like for post' + this.props.post.id);
+      this.props.createLike(this.props.post.id);
+    }
+  }
+
+  updateComment(e) {
+    // console.log("comment body updated");
+    // console.log(e.target.value);
+    const newState = merge({}, this.state.comment, {['body']: e.target.value});
+    this.setState({
+      comment: newState
+    });
+  }
+
+  addComment(e) {
+    // console.log('creating comment with ');
+    // console.log(this.state.comment);
+    if (this.state.comment.body === '') {
+      return;
+    }
+    e.preventDefault();
+    this.props.createComment(this.state.comment);
+    this.state.comment.body = '';
+  }
+
+  deleteComment(id) {
+    return (e) => {
+      e.preventDefault();
+      this.props.deleteComment(id);
+    };
+  }
+
+  adminButton() {
+    if (this.props.currentUser.id === this.props.post.author.author_id) {
+      return (
+        <section className='modal-profile-button-container'>
+          <button className='modal-profile-button' onClick={this.deletePost}>
+            Delete Post
+          </button>
+          <button className='modal-profile-button' onClick={this.editOpenModal}>
+            Edit Post
+          </button>
+        </section>
+      );
+    }
+  }
+
   showComments() {
     // console.log(this.props);
+    // console.log(this.props.currentUser);
     const prof_url = `/user/${this.props.post.author.author_id}`;
     if (this.props.post.comments) {
       return (
@@ -114,6 +163,9 @@ class ProfilePostItem extends React.Component {
             <div className='comment-instance' key={'comment' + comment.id}>
               <h4><Link to={prof_url} className='profile-link' >{comment.username}</Link></h4>
               <p> {comment.body}</p>
+              <button className={comment.username === this.props.currentUser.username ? "comment-instance-button" : "comment-instance-button-hidden"} onClick={this.deleteComment(comment.id)}>
+                X
+              </button>
             </div>
           ))}
         </section>
@@ -127,7 +179,7 @@ class ProfilePostItem extends React.Component {
   }
 
   render () {
-    console.log(this.props);
+    // console.log(this.props);
     const style = {
       overlay : {
         position        : 'fixed',
@@ -149,6 +201,13 @@ class ProfilePostItem extends React.Component {
         zIndex          : 11
       }
     };
+    const userLiked = (this.props.currentUser.likedPosts.includes(this.props.post.id));
+    let heartColor;
+    if (userLiked) {
+      heartColor = 'like-button-red';
+    } else {
+      heartColor = 'like-button';
+    }
 
     return (
       <div>
@@ -180,6 +239,14 @@ class ProfilePostItem extends React.Component {
               </section>
 
               {this.showComments()}
+              <section className='comment-like-container'>
+                <button className={heartColor} onClick={this.toggleLike}></button>
+                <form className='comment-profile'>
+                  <input type='text' placeholder='Add a comment...' onChange={this.updateComment} value={this.state.comment.body}>
+                  </input>
+                  <button type='submit' onClick={this.addComment} className='comment-submit'>Add Comment</button>
+                </form>
+              </section>
               {this.adminButton()}
             </div>
 

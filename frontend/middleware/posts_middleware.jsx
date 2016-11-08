@@ -1,3 +1,4 @@
+import { hashHistory } from 'react-router';
 import { FETCH_ALL_POSTS,
          FETCH_POST,
          CREATE_POST,
@@ -20,8 +21,9 @@ import { receiveCurrentUser } from '../actions/session_actions';
 
 export default ({ getState, dispatch }) => next => action => {
   const fetchAllPostsSuccessCallback = posts =>  dispatch(receiveAllPosts(posts));
-  const createPostSuccessCallback = () => {
-    //hashhistory replace('/')?
+  const createPostSuccessCallback = (post) => {
+    dispatch(receivePost(post));
+    // hashHistory.push('/');
   };
   const ErrorCallback = xhr => dispatch(receivePostErrors(xhr.responseJSON));
   const deletePostSuccessCallback = (id) =>
@@ -37,7 +39,7 @@ export default ({ getState, dispatch }) => next => action => {
       fetchAllPosts(fetchAllPostsSuccessCallback, ErrorCallback);
       return next(action);
     case CREATE_POST:
-      createPost(action.post, fetchAllPostsSuccessCallback, ErrorCallback);
+      createPost(action.post, createPostSuccessCallback, ErrorCallback);
       return next(action);
     case UPDATE_POST:
       updatePost(action.post, updatePostSuccessCallback, ErrorCallback);
