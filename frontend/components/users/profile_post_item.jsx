@@ -21,7 +21,8 @@ class ProfilePostItem extends React.Component {
         profile_id: this.props.userProfile.author_id,
         body: '',
         post_id: this.props.post.id
-      }
+      },
+      adminButtons: false
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -36,9 +37,14 @@ class ProfilePostItem extends React.Component {
     this.addComment = this.addComment.bind(this);
     this.toggleLike = this.toggleLike.bind(this);
     this.updateComment = this.updateComment.bind(this);
+    this.renderAdminButtons = this.renderAdminButtons.bind(this);
+    this.toggleAdminButtons = this.toggleAdminButtons.bind(this);
   }
 
-  componentDidMount() {
+  componentWillReceiveProps(nextProps) {
+    if (this.props.post.description !== nextProps.post.description) {
+      this.setState({modalOpen: true, adminButtons: false});
+    }
   }
 
   closeModal() {
@@ -80,10 +86,9 @@ class ProfilePostItem extends React.Component {
     // console.log('update post with');
     // console.log(this.state.editModal);
     this.props.updatePost(this.state.editModal);
-    // this.setState({
-    //   modalOpen: true,
-    //   editModalOpen: false
-    // });
+    this.setState({
+      editModalOpen: false
+    });
   }
 
   updateErrors() {
@@ -149,6 +154,20 @@ class ProfilePostItem extends React.Component {
           </button>
         </section>
       );
+    }
+  }
+
+  toggleAdminButtons() {
+    if (this.state.adminButtons === true) {
+      this.setState({adminButtons: false});
+    } else {
+      this.setState({adminButtons: true});
+    }
+  }
+
+  renderAdminButtons() {
+    if (this.state.adminButtons === true) {
+      return (this.adminButton());
     }
   }
 
@@ -244,10 +263,13 @@ class ProfilePostItem extends React.Component {
                 <form className='comment-profile'>
                   <input type='text' placeholder='Add a comment...' onChange={this.updateComment} value={this.state.comment.body}>
                   </input>
-                  <button type='submit' onClick={this.addComment} className='comment-submit'>Add Comment</button>
+                  <button type='submit' onClick={this.addComment} className='comment-submit'>
+                  </button>
                 </form>
+                <button className='comment-profile-admin-toggle' onClick={this.toggleAdminButtons}>
+                </button>
               </section>
-              {this.adminButton()}
+              {this.renderAdminButtons()}
             </div>
 
         </Modal>
