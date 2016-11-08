@@ -3,23 +3,17 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     # debugger
-    if (@comment.save)
-      @posts = Post.all
-      render "api/posts/index", status:200
-    else
-
-    end
+    @comment.save
+    @posts = Post.all
+    render "api/posts/index", status:200
   end
 
   def destroy
     @comment = Comment.find_by(id: params[:id])
     # debugger
-    if (@comment.destroy)
-      @posts = Post.all
-      render "api/posts/index", status:200
-    else
-
-    end
+    @comment.destroy
+    @posts = Post.all
+    render "api/posts/index", status:200
   end
 
   def comment_params

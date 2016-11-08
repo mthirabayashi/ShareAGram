@@ -1,18 +1,16 @@
-export const createComment = (comment, success, error) => {
+export const createComment = (comment, success) => {
   $.ajax({
     method: 'post',
     url: 'api/comments',
     data: {comment: comment},
-    success,
-    error
+    success
   });
 };
-export const deleteComment = (id, success, error) => {
+export const deleteComment = (id, success) => {
   $.ajax({
     method: 'delete',
     url: `api/comments/${id}`,
     data: id,
-    success,
-    error
+    success
   });
 };

@@ -11,6 +11,10 @@ MONDAY - 11/7
   + started comments
   + create comment is working from post feed
   - need to implement delete comments from post feed and user profile
-    -original author should be able to delete their own comment
+    +original author should be able to delete their own comment
     -poster's author should be able to delete all comments on their post (from profile modal)
   - possibly need to add like component to profile images
+  - need to implement a way of limiting comments displayed or at least max-height for comments section with a scroll bar at worst
+  - need to include like/comment functionality to user's profile
+    - users should be able to like/comment posts while  viewing other profile posts
+    - might need to talk to quinn about the post modal from the author's profile page
