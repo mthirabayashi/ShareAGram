@@ -69,7 +69,6 @@ class PostItem extends React.Component {
   showComments() {
     // console.log(this.props);
     const prof_url = `/user/${this.props.post.author.author_id}`;
-    let commentAuthorClass = "comment-instance-button";
     if (this.props.post.comments) {
       return (
         <section className='comments-container'>

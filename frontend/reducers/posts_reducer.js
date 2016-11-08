@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import {RECEIVE_ALL_POSTS} from '../actions/posts_actions';
+import {RECEIVE_ALL_POSTS, RECEIVE_POST} from '../actions/posts_actions';
 import {RECEIVE_PROFILE} from '../actions/users_actions';
 
 const _nullPost = {
@@ -24,6 +24,10 @@ const PostsReducer = (state = _nullPost, action) => {
   switch(action.type){
     case RECEIVE_ALL_POSTS:
       newState = merge({}, action.posts);
+      return newState;
+    case RECEIVE_POST:
+      newState = merge({}, state, action.post);
+      newState[Object.keys(action.post)].comments = action.post[Object.keys(action.post)].comments
       return newState;
     case RECEIVE_PROFILE:
       newState = merge({}, action.profile.posts);

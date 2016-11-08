@@ -18,3 +18,6 @@ MONDAY - 11/7
   - need to include like/comment functionality to user's profile
     - users should be able to like/comment posts while  viewing other profile posts
     - might need to talk to quinn about the post modal from the author's profile page
+
+TUESDAY - 11/8
+  - GO OVER ALL ISSUES/QUESTIONS WITH QUINN

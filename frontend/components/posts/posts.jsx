@@ -142,7 +142,7 @@ class Posts extends React.Component {
     };
     return (
       <div className='posts-feed'>
-        <h1 className='posts'>posts feed here</h1>
+        <br/>
         <br/>
         {this.displayAllPosts()}
         <span className='create-post-button'>

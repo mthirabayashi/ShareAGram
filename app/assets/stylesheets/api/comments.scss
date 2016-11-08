@@ -15,6 +15,20 @@
   font-size: 16px;
   border: none;
 }
+.comment-profile {
+  // border: 1px solid black;
+  margin: 10px 0;
+  width: 75%;
+}
+
+.comment-profile input {
+  width: 100%;
+  min-height: 30px;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+  border: none;
+}
 
 .comments-container {
   // border: 1px solid black;
