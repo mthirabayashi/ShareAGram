@@ -67,7 +67,7 @@ class PostItem extends React.Component {
   }
 
   showComments() {
-    // console.log(this.props);
+    console.log(this.props);
     const prof_url = `/user/${this.props.post.author.author_id}`;
     if (this.props.post.comments) {
       return (
