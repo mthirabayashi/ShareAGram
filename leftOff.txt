@@ -8,4 +8,9 @@ SUNDAY - 11/6
 MONDAY - 11/7
   + finished like component
   + ended up having to update currentUser and PostIndex separately. Have weird issue where I have to return a nested currentUser object...
-  - need to start Comments
+  + started comments
+  + create comment is working from post feed
+  - need to implement delete comments from post feed and user profile
+    -original author should be able to delete their own comment
+    -poster's author should be able to delete all comments on their post (from profile modal)
+  - possibly need to add like component to profile images

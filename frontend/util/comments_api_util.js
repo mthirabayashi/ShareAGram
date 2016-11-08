@@ -7,3 +7,12 @@ export const createComment = (comment, success, error) => {
     error
   });
 };
+export const deleteComment = (id, success, error) => {
+  $.ajax({
+    method: 'delete',
+    url: `api/comments/${id}`,
+    data: id,
+    success,
+    error
+  });
+};

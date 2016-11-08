@@ -12,6 +12,14 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find_by(id: params[:id])
+    # debugger
+    if (@comment.destroy)
+      @posts = Post.all
+      render "api/posts/index", status:200
+    else
+
+    end
   end
 
   def comment_params
