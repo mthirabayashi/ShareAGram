@@ -8,3 +8,12 @@ json.author do
 end
 json.likes post.likes.count
 # json.likes post.likes  -> to get array of like objects
+json.comments do
+  post.comments.each do |comment|
+    json.set! comment.id do
+      json.extract! comment, :id, :body
+      json.extract! comment.author, :username
+    end
+  end
+end
+# json.comments post.comments

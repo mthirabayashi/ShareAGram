@@ -1,0 +1,51 @@
+// Place all the styles related to the api::comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment {
+  // border: 1px solid black;
+  margin: 10px 0;
+}
+
+.comment input {
+  width: 520px;
+  min-height: 30px;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+  border: none;
+}
+
+.comments-container {
+  // border: 1px solid black;
+  width: 570px;
+  margin: 8px 0;
+  // display: block;
+}
+
+.comment-instance {
+  // border: 1px solid black;
+  padding-top: 1px;
+}
+
+.comment-instance > h4 {
+  // border: 1px solid black;
+  display: inline-block;
+  // float: left;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.comment-instance > p {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  // float: left;
+  line-height: 1;
+  word-wrap: break-word;
+}
+
+.comment-submit {
+  display: none;
+}

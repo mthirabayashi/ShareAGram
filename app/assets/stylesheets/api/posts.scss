@@ -49,50 +49,6 @@
   border-bottom: 1px solid lightgray;
 }
 
-.comment-like-container {
-  // border: 1px solid black;
-  display: flex;
-  flex-direction: row;
-  // background-color: white;
-}
-
-.like-button {
-  margin: 10px 10px;
-  width: 40px;
-  height: 35px;
-  background-image: url("http://res.cloudinary.com/duep1w4tv/image/upload/v1478554229/ShareAGram/wy1yw3p6lpkpi9v3u3yo.jpg");
-  background-size: cover;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  outline: none;
-}
-.like-button-red {
-  margin: 10px 10px;
-  width: 40px;
-  height: 35px;
-  background-image: url("http://res.cloudinary.com/duep1w4tv/image/upload/v1478554244/ShareAGram/wcspil1twicspkitqckt.png");
-  background-size: cover;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  outline: none;
-}
-
-.comment {
-  // border: 1px solid black;
-  margin: 10px 0;
-}
-
-.comment input {
-  width: 520px;
-  min-height: 30px;
-  border-radius: 10px;
-  outline: none;
-  font-size: 16px;
-  border: none;
-}
-
 .post-description {
   // border: 1px solid black;
   width: 570px;
@@ -174,6 +130,8 @@
   margin: 0 auto;
   min-width: 250px;
   max-width: 450px;
+  min-height: 350px;
+  max-height: 450px;
   border: 2px solid lightgray;
   outline: none;
   background-color: white;
@@ -198,6 +156,7 @@
 
 .create-post-error-list {
   // border: 1px solid black;
+  margin-top: 15px;
   padding: 0;
 }
 

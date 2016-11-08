@@ -43,7 +43,7 @@ class Posts extends React.Component {
         {this.props.posts.slice(0).reverse().map(post => (
           <div key={"postIndex" + post.id} >
             <PostItem post={post} createLike={this.props.createLike} deleteLike={this.props.deleteLike}
-            currentUserLikedPosts={this.props.currentUser.likedPosts}  />
+            currentUserLikedPosts={this.props.currentUser.likedPosts} createComment={this.props.createComment} />
             <br />
             <br />
             <br />
@@ -118,6 +118,7 @@ class Posts extends React.Component {
   }
 
   render () {
+    // console.log(this.props);
     const style = {
       overlay : {
         position        : 'fixed',
@@ -130,10 +131,10 @@ class Posts extends React.Component {
       },
       content : {
         position        : 'fixed',
-        top             : '150px',
-        left            : '200px',
-        right           : '200px',
-        bottom          : '150px',
+        top             : '15%',
+        left            : '15%',
+        right           : '15%',
+        bottom          : '15%',
         border          : '1px solid #ccc',
         padding         : '20px',
         zIndex          : 11

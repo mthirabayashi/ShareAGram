@@ -26,6 +26,7 @@ class ProfilePostItem extends React.Component {
     this.deletePost = this.deletePost.bind(this);
     this.adminButton = this.adminButton.bind(this);
     this.updatePost = this.updatePost.bind(this);
+    this.showComments = this.showComments.bind(this);
   }
 
   componentDidMount() {
@@ -103,6 +104,28 @@ class ProfilePostItem extends React.Component {
     }
   }
 
+  showComments() {
+    // console.log(this.props);
+    const prof_url = `/user/${this.props.post.author.author_id}`;
+    if (this.props.post.comments) {
+      return (
+        <section className='modal-profile-comments'>
+          {(Object.keys(this.props.post.comments).map(id => this.props.post.comments[id])).map (comment => (
+            <div className='comment-instance' key={'comment' + comment.id}>
+              <h4><Link to={prof_url} className='profile-link' >{comment.username}</Link></h4>
+              <p> {comment.body}</p>
+            </div>
+          ))}
+        </section>
+      );
+    }  else {
+      return (
+        <section className='modal-profile-comments'>
+        </section>
+      );
+    }
+  }
+
   render () {
     console.log(this.props);
     const style = {
@@ -155,11 +178,8 @@ class ProfilePostItem extends React.Component {
                   {this.props.post.description}
                 </p>
               </section>
-              <section className='modal-profile-comments'>
-                <ul>
-                  Comments
-                </ul>
-              </section>
+
+              {this.showComments()}
               {this.adminButton()}
             </div>
 
@@ -190,12 +210,9 @@ class ProfilePostItem extends React.Component {
 
                 <textarea maxLength="150" value={this.state.editModal.description} onChange={this.updateEditModal} className='modal-profile-author-edit-description'></textarea>
               </section>
-              <section className='modal-profile-comments'>
-                <ul>
-                  Comments
-                </ul>
-              </section>
+
               {this.updateErrors.bind(this)}
+              {this.showComments()}
               <section className='modal-profile-button-container'>
                 <button onClick={this.updatePost} className='modal-profile-update-button'>
                   Save

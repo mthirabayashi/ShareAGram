@@ -1,3 +1,44 @@
 // Place all the styles related to the api::likes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.comment-like-container {
+  // border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  // background-color: white;
+}
+
+.like-button {
+  background-image: url("http://res.cloudinary.com/duep1w4tv/image/upload/v1478554229/ShareAGram/wy1yw3p6lpkpi9v3u3yo.jpg");
+  margin: 10px 10px;
+  width: 40px;
+  height: 35px;
+  background-size: cover;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  outline: none;
+  background-origin: content-box;
+  padding: 1px;
+  padding-right: 4%;
+  // border: 1px solid black;
+}
+.like-button-red {
+  background-image: url("http://res.cloudinary.com/duep1w4tv/image/upload/v1478554244/ShareAGram/wcspil1twicspkitqckt.png");
+  margin: 10px 10px;
+  width: 40px;
+  height: 35px;
+  background-size: cover;
+  border: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  outline: none;
+  background-origin: content-box;
+  padding: 1px;
+  padding-right: 4%;
+  // border: 1px solid black;
+}
