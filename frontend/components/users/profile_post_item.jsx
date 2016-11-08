@@ -140,8 +140,8 @@ class ProfilePostItem extends React.Component {
       },
       content : {
         position        : 'fixed',
-        left            : '25%',
-        right           : '25%',
+        left            : '20%',
+        right           : '20%',
         top             : '20%',
         bottom          : '20%',
         border          : '1px solid #ccc',
