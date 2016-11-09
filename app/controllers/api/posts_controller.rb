@@ -1,6 +1,8 @@
 class Api::PostsController < ApplicationController
   def index
-    @posts = Post.all
+    post_feed = current_user.followings.ids
+    post_feed << current_user.id
+    @posts = Post.where(author_id: post_feed)
   end
 
   def create

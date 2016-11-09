@@ -51,19 +51,35 @@ class Profile extends React.Component {
       followText = 'Follow';
       followButtonClass = 'profile-stats-follow-button';
     }
-    return (
-      <section className='profile-stats-container'>
-        <section className='profile-stats-username-follow'>
-          <h1 className='profile-stats-username'>{this.props.user.username}</h1>
-          <button onClick={this.toggleFollow} className={followButtonClass}>{followText}</button>
+    if (this.props.currentUser.id !== this.props.user.id){
+      return (
+        <section className='profile-stats-container'>
+          <section className='profile-stats-username-follow'>
+            <h1 className='profile-stats-username'>{this.props.user.username}</h1>
+            <button onClick={this.toggleFollow} className={followButtonClass}>{followText}</button>
+          </section>
+          <div className='profile-stats'>
+            <section><span>{this.props.posts.length} </span>posts</section>
+            <section>{this.props.user.followers} followers</section>
+            <section>{this.props.user.following.length} following</section>
+          </div>
         </section>
-        <div className='profile-stats'>
-          <section><span>{this.props.posts.length} </span>posts</section>
-          <section>{this.props.user.followers} followers</section>
-          <section>{this.props.user.following.length} following</section>
-        </div>
-      </section>
-    );
+      );
+    } else {
+      return (
+        <section className='profile-stats-container'>
+          <section className='profile-stats-username-follow'>
+            <h1 className='profile-stats-username'>{this.props.user.username}</h1>
+            <button className='profile-stats-edit-button'>Edit Profile</button>
+          </section>
+          <div className='profile-stats'>
+            <section><span>{this.props.posts.length} </span>posts</section>
+            <section>{this.props.user.followers} followers</section>
+            <section>{this.props.user.following.length} following</section>
+          </div>
+        </section>
+      );
+    }
   }
 
   render () {
