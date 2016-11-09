@@ -20,6 +20,22 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     primary_key: :id
 
+  has_many :trailers,
+    class_name: "Follow",
+    foreign_key: :follower_id,
+    primary_key: :id
+  has_many :followers,
+    through: :trailers,
+    source: :user_followed
+
+  has_many :leaders,
+    class_name: "Follow",
+    foreign_key: :followed_id,
+    primary_key: :id
+  has_many :followings,
+    through: :leaders,
+    source: :user_following
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)

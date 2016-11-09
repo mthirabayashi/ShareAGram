@@ -178,7 +178,7 @@ class ProfilePostItem extends React.Component {
   }
 
   commentLikeContainer() {
-    console.log(this.props);
+    // console.log(this.props);
     const userLiked = (this.props.currentUser.likedPosts.includes(this.props.post.id));
     let heartColor;
     if (userLiked) {

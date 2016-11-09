@@ -25,4 +25,8 @@ TUESDAY - 11/8
   + added like and comment component to profile page
   + refactored create/delete like, create/delete comment and create post to only return a single post instead of post index
   + added adming toggling buttons (...) to current user's profile items'
-  - need to start follows
+  + started follows
+    + create and delete follows from profile page
+    - need styling for following and unfollow buttons
+    - need to add post feed functionality only for followers and self
+  - edit post from profile. if post description is the same keep the modal open if user clicks save

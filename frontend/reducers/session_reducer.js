@@ -14,9 +14,8 @@ const SessionReducer = (state = _nullUser, action) => {
       // console.log(temp);
       // debugger
       newState = (merge({}, state, action.currentUser));
-      if (newState.currentUser) {
-        newState.currentUser.likedPosts = action.currentUser.currentUser.likedPosts;
-      }
+      newState.currentUser.likedPosts = action.currentUser.currentUser.likedPosts;
+      newState.currentUser.following = action.currentUser.currentUser.following;
       // debugger
       return newState;
     case LOGOUT:

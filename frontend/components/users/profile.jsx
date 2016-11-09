@@ -8,45 +8,26 @@ class Profile extends React.Component {
 
   constructor(props){
     super(props);
-    // this.state = {
-    //   modalOpen: false,
-    //   modal: {
-    //     imgUrl: '',
-    //     description: ''
-    //   }
-    // };
     this.userPosts = this.userPosts.bind(this);
-    // this.openModal = this.openModal.bind(this);
-    // this.closeModal = this.closeModal.bind(this);
-    // this.updateModalField = this.updateModalField.bind(this);
+    this.toggleFollow = this.toggleFollow.bind(this);
   }
 
   componentDidMount() {
   }
 
-  // closeModal() {
-  //   this.setState({ modalOpen: false });
-  // }
-  //
-  // openModal() {
-  //   this.setState({ modalOpen: true });
-  // }
-  //
-  // updateModalField() {
-  //   return (e) => {
-  //     console.log(e.target);
-  //     let selectedPhoto = e.target.src;
-  //     console.log(selectedPhoto);
-  //     const newState = merge({}, this.state.modal, {['imgUrl']: selectedPhoto});
-  //     this.setState({modal: newState});
-  //     this.openModal();
-  //   };
-  // }
+  toggleFollow() {
+    // console.log(this.props);
+    console.log('temp toggle follow');
+    console.log('for user ' + this.props.user.id);
+    if (this.props.currentUser.following.includes(this.props.user.id)) {
+      this.props.deleteFollow(this.props.user.id);
+    } else {
+      this.props.createFollow(this.props.user.id);
+    }
+  }
 
   userPosts() {
 
-    //   <img src={post.img_url}  alt='NO IMAGE HERE, ok' className='profile-uploads' key={"profile-upload" + post.id} id={post.id} description={post.description} onClick={this.updateModalField()} />
-    // ))}
     return (
       <div className='profile-uploads-container'>
         {this.props.posts.slice(0).reverse().map(post => (
@@ -60,9 +41,16 @@ class Profile extends React.Component {
   }
 
   render () {
-    // console.log(this.props);
-
-
+    console.log(this.props);
+    let followText;
+    let followButtonClass;
+    if (this.props.currentUser.following.includes(this.props.user.id)) {
+      followText = 'Following';
+      followButtonClass = 'profile-stats-following-button';
+    } else {
+      followText = 'Follow';
+      followButtonClass = 'profile-stats-follow-button';
+    }
     return (
       <div className='profile-container'>
         <div className='profile-userInfo'>
@@ -70,12 +58,12 @@ class Profile extends React.Component {
           <section className='profile-stats-container'>
             <section className='profile-stats-username-follow'>
               <h1 className='profile-stats-username'>{this.props.user.username}</h1>
-              <button>Follow Button - No Work</button>
+              <button onClick={this.toggleFollow} className={followButtonClass}>{followText}</button>
             </section>
             <div className='profile-stats'>
               <section><span>{this.props.posts.length} </span>posts</section>
               <section># followers</section>
-              <section># following</section>
+              <section>{this.props.currentUser.following.length} following</section>
             </div>
           </section>
         </div>

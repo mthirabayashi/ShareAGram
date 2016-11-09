@@ -4,7 +4,9 @@
       id: 1,
       username: "username1",
       full_name: "user name",
-      liked_posts: []
+      liked_posts: [],
+      following: [],
+      followers: 4
     }
   },
   userProfile: {
