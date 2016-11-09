@@ -95,7 +95,6 @@ class PostItem extends React.Component {
       heartColor = 'like-button';
     }
     const prof_url = `/user/${this.props.post.author.author_id}`;
-    const temp = " additional comment detail that makes it wrap around #greatcoment #makethisareallylonghashtagthatwillcausethetexttogooutofboundsofmycontainertestestestestestestestestestestestest";
     const plural = (this.props.post.likes===1) ? 'like' : 'likes';
     // console.log(plural);
     return (
@@ -110,7 +109,7 @@ class PostItem extends React.Component {
         <div className='post-description'>
           <div className='like-count'><span>{this.props.post.likes}</span> {plural}</div>
           <h4><Link to={prof_url} className='profile-link' >{this.props.post.author.author_username}</Link></h4>
-          <p> {this.props.post.description}{temp}</p>
+          <p> {this.props.post.description}</p>
         </div>
         {this.showComments()}
         <section className='comment-like-container'>
