@@ -260,7 +260,7 @@ class ProfilePostItem extends React.Component {
 
 
     return (
-      <div>
+      <div className='profile-uploads-div'>
         <img src={this.props.post.img_url} onClick={this.openModal} className='profile-uploads'/>
         <Modal
           isOpen={this.state.modalOpen}
