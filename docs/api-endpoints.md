@@ -41,3 +41,7 @@
 
 - `POST /api/users/follows`
 - `DELETE /api/users/follows/:id`
+
+### Search
+
+- `POST /api/search`

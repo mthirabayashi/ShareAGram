@@ -5,6 +5,7 @@ import App from './app';
 import LoginFormContainer from './session/login_form_container';
 import SignUpFormContainer from './session/sign_up_form_container';
 import {clearErrors} from '../actions/session_actions';
+import {clearSearch} from '../actions/searches_actions';
 import {fetchProfile} from '../actions/users_actions';
 import Posts from './posts/posts_container';
 import Profile from './users/profile_container';
@@ -26,16 +27,22 @@ const Root = ({ store }) => {
       replace('/login');
     }
     _clearErrors();
+    _clearSearch();
   };
 
   const _clearErrors = () => {
     console.log('clearing errors');
     store.dispatch(clearErrors());
   };
+  const _clearSearch = () => {
+    console.log('clearing search');
+    store.dispatch(clearSearch());
+  };
 
-  const _fetchProfile = (nextState) => (
-    store.dispatch(fetchProfile(nextState.params.userId))
-  );
+  const _fetchProfile = (nextState) => {
+    store.dispatch(fetchProfile(nextState.params.userId));
+    _clearSearch();
+  };
 
   return (
     <Provider store={store}>

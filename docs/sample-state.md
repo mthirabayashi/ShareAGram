@@ -38,5 +38,5 @@
       }
     }
   },
-  search: "example"
+  searchResult: ["user1", "user2"]
 }

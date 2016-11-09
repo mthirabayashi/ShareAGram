@@ -172,6 +172,7 @@ class Posts extends React.Component {
       <div className='posts-feed'>
         <br/>
         <br/>
+        <br/>
         {this.displayAllPosts()}
         <span className='create-post-button'>
           <img src='http://www.iconsfind.com/wp-content/uploads/2015/11/20151116_564931cb68cc2.png' alt='create post button' onClick={this.openModal} />

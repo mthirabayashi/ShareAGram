@@ -12,8 +12,8 @@
   - [x] Hosting on Heroku
   - [x] New account creation, login, and guest/demo login
   - [ ] Images
-  - [ ] Likes
-  - [ ] Comments on images
+  - [x] Likes
+  - [x] Comments on images
   - [ ] Following & photo feed
   - [ ] Bonus: Infinite Scroll
   - [ ] Bonus: direct messaging

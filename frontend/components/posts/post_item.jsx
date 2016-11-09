@@ -40,8 +40,6 @@ class PostItem extends React.Component {
   }
 
   updateComment(e) {
-    // console.log("comment body updated");
-    // console.log(e.target.value);
     const newState = merge({}, this.state.comment, {['body']: e.target.value});
     this.setState({
       comment: newState
@@ -49,8 +47,6 @@ class PostItem extends React.Component {
   }
 
   addComment(e) {
-    // console.log('creating comment with ');
-    // console.log(this.state.comment);
     if (this.state.comment.body === '') {
       return;
     }

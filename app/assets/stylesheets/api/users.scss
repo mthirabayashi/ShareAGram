@@ -69,6 +69,42 @@
   width: 130px;
 }
 
+.search-bar-results {
+  border: 1px solid black;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  z-index: 1;
+  border-radius: 5px;
+  border-color: lightgray;
+  max-height: 100px;
+  overflow-y: scroll;
+}
+
+.search-result {
+  // border: 1px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0px;
+  margin: 0;
+  height: 25px;
+}
+
+.search-profile-pic {
+  width: 20px;
+  height: 20px;
+  // position: relative;
+  // float: left;
+}
+
+.search-profile-username {
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .search-bar input {
   border-radius: 5px;
   font-size: 16px;
@@ -140,7 +176,6 @@
   background: 0 0;
   border-color: #3897f0;
   color: #3897f0;
-  outline: none;
   font-size: 15px;
   border-radius: 3px;
   border-style: solid;
@@ -157,7 +192,22 @@
   background: #70c050;
   border-color: #70c050;
   color: #FFD;
+  font-size: 15px;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  font-weight: 600;
   outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.profile-stats-edit-button {
+  background: 0 0;
+  border-color: #999;
+  color: #999;
   font-size: 15px;
   border-radius: 3px;
   border-style: solid;
