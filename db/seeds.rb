@@ -10,9 +10,11 @@
 User.destroy_all;
 Post.destroy_all;
 Like.destroy_all;
+Comment.destroy_all;
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('posts')
 ActiveRecord::Base.connection.reset_pk_sequence!('likes')
+ActiveRecord::Base.connection.reset_pk_sequence!('comments')
 
 idx = 1
 User.create!(username: "guest", email: "guest@email.com", password: "password", profile_pic: "http://res.cloudinary.com/duep1w4tv/image/upload/v1478651158/ShareAGram/pzcgnvdxurnsefvhkr2l.png")
