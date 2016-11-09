@@ -67,14 +67,13 @@ class PostItem extends React.Component {
   }
 
   showComments() {
-    console.log(this.props);
-    const prof_url = `/user/${this.props.post.author.author_id}`;
+    // console.log(this.props);
     if (this.props.post.comments) {
       return (
         <section className='comments-container'>
           {(Object.keys(this.props.post.comments).map(id => this.props.post.comments[id])).map (comment => (
             <div className='comment-instance' key={'comment' + comment.id}>
-              <h4><Link to={prof_url} className='profile-link' >{comment.username}</Link></h4>
+              <h4><Link to={'/user/' + comment.author_id} className='profile-link' >{comment.username}</Link></h4>
               <p> {comment.body}</p>
               <button className={comment.username === this.props.currentUsername ? "comment-instance-button" : "comment-instance-button-hidden"} onClick={this.deleteComment(comment.id)}>
                 X
@@ -119,7 +118,7 @@ class PostItem extends React.Component {
           <form className='comment'>
             <input type='text' placeholder='Add a comment...' onChange={this.updateComment} value={this.state.comment.body}>
             </input>
-            <button type='submit' onClick={this.addComment} className='comment-submit'>Add Comment</button>
+            <button type='submit' onClick={this.addComment} className='hidden'>Add Comment</button>
           </form>
         </section>
       </div>

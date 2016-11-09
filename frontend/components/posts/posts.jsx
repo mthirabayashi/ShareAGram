@@ -21,7 +21,8 @@ class Posts extends React.Component {
       modalOpen: false,
       modal: {
         img_url: '',
-        description: ''
+        description: '',
+        thumbnail_url: ''
       }
     };
   }
@@ -31,8 +32,16 @@ class Posts extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.props.errors.createPost.length ===1 && this.props.errors.createPost[0] === 'Successfully uploaded post') {
-      this.props.router.replace('/');
+    // if (this.props.errors.createPost.length ===1 && this.props.errors.createPost[0] === 'Successfully uploaded post') {
+    //   this.props.router.replace('/');
+    // }
+  }
+
+  componentWillReceiveProps(newProps) {
+    // console.log(newProps.posts);
+    // console.log(this.props.posts);
+    if (this.props.posts.length < newProps.posts.length) {
+      this.setState({modalOpen: false});
     }
   }
 
@@ -95,7 +104,8 @@ class Posts extends React.Component {
         if (error===null) {
           //success
           // console.log(image[0]);
-          const newState = merge({}, this.state.modal, {['img_url']: image[0].url});
+          // console.log(image[0].thumbnail_url);
+          const newState = merge({}, this.state.modal, {['img_url']: image[0].url, ['thumbnail_url']: image[0].thumbnail_url});
           this.setState({modal: newState});
           // console.log(this.state);
         } else {
@@ -113,6 +123,24 @@ class Posts extends React.Component {
             <li key={"createError" + idx} className='create-post-error' >-{error}</li>
           ))}
         </ul>
+      );
+    }
+  }
+
+  imageThumbail() {
+    // console.log('image thumbnail_url');
+    if (this.state.modal.thumbnail_url) {
+      return (
+        <div>
+          <img src={this.state.modal.thumbnail_url} />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <br />
+          <br />
+        </div>
       );
     }
   }
@@ -154,11 +182,10 @@ class Posts extends React.Component {
         style={style}
         className='modal'>
           <h2>New Post</h2>
-          <br />
-            <label>
-              <button onClick={this.uploadImage.bind(this)}>Add an image</button>
-            </label>
-          <br />
+          <button onClick={this.uploadImage.bind(this)}>
+            Add an image
+          </button>
+          {this.imageThumbail.bind(this)()}
           <br />
           <textarea type='text' placeholder='Add a description' rows="3" cols="30" maxLength="150" onChange={this.updateModalField('description')}></textarea>
           <br />

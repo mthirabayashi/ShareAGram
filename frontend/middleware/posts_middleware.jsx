@@ -31,7 +31,7 @@ export default ({ getState, dispatch }) => next => action => {
   const updatePostSuccessCallback = (id) => dispatch(fetchProfile(id));
   const toggleLikeSuccessCallback = (data) => {
     dispatch(receiveCurrentUser(data.currentUser));
-    dispatch(receiveAllPosts(data.posts));
+    dispatch(receivePost(data.post));
   };
   // debugger
   switch(action.type) {
