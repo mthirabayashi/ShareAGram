@@ -20,21 +20,21 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     primary_key: :id
 
-  has_many :trailers,
-    class_name: "Follow",
-    foreign_key: :follower_id,
-    primary_key: :id
-  has_many :followers,
-    through: :trailers,
-    source: :user_followed
-
-  has_many :leaders,
+  has_many :follower,
     class_name: "Follow",
     foreign_key: :followed_id,
     primary_key: :id
+  has_many :followers,
+    through: :follower,
+    source: :person_following
+
+  has_many :following,
+    class_name: "Follow",
+    foreign_key: :follower_id,
+    primary_key: :id
   has_many :followings,
-    through: :leaders,
-    source: :user_following
+    through: :following,
+    source: :person_getting_followed
 
   after_initialize :ensure_session_token
 

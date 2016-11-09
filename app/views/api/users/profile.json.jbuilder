@@ -6,4 +6,6 @@ json.userProfile do
   json.username @user.username
   json.full_name @user.full_name
   json.profile_pic @user.profile_pic
+  json.following @user.followings.map(&:id)
+  json.followers @user.followers.length
 end
