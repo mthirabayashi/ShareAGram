@@ -68,7 +68,10 @@ class Profile extends React.Component {
         <div className='profile-userInfo'>
           <img src={this.props.user.profile_pic} className='profile-pic'/>
           <section className='profile-stats-container'>
-            <h1>{this.props.user.username}</h1>
+            <section className='profile-stats-username-follow'>
+              <h1 className='profile-stats-username'>{this.props.user.username}</h1>
+              <button>Follow Button - No Work</button>
+            </section>
             <div className='profile-stats'>
               <section><span>{this.props.posts.length} </span>posts</section>
               <section># followers</section>

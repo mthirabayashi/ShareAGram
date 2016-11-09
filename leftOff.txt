@@ -21,3 +21,8 @@ MONDAY - 11/7
 
 TUESDAY - 11/8
   - GO OVER ALL ISSUES/QUESTIONS WITH QUINN
+  + finished comment component
+  + added like and comment component to profile page
+  + refactored create/delete like, create/delete comment and create post to only return a single post instead of post index
+  + added adming toggling buttons (...) to current user's profile items'
+  - need to start follows

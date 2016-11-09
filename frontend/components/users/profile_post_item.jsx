@@ -44,7 +44,7 @@ class ProfilePostItem extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.post.description !== nextProps.post.description) {
-      this.setState({modalOpen: true, adminButtons: false});
+      this.setState({modalOpen: true, adminButtons: false, commentLikeButtons: true});
     }
   }
 
