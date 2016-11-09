@@ -297,6 +297,7 @@
   // padding: 8px;
   margin: 8px;
   overflow-y: scroll;
+  white-space: nowrap;
 }
 
 .modal-profile-comments * {
@@ -306,16 +307,27 @@
 
 .modal-profile-button-container {
   display: inline-block;
-  float: right;
+  // float: right;
   padding: 0;
+  // border: 1px solid black;
+  margin-right: 40px;
+}
+.modal-profile-button-container-save {
+  display: inline-block;
+  // float: right;
+  padding: 0;
+  // border: 1px solid black;
+  margin-right: 0;
 }
 
 .modal-profile-button {
   display: inline-block;
-  float: right;
+  // float: right;
   height: 30px;
   width: 100px;
   cursor: pointer;
+  // border: 1px solid black;
+
 }
 
 .modal-profile-update-button {

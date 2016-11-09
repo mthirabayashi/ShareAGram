@@ -6,7 +6,7 @@ import merge from 'lodash/merge';
 class ProfilePostItem extends React.Component {
 
   constructor(props){
-    console.log(props);
+    // console.log(props);
     super(props);
     this.state = {
       modalOpen: false,
@@ -22,7 +22,8 @@ class ProfilePostItem extends React.Component {
         body: '',
         post_id: this.props.post.id
       },
-      adminButtons: false
+      adminButtons: false,
+      commentLikeButtons: true
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -145,23 +146,28 @@ class ProfilePostItem extends React.Component {
   adminButton() {
     if (this.props.currentUser.id === this.props.post.author.author_id) {
       return (
-        <section className='modal-profile-button-container'>
-          <button className='modal-profile-button' onClick={this.deletePost}>
-            Delete Post
+        <div>
+          <section className='modal-profile-button-container'>
+            <button className='modal-profile-button' onClick={this.deletePost}>
+              Delete Post
+            </button>
+            <button className='modal-profile-button' onClick={this.editOpenModal}>
+              Edit Post
+            </button>
+          </section>
+          <button className='comment-profile-admin-toggle-admin' onClick={this.toggleAdminButtons}>
           </button>
-          <button className='modal-profile-button' onClick={this.editOpenModal}>
-            Edit Post
-          </button>
-        </section>
+        </div>
+
       );
     }
   }
 
   toggleAdminButtons() {
     if (this.state.adminButtons === true) {
-      this.setState({adminButtons: false});
+      this.setState({adminButtons: false, commentLikeButtons: true});
     } else {
-      this.setState({adminButtons: true});
+      this.setState({adminButtons: true, commentLikeButtons: false});
     }
   }
 
@@ -171,16 +177,47 @@ class ProfilePostItem extends React.Component {
     }
   }
 
+  commentLikeContainer() {
+    console.log(this.props);
+    const userLiked = (this.props.currentUser.likedPosts.includes(this.props.post.id));
+    let heartColor;
+    if (userLiked) {
+      heartColor = 'like-button-red';
+    } else {
+      heartColor = 'like-button';
+    }
+    const currentProfile = this.props.currentUser.id === this.props.userProfile.author_id ? 'comment-profile-admin-toggle' : 'hidden';
+    return (
+      <section className='comment-like-container'>
+        <button className={heartColor} onClick={this.toggleLike}></button>
+        <form className='comment-profile'>
+          <input type='text' placeholder='Add a comment...' onChange={this.updateComment} value={this.state.comment.body}>
+          </input>
+          <button type='submit' onClick={this.addComment} className='hidden'>
+          </button>
+        </form>
+        <button className={currentProfile} onClick={this.toggleAdminButtons}>
+        </button>
+      </section>
+    );
+  }
+
+  renderCommentLikeContainer() {
+    if (this.state.commentLikeButtons === true) {
+      return (this.commentLikeContainer());
+    }
+  }
+
   showComments() {
     // console.log(this.props);
     // console.log(this.props.currentUser);
-    const prof_url = `/user/${this.props.post.author.author_id}`;
+
     if (this.props.post.comments) {
       return (
         <section className='modal-profile-comments'>
           {(Object.keys(this.props.post.comments).map(id => this.props.post.comments[id])).map (comment => (
             <div className='comment-instance' key={'comment' + comment.id}>
-              <h4><Link to={prof_url} className='profile-link' >{comment.username}</Link></h4>
+              <h4><Link to={'/user/' + comment.author_id} className='profile-link' >{comment.username}</Link></h4>
               <p> {comment.body}</p>
               <button className={comment.username === this.props.currentUser.username ? "comment-instance-button" : "comment-instance-button-hidden"} onClick={this.deleteComment(comment.id)}>
                 X
@@ -220,13 +257,7 @@ class ProfilePostItem extends React.Component {
         zIndex          : 11
       }
     };
-    const userLiked = (this.props.currentUser.likedPosts.includes(this.props.post.id));
-    let heartColor;
-    if (userLiked) {
-      heartColor = 'like-button-red';
-    } else {
-      heartColor = 'like-button';
-    }
+
 
     return (
       <div>
@@ -258,17 +289,7 @@ class ProfilePostItem extends React.Component {
               </section>
 
               {this.showComments()}
-              <section className='comment-like-container'>
-                <button className={heartColor} onClick={this.toggleLike}></button>
-                <form className='comment-profile'>
-                  <input type='text' placeholder='Add a comment...' onChange={this.updateComment} value={this.state.comment.body}>
-                  </input>
-                  <button type='submit' onClick={this.addComment} className='comment-submit'>
-                  </button>
-                </form>
-                <button className='comment-profile-admin-toggle' onClick={this.toggleAdminButtons}>
-                </button>
-              </section>
+              {this.renderCommentLikeContainer.bind(this)()}
               {this.renderAdminButtons()}
             </div>
 
@@ -297,12 +318,12 @@ class ProfilePostItem extends React.Component {
               <section className='modal-profile-author'>
                 <h4 className='modal-profile-author-username'>{this.props.userProfile.author_username}</h4>
 
-                <textarea maxLength="150" value={this.state.editModal.description} onChange={this.updateEditModal} className='modal-profile-author-edit-description'></textarea>
+                <textarea maxLength="150" value={this.state.editModal.description} onChange={this.updateEditModal} placeholder='Description cant be blank' className='modal-profile-author-edit-description'></textarea>
               </section>
 
               {this.updateErrors.bind(this)}
               {this.showComments()}
-              <section className='modal-profile-button-container'>
+              <section className='modal-profile-button-container-save'>
                 <button onClick={this.updatePost} className='modal-profile-update-button'>
                   Save
                 </button>

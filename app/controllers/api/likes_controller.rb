@@ -10,7 +10,7 @@ class Api::LikesController < ApplicationController
       # debugger
       if(@like.save)
         @user = current_user
-        @posts = Post.all
+        @post = Post.find(params[:post_id])
         render :show, status: 200
       # else
       #   @errors = @like.errors.full_messages
@@ -32,7 +32,7 @@ class Api::LikesController < ApplicationController
       # debugger
       if(@like.destroy)
         @user = current_user
-        @posts = Post.all
+        @post = Post.find(params[:post_id])
         render :show, status: 200
       # else
       #   @errors = @like.errors.full_messages
