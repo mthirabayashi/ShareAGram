@@ -5,7 +5,9 @@ const _nullProfile = {
   id: 0,
   username: "",
   full_name: "",
-  profile_pic: ""
+  profile_pic: "",
+  following: [],
+  followers: 0
 };
 
 const UsersReducer = (state = _nullProfile, action) => {

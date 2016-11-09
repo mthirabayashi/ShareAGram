@@ -10,6 +10,7 @@ class Profile extends React.Component {
     super(props);
     this.userPosts = this.userPosts.bind(this);
     this.toggleFollow = this.toggleFollow.bind(this);
+    this.userStats = this.userStats.bind(this);
   }
 
   componentDidMount() {
@@ -17,8 +18,8 @@ class Profile extends React.Component {
 
   toggleFollow() {
     // console.log(this.props);
-    console.log('temp toggle follow');
-    console.log('for user ' + this.props.user.id);
+    // console.log('temp toggle follow');
+    // console.log('for user ' + this.props.user.id);
     if (this.props.currentUser.following.includes(this.props.user.id)) {
       this.props.deleteFollow(this.props.user.id);
     } else {
@@ -40,6 +41,31 @@ class Profile extends React.Component {
     );
   }
 
+  userStats() {
+    let followText;
+    let followButtonClass;
+    if (this.props.currentUser.following.includes(this.props.user.id)) {
+      followText = 'Following';
+      followButtonClass = 'profile-stats-following-button';
+    } else {
+      followText = 'Follow';
+      followButtonClass = 'profile-stats-follow-button';
+    }
+    return (
+      <section className='profile-stats-container'>
+        <section className='profile-stats-username-follow'>
+          <h1 className='profile-stats-username'>{this.props.user.username}</h1>
+          <button onClick={this.toggleFollow} className={followButtonClass}>{followText}</button>
+        </section>
+        <div className='profile-stats'>
+          <section><span>{this.props.posts.length} </span>posts</section>
+          <section>{this.props.user.followers} followers</section>
+          <section>{this.props.user.following.length} following</section>
+        </div>
+      </section>
+    );
+  }
+
   render () {
     console.log(this.props);
     let followText;
@@ -55,17 +81,7 @@ class Profile extends React.Component {
       <div className='profile-container'>
         <div className='profile-userInfo'>
           <img src={this.props.user.profile_pic} className='profile-pic'/>
-          <section className='profile-stats-container'>
-            <section className='profile-stats-username-follow'>
-              <h1 className='profile-stats-username'>{this.props.user.username}</h1>
-              <button onClick={this.toggleFollow} className={followButtonClass}>{followText}</button>
-            </section>
-            <div className='profile-stats'>
-              <section><span>{this.props.posts.length} </span>posts</section>
-              <section># followers</section>
-              <section>{this.props.currentUser.following.length} following</section>
-            </div>
-          </section>
+          {this.userStats()}
         </div>
         {this.userPosts()}
       </div>
