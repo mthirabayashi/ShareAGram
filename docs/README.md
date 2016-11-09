@@ -10,7 +10,7 @@
 
 ## Minimum Viable Product
   - [x] Hosting on Heroku
-  - [ ] New account creation, login, and guest/demo login
+  - [x] New account creation, login, and guest/demo login
   - [ ] Images
   - [ ] Likes
   - [ ] Comments on images

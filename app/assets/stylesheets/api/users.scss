@@ -123,10 +123,17 @@
   padding: 30px 0;
 }
 
-.profile-stats-container > h1 {
+.profile-stats-username {
   font-size: 40px;
   color: #262626;
   font-weight: 200;
+}
+
+.profile-stats-username-follow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .profile-stats {
