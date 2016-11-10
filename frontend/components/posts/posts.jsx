@@ -30,12 +30,16 @@ class Posts extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllPosts();
+    window.addEventListener("scroll", console.log('scrolling!!!!'));
   }
 
   componentDidUpdate() {
     // if (this.props.errors.createPost.length ===1 && this.props.errors.createPost[0] === 'Successfully uploaded post') {
     //   this.props.router.replace('/');
     // }
+    if (document.body.offsetHeight - window.scrollY < 1500) {
+      console.log('close to end of screen?');
+    }
   }
 
   componentWillReceiveProps(newProps) {
@@ -147,7 +151,7 @@ class Posts extends React.Component {
   }
 
   render () {
-    console.log(this.props);
+    // console.log(this.props);
     const style = {
       overlay : {
         position        : 'fixed',
