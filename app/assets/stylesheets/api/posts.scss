@@ -43,7 +43,7 @@
 
 .post-item-photo img {
   width: 600px;
-  height: 600px;
+  // height: 600px;
   // border: 1px solid black;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
@@ -154,6 +154,10 @@
   border-radius: 10px;
   // background-image: url("http://res.cloudinary.com/duep1w4tv/image/upload/v1478319420/ShareAGram/jrqiudj9xrt4s6hxupim.jpg");
   // background-size: cover;
+}
+
+.modal-new-post-title {
+  font-family: 'Lobster', cursive;
 }
 
 .modal textarea {

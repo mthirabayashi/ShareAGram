@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import PostItem from './post_item';
 import Modal from 'react-modal';
+import Infinite from 'react-infinite';
 import merge from 'lodash/merge';
 
 // TODO: move Modal into its own component/container
@@ -48,18 +49,18 @@ class Posts extends React.Component {
   displayAllPosts() {
     // console.log(this.props);
     return (
-      <div>
-        {this.props.posts.slice(0).reverse().map(post => (
-          <div key={"postIndex" + post.id} >
-            <PostItem post={post} createLike={this.props.createLike} deleteLike={this.props.deleteLike}
-            currentUserLikedPosts={this.props.currentUser.likedPosts} createComment={this.props.createComment} currentUsername={this.props.currentUser.username}deleteComment={this.props.deleteComment} />
-            <br />
-            <br />
-            <br />
-            <br />
-          </div>
-        ))}
-      </div>
+        <div>
+          {this.props.posts.slice(0).reverse().map(post => (
+            <div key={"postIndex" + post.id} >
+              <PostItem post={post} createLike={this.props.createLike} deleteLike={this.props.deleteLike}
+                currentUserLikedPosts={this.props.currentUser.likedPosts} createComment={this.props.createComment} currentUsername={this.props.currentUser.username}deleteComment={this.props.deleteComment} />
+              <br />
+              <br />
+              <br />
+              <br />
+            </div>
+          ))}
+        </div>
     );
   }
 
@@ -182,8 +183,8 @@ class Posts extends React.Component {
         onRequestClose={this.closeModal}
         style={style}
         className='modal'>
-          <h2>New Post</h2>
-          <button onClick={this.uploadImage.bind(this)}>
+          <h2 className='modal-new-post-title'>New Post</h2>
+          <button className='profile-stats-follow-button' onClick={this.uploadImage.bind(this)}>
             Add an image
           </button>
           {this.imageThumbail.bind(this)()}
@@ -191,9 +192,9 @@ class Posts extends React.Component {
           <textarea type='text' placeholder='Add a description' rows="3" cols="30" maxLength="150" onChange={this.updateModalField('description')}></textarea>
           <br />
           <br />
-          <button onClick={this.handleCreatePost}>Create Post</button>
+          <button className='profile-stats-follow-button' onClick={this.handleCreatePost}>Create Post</button>
           <br />
-          <button onClick={this.closeModal}>Close</button>
+          <button className='profile-stats-follow-button' onClick={this.closeModal}>Close</button>
           {this.createPostErrors()}
       </Modal>
       </div>
