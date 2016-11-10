@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import PostItem from './post_item';
 import Modal from 'react-modal';
-import Infinite from 'react-infinite';
 import merge from 'lodash/merge';
 
 // TODO: move Modal into its own component/container
