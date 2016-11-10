@@ -84,13 +84,19 @@ class PostItem extends React.Component {
     const userLiked = (this.props.currentUserLikedPosts.includes(this.props.post.id));
     let heartColor;
     if (userLiked) {
-      heartColor = 'like-button-red';
+      heartColor = 'red';
     } else {
-      heartColor = 'like-button';
+      heartColor = 'lightgray';
     }
+    // if (userLiked) {
+    //   heartColor = 'like-button-red';
+    // } else {
+    //   heartColor = 'like-button';
+    // }
     const prof_url = `/user/${this.props.post.author.author_id}`;
     const plural = (this.props.post.likes===1) ? 'like' : 'likes';
     // console.log(plural);
+    // <button className={heartColor} onClick={this.toggleLike}></button>
     return (
       <div className='post-item' >
         <div className='poster-pic-name'>
@@ -110,7 +116,7 @@ class PostItem extends React.Component {
         </div>
         {this.showComments()}
         <section className='comment-like-container'>
-          <button className={heartColor} onClick={this.toggleLike}></button>
+          <i className="fa fa-heart fa-2x post-item-heart" aria-hidden="true" style={{color:heartColor}} onClick={this.toggleLike}></i>
           <form className='comment'>
             <input type='text' placeholder='Add a comment...' onChange={this.updateComment} value={this.state.comment.body}>
             </input>

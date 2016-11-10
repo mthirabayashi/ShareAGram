@@ -182,14 +182,22 @@ class ProfilePostItem extends React.Component {
     const userLiked = (this.props.currentUser.likedPosts.includes(this.props.post.id));
     let heartColor;
     if (userLiked) {
-      heartColor = 'like-button-red';
+      heartColor = 'red';
     } else {
-      heartColor = 'like-button';
+      heartColor = 'lightgray';
     }
+    // if (userLiked) {
+    //   heartColor = 'like-button-red';
+    // } else {
+    //   heartColor = 'like-button';
+    // }
     const currentProfile = this.props.currentUser.id === this.props.userProfile.author_id ? 'comment-profile-admin-toggle' : 'hidden';
+    // <button className={heartColor} onClick={this.toggleLike}></button>
     return (
       <section className='comment-like-container'>
-        <button className={heartColor} onClick={this.toggleLike}></button>
+
+        <i className="fa fa-heart fa-2x post-item-heart" aria-hidden="true" style={{color:heartColor}} onClick={this.toggleLike}></i>
+
         <form className='comment-profile'>
           <input type='text' placeholder='Add a comment...' onChange={this.updateComment} value={this.state.comment.body}>
           </input>
@@ -234,6 +242,37 @@ class ProfilePostItem extends React.Component {
     }
   }
 
+  showOverlay() {
+    if (this.props.post.comments){
+      return (
+        <div className='upload-overlay'>
+          <p>
+            {this.props.post.likes}
+          </p>
+          <i className="fa fa-heart fa-1x" aria-hidden="true"></i>
+          <p>
+            {(Object.keys(this.props.post.comments)).length}
+          </p>
+          <i className="fa fa-comment"></i>
+        </div>
+      );
+    } else {
+      return (
+        <div className='upload-overlay'>
+          <p>
+            {this.props.post.likes}
+          </p>
+          <i className="fa fa-heart fa-1x" aria-hidden="true"></i>
+          <p>
+            0
+          </p>
+          <i className="fa fa-comment"></i>
+        </div>
+      );
+    }
+
+  }
+
   render () {
     console.log(this.props);
     const style = {
@@ -259,78 +298,85 @@ class ProfilePostItem extends React.Component {
     };
 
 
+
     return (
       <div className='profile-uploads-div'>
-        <img src={this.props.post.img_url} onClick={this.openModal} className='profile-uploads'/>
-        <Modal
-          isOpen={this.state.modalOpen}
-          onRequestClose={this.closeModal}
-          style={style}
-          className='modal-profile'>
-            <div className='modal-profile-img-container'>
-              <img src={this.props.post.img_url} className='modal-profile-img' />
-            </div>
-            <div className="modal-profile-postInfo">
-              <div className='modal-profile-userInfo'>
-                <img src={this.props.post.author.author_pic} alt='posters profile pic' className='profile-pic-thumbnail'/>
-                <h3 >
-                  {this.props.userProfile.author_username}
-                </h3>
+        <div className='profile-uploads-div-sub' onClick={this.openModal}>
+
+          {this.showOverlay.bind(this)()}
+
+          <img src={this.props.post.img_url}  className='profile-uploads'/>
+          <Modal
+            isOpen={this.state.modalOpen}
+            onRequestClose={this.closeModal}
+            style={style}
+            className='modal-profile'>
+              <div className='modal-profile-img-container'>
+                <img src={this.props.post.img_url} className='modal-profile-img' />
               </div>
-              <section className='modal-profile-likes'>
-                <p><span>{this.props.post.likes}</span> likes</p>
-                <p>{this.props.post.oldness}</p>
-              </section>
-              <section className='modal-profile-author'>
-                <h4 className='modal-profile-author-username'>{this.props.userProfile.author_username}</h4>
-                <p className='modal-profile-author-description'>
-                  {this.props.post.description}
-                </p>
-              </section>
+              <div className="modal-profile-postInfo">
+                <div className='modal-profile-userInfo'>
+                  <img src={this.props.post.author.author_pic} alt='posters profile pic' className='profile-pic-thumbnail'/>
+                  <h3 >
+                    {this.props.userProfile.author_username}
+                  </h3>
+                </div>
+                <section className='modal-profile-likes'>
+                  <p><span>{this.props.post.likes}</span> likes</p>
+                  <p>{this.props.post.oldness}</p>
+                </section>
+                <section className='modal-profile-author'>
+                  <h4 className='modal-profile-author-username'>{this.props.userProfile.author_username}</h4>
+                  <p className='modal-profile-author-description'>
+                    {this.props.post.description}
+                  </p>
+                </section>
 
-              {this.showComments()}
-              {this.renderCommentLikeContainer.bind(this)()}
-              {this.renderAdminButtons()}
-            </div>
-
-        </Modal>
-
-
-        <Modal
-          isOpen={this.state.editModalOpen}
-          onRequestClose={this.editCloseModal}
-          style={style}
-          className='modal-profile'>
-            <div className='modal-profile-img-container'>
-              <img src={this.state.editModal.imgUrl} className='modal-profile-img' />
-            </div>
-            <div className="modal-profile-postInfo">
-              <div className='modal-profile-userInfo'>
-                <img src={this.props.post.author.author_pic} alt='posters profile pic' className='profile-pic-thumbnail'/>
-                <h3 >
-                  {this.props.userProfile.author_username}
-                </h3>
+                {this.showComments()}
+                {this.renderCommentLikeContainer.bind(this)()}
+                {this.renderAdminButtons()}
               </div>
-              <section className='modal-profile-likes'>
-                <p><span>{this.props.post.likes}</span> likes</p>
-                <p>{this.props.post.oldness}</p>
-              </section>
-              <section className='modal-profile-author'>
-                <h4 className='modal-profile-author-username'>{this.props.userProfile.author_username}</h4>
 
-                <textarea maxLength="150" value={this.state.editModal.description} onChange={this.updateEditModal} placeholder='Description cant be blank' className='modal-profile-author-edit-description'></textarea>
-              </section>
+          </Modal>
 
-              {this.updateErrors.bind(this)}
-              {this.showComments()}
-              <section className='modal-profile-button-container-save'>
-                <button onClick={this.updatePost} className='modal-profile-update-button'>
-                  Save
-                </button>
-              </section>
-            </div>
 
-        </Modal>
+          <Modal
+            isOpen={this.state.editModalOpen}
+            onRequestClose={this.editCloseModal}
+            style={style}
+            className='modal-profile'>
+              <div className='modal-profile-img-container'>
+                <img src={this.state.editModal.imgUrl} className='modal-profile-img' />
+              </div>
+              <div className="modal-profile-postInfo">
+                <div className='modal-profile-userInfo'>
+                  <img src={this.props.post.author.author_pic} alt='posters profile pic' className='profile-pic-thumbnail'/>
+                  <h3 >
+                    {this.props.userProfile.author_username}
+                  </h3>
+                </div>
+                <section className='modal-profile-likes'>
+                  <p><span>{this.props.post.likes}</span> likes</p>
+                  <p>{this.props.post.oldness}</p>
+                </section>
+                <section className='modal-profile-author'>
+                  <h4 className='modal-profile-author-username'>{this.props.userProfile.author_username}</h4>
+
+                  <textarea maxLength="150" value={this.state.editModal.description} onChange={this.updateEditModal} placeholder='Description cant be blank' className='modal-profile-author-edit-description'></textarea>
+                </section>
+
+                {this.updateErrors.bind(this)}
+                {this.showComments()}
+                <section className='modal-profile-button-container-save'>
+                  <button onClick={this.updatePost} className='modal-profile-update-button'>
+                    Save
+                  </button>
+                </section>
+              </div>
+
+          </Modal>
+
+        </div>
       </div>
     );
   }
