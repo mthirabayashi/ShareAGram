@@ -8,3 +8,12 @@ export const fetchProfile = (id, success, error) => {
     error
   });
 };
+export const updateUser = (user, success) => {
+  console.log('updating user from utils');
+  $.ajax({
+    method: 'patch',
+    url: `api/users/${user.id}`,
+    data: {user: user},
+    success
+  });
+};
