@@ -93,7 +93,12 @@ class Header extends React.Component {
           </section>
         </section>
         <section className='search-bar'>
-          <input type='text' value={this.state.search} placeholder='Search' onChange={this.updateSearch}></input>
+          <section>
+            <section className='search-icon-container'>
+              <i className="fa fa-search" aria-hidden="true" ></i>
+              <input type='text' value={this.state.search} placeholder='Search' onChange={this.updateSearch}></input>
+            </section>
+          </section>
           {this.showSearchResults()}
         </section>
         <nav className='navbar'>
