@@ -15,7 +15,6 @@ const RootMiddleware = applyMiddleware(
   UsersMiddleware,
   CommentsMiddleware,
   FollowsMiddleware,
-  SearchesMiddleware,
-  logger
+  SearchesMiddleware
 );
 export default RootMiddleware;
