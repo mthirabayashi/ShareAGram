@@ -51,12 +51,15 @@ class Header extends React.Component {
 
   updateSearch(e) {
     console.log('updating state');
-    // this.setState({
-    //   search: e.target.value
-    // });
-    this.state.search = e.target.value;
-    console.log(this.state.search);
-    this.props.createSearch(this.state.search);
+    if (this.state.search === '') {
+      this.props.createSearch(this.state.search);
+    }
+    this.setState({
+      search: e.target.value
+    }, () => this.props.createSearch(this.state.search));
+    // this.state.search = e.target.value;
+    // console.log(this.state.search);
+    // this.props.createSearch(this.state.search);
   }
 
   showSearchResults() {
@@ -64,23 +67,26 @@ class Header extends React.Component {
       return (
         <ul className='search-bar-results'>
           {this.props.searchResults.map( user => (
-            <li key={'search_results' + user.id} className='search-result'>
+            <li key={'search_results' + user.id} className='search-result' onClick={this.goToSearchProfile(user.id)}>
               <img src={user.profile_pic} className='search-profile-pic'/>
-              <h5 className='search-profile-username' onClick={this.goToSearchProfile(user.id)}>{user.username}</h5>
+              <h5 className='search-profile-username'>{user.username}</h5>
             </li>
           ))}
         </ul>
       );
     }
   }
-
+  // <img src='http://res.cloudinary.com/duep1w4tv/image/upload/c_lfill,w_150/v1478742555/ShareAGram/olapgmnidrgdudide8g4.jpg' alt='LOGO' onClick={this.goToHome}/>
+  // <img src='http://res.cloudinary.com/duep1w4tv/image/upload/v1478393435/profile-icon_kc9txj.png' alt='Profile' onClick={this.goToProfile}/>
+  // <button onClick={this.props.logout}>Logout</button>
   render() {
     console.log(this.state.search);
     return(
-      <div className='header'>
+      <div className='header' onClick={this.props.clearSearch}>
         <section className='logo-title'>
           <section className='logo'>
-            <img src='http://res.cloudinary.com/duep1w4tv/image/upload/v1478393435/Instagram_App_Logo_wumc6c.png' alt='LOGO' onClick={this.goToHome}/>
+
+              <i className="fa fa-instagram fa-2x" aria-hidden="true" onClick={this.goToHome}></i>
           </section>
           <section className='header-app-title' onClick={this.goToHome}>
             ShareAGram
@@ -93,10 +99,10 @@ class Header extends React.Component {
         <nav className='navbar'>
           <ul className='navbar-list'>
         		<li className='navbar-item'>
-              <img src='http://res.cloudinary.com/duep1w4tv/image/upload/v1478393435/profile-icon_kc9txj.png' alt='Profile' onClick={this.goToProfile}/>
+              <i className="fa fa-user fa-2x" aria-hidden="true" onClick={this.goToProfile}></i>
         		</li>
         		<li className='navbar-item'>
-              <button onClick={this.props.logout}>Logout</button>
+              <i className="fa fa-sign-out fa-2x" aria-hidden="true" onClick={this.props.logout}></i>
         		</li>
           </ul>
         </nav>

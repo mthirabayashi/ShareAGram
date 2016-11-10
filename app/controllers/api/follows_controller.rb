@@ -6,19 +6,14 @@ class Api::FollowsController < ApplicationController
     if @follow.save
       @user = User.find(params[:followed_id])
       render :show
-    else
-
     end
   end
 
   def destroy
-    # debugger
     @follow = Follow.find_by(followed_id: params[:followed_id], follower_id: current_user.id)
     if @follow.destroy
       @user = User.find(params[:followed_id])
       render :show
-    else
-
     end
   end
 

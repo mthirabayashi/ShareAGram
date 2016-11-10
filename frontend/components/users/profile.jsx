@@ -17,9 +17,6 @@ class Profile extends React.Component {
   }
 
   toggleFollow() {
-    // console.log(this.props);
-    // console.log('temp toggle follow');
-    // console.log('for user ' + this.props.user.id);
     if (this.props.currentUser.following.includes(this.props.user.id)) {
       this.props.deleteFollow(this.props.user.id);
     } else {
@@ -83,7 +80,7 @@ class Profile extends React.Component {
   }
 
   render () {
-    console.log(this.props);
+    // console.log(this.props);
     let followText;
     let followButtonClass;
     if (this.props.currentUser.following.includes(this.props.user.id)) {
@@ -94,7 +91,7 @@ class Profile extends React.Component {
       followButtonClass = 'profile-stats-follow-button';
     }
     return (
-      <div className='profile-container'>
+      <div className='profile-container' onClick={this.props.clearSearch}>
         <div className='profile-userInfo'>
           <img src={this.props.user.profile_pic} className='profile-pic'/>
           {this.userStats()}
