@@ -18,11 +18,16 @@
   display: flex;
   justify-content: space-around;
   flex-grow: 1;
+  // border: 1px solid black;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer-item * {
   color: black;
   list-style: none;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .footer img {
@@ -285,6 +290,7 @@
 
 .profile-uploads-container {
   width: 75%;
+  min-height: 340px;
   // border: 1px solid black;
   display: flex;
   justify-content: space-around;
@@ -370,13 +376,13 @@
 
 .modal-profile-img-container {
   // border: 1px solid green;
-  width: 500px;
+  // width: 500px;
   height: 500px;
 }
 
 .modal-profile-img {
   // border: 5px solid red;
-  width: 500px;
+  // width: 500px;
   height: 500px;
   display: flex;
   background-color: white;
@@ -496,6 +502,19 @@
   width: 100px;
   cursor: pointer;
   // border: 1px solid black;
+  background: 0 0;
+  border-color: #999;
+  color: #999;
+  font-size: 15px;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  font-weight: 600;
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
 
 }
 

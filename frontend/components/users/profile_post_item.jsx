@@ -274,7 +274,7 @@ class ProfilePostItem extends React.Component {
   }
 
   render () {
-    console.log(this.props);
+    // console.log(this.props);
     const style = {
       overlay : {
         position        : 'fixed',
@@ -287,10 +287,10 @@ class ProfilePostItem extends React.Component {
       },
       content : {
         position        : 'fixed',
-        left            : '20%',
-        right           : '20%',
-        top             : '20%',
-        bottom          : '20%',
+        left            : '17%',
+        right           : '17%',
+        top             : '17%',
+        bottom          : '17%',
         border          : '1px solid #ccc',
         padding         : '0',
         zIndex          : 11

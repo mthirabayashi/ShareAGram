@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
   def index
     post_feed = current_user.followings.ids
     post_feed << current_user.id
-    @posts = Post.where(author_id: post_feed)
+    @posts = Post.includes(:comments, :author).where(author_id: post_feed)
   end
 
   def create

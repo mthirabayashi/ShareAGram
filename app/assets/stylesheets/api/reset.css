@@ -8,10 +8,11 @@ html, body {
   width: 100%;
   /*border: 1px solid green;*/
   overflow-x: hidden;
-  background-color: white;
+  /*background-color: white;*/
+  background-color: #fafafa;
 }
 
 body {
-  background-color: #fafafa;
-  /*background-color: magenta;*/
+  /*background-color: #fafafa;*/
+  background-color: inherit;
 }
