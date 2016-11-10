@@ -5,6 +5,7 @@ import { fetchProfile } from '../../actions/session_actions';
 import { createComment, deleteComment } from '../../actions/comments_actions';
 import { createLike, deleteLike } from '../../actions/likes_actions';
 import { createFollow, deleteFollow } from '../../actions/follows_actions';
+import { clearSearch } from '../../actions/searches_actions';
 
 const mapStateToProps = (state) => {
   console.log(state);
@@ -26,7 +27,8 @@ const mapDispatchToProps = (dispatch) => {
     createLike: (post_id) => dispatch(createLike(post_id)),
     deleteLike: (post_id) => dispatch(deleteLike(post_id)),
     createFollow: (id) => dispatch(createFollow(id)),
-    deleteFollow: (id) => dispatch(deleteFollow(id))
+    deleteFollow: (id) => dispatch(deleteFollow(id)),
+    clearSearch: () => dispatch(clearSearch())
   });
 };
 

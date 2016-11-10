@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Header from './header';
 import {logout} from '../../actions/session_actions';
-import {createSearch} from '../../actions/searches_actions';
+import {createSearch, clearSearch} from '../../actions/searches_actions';
 
 const mapStateToProps = (state) => {
   return ({
@@ -14,7 +14,8 @@ const mapDispatchToProps = (dispatch) => {
 
   return ({
     logout: () => dispatch(logout()),
-    createSearch: (search) => dispatch(createSearch(search))
+    createSearch: (search) => dispatch(createSearch(search)),
+    clearSearch: () => dispatch(clearSearch())
   });
 };
 

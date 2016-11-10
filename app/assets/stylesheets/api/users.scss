@@ -69,6 +69,14 @@
   width: 130px;
 }
 
+.search-bar input {
+  border-radius: 5px;
+  font-size: 16px;
+  height: 20px;
+  width: 110px;
+  outline: none;
+}
+
 .search-bar-results {
   border: 1px solid black;
   position: relative;
@@ -91,6 +99,12 @@
   padding: 0px;
   margin: 0;
   height: 25px;
+  border-bottom: 1px solid lightgray;
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background-color: #fafafa;
 }
 
 .search-profile-pic {
@@ -102,14 +116,6 @@
 
 .search-profile-username {
   font-weight: bold;
-  cursor: pointer;
-}
-
-.search-bar input {
-  border-radius: 5px;
-  font-size: 16px;
-  height: 20px;
-  width: 110px;
 }
 
 .navbar {
@@ -129,6 +135,10 @@
   margin-bottom: auto;
   // border: 1px solid black;
   margin-right: 10px;
+}
+
+.navbar-item  > i {
+  cursor: pointer;
 }
 
 .navbar button {

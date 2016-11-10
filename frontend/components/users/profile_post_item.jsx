@@ -235,7 +235,7 @@ class ProfilePostItem extends React.Component {
   }
 
   render () {
-    // console.log(this.props);
+    console.log(this.props);
     const style = {
       overlay : {
         position        : 'fixed',
@@ -279,7 +279,7 @@ class ProfilePostItem extends React.Component {
               </div>
               <section className='modal-profile-likes'>
                 <p><span>{this.props.post.likes}</span> likes</p>
-                <p>oldness</p>
+                <p>{this.props.post.oldness}</p>
               </section>
               <section className='modal-profile-author'>
                 <h4 className='modal-profile-author-username'>{this.props.userProfile.author_username}</h4>
@@ -313,7 +313,7 @@ class ProfilePostItem extends React.Component {
               </div>
               <section className='modal-profile-likes'>
                 <p><span>{this.props.post.likes}</span> likes</p>
-                <p>oldness</p>
+                <p>{this.props.post.oldness}</p>
               </section>
               <section className='modal-profile-author'>
                 <h4 className='modal-profile-author-username'>{this.props.userProfile.author_username}</h4>

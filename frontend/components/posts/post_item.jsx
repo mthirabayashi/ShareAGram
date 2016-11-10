@@ -31,10 +31,8 @@ class PostItem extends React.Component {
     // console.log('toggle like');
     // debugger
     if (this.props.currentUserLikedPosts.includes(this.props.post.id)) {
-      // console.log('delete like for post' + this.props.post.id);
       this.props.deleteLike(this.props.post.id);
     } else {
-      // console.log('create like for post' + this.props.post.id);
       this.props.createLike(this.props.post.id);
     }
   }
@@ -96,8 +94,11 @@ class PostItem extends React.Component {
     return (
       <div className='post-item' >
         <div className='poster-pic-name'>
-          <img src={this.props.post.author.author_pic} alt='posters profile pic' className='profile-pic-thumbnail'/>
-          <Link to={prof_url} className='profile-link' >{this.props.post.author.author_username}</Link>
+          <section className='poster-pic-name-leftside'>
+            <img src={this.props.post.author.author_pic} alt='posters profile pic' className='profile-pic-thumbnail'/>
+            <Link to={prof_url} className='profile-link' >{this.props.post.author.author_username}</Link>
+          </section>
+          <p className='oldness'>{this.props.post.oldness}</p>
         </div>
         <div className='post-item-photo'>
           <img src={this.props.post.img_url} alt='IMAGE NO HERE'/>

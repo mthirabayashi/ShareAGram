@@ -13,7 +13,9 @@
     id: 2,
     username: "username2",
     full_name: "full name2",
-    profile_pic: "pic"
+    profile_pic: "pic",
+    following: [],
+    followers: 4
   },
   errors: {
     signUp: [],
@@ -38,5 +40,5 @@
       }
     }
   },
-  searchResult: ["user1", "user2"]
+  searchResult: [{username: "user1", id: 1, profile_pic: 'url1'}]
 }

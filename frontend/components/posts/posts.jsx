@@ -169,7 +169,7 @@ class Posts extends React.Component {
       }
     };
     return (
-      <div className='posts-feed'>
+      <div className='posts-feed' onClick={this.props.clearSearch}>
         <br/>
         <br/>
         <br/>

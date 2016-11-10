@@ -19,3 +19,4 @@ json.comments do
   end
 end
 # json.comments post.comments
+json.oldness time_ago_in_words(post.created_at)
