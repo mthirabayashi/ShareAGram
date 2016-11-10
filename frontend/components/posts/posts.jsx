@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router';
 import PostItem from './post_item';
 import Modal from 'react-modal';
 import merge from 'lodash/merge';
+import $ from 'jquery';
 
 // TODO: move Modal into its own component/container
 
@@ -29,7 +30,20 @@ class Posts extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllPosts();
-    window.addEventListener("scroll", console.log('scrolling!!!!'));
+    // window.addEventListener("scroll", console.log('scrolling!!!!'));
+    $(document).on('scroll', () => {
+      console.log('Scrolling!');
+      // console.log(document.body.offsetHeight);
+      // console.log(window.scrollY);
+      // console.log(document.body.offsetHeight - window.scrollY);
+      if (document.body.offsetHeight - window.scrollY < 1000) {
+        console.log('reached bottom of page');
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    $(document).off( "scroll");
   }
 
   componentDidUpdate() {

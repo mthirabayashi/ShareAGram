@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:posts, posts: [:likes, :comments, :author], comments: [:author]).find(params[:id])
     # remember how to use includes(:posts)
     # @user_posts = Post.where(author_id: params[:id])
     if @user.nil?
@@ -19,6 +19,12 @@ class Api::UsersController < ApplicationController
     else
       render "api/users/profile", status: 200
     end
+  end
+
+  def update
+    @user = User.find(params[:user][:id])
+    @user.update(user_params)
+    render "api/users/profile", status: 200
   end
 
   private

@@ -22,7 +22,7 @@ const Footer = () => {
         <section>
           <a href="https://www.google.com"><img src='https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-256.png' alt='Github'/>
           </a>
-          <p>Angel</p>
+          <p>Github</p>
         </section>
   		</li>
     </ul>
