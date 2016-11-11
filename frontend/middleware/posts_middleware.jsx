@@ -1,16 +1,18 @@
 import { hashHistory } from 'react-router';
 import { FETCH_ALL_POSTS,
          FETCH_POST,
+         FETCH_MORE_POSTS,
          CREATE_POST,
          UPDATE_POST,
          DELETE_POST,
          RECEIVE_POST_ERRORS,
          receivePostErrors,
          receivePost,
-         receiveAllPosts
+         receiveAllPosts,
+         receiveMorePosts
        } from '../actions/posts_actions';
 
-import { fetchAllPosts, fetchPost, createPost, updatePost, deletePost } from '../util/posts_api_util';
+import { fetchAllPosts, fetchPost, fetchMorePosts, createPost, updatePost, deletePost } from '../util/posts_api_util';
 
 import { FETCH_PROFILE, fetchProfile } from '../actions/users_actions';
 
@@ -21,6 +23,7 @@ import { receiveCurrentUser } from '../actions/session_actions';
 
 export default ({ getState, dispatch }) => next => action => {
   const fetchAllPostsSuccessCallback = posts =>  dispatch(receiveAllPosts(posts));
+  const fetchMorePostsSuccessCallback = posts =>  dispatch(receiveMorePosts(posts));
   const createPostSuccessCallback = (post) => {
     dispatch(receivePost(post));
     // hashHistory.push('/');
@@ -37,6 +40,10 @@ export default ({ getState, dispatch }) => next => action => {
   switch(action.type) {
     case FETCH_ALL_POSTS:
       fetchAllPosts(fetchAllPostsSuccessCallback, ErrorCallback);
+      return next(action);
+    case FETCH_MORE_POSTS:
+      console.log('fetching more posts from middleware');
+      fetchMorePosts(action.offset, fetchMorePostsSuccessCallback);
       return next(action);
     case CREATE_POST:
       createPost(action.post, createPostSuccessCallback, ErrorCallback);

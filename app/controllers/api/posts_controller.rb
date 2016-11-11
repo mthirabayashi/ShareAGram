@@ -3,7 +3,7 @@ class Api::PostsController < ApplicationController
     post_feed = current_user.followings.ids
     post_feed << current_user.id
     # @posts = Post.includes(:comments, :author, :likes).where(author_id: post_feed)
-    @posts = Post.includes(:comments, :author, :likes, comments: [:author]).where(author_id: post_feed)
+    @posts = Post.order('created_at DESC').includes(:comments, :author, :likes, comments: [:author]).where(author_id: post_feed).limit(2)
   end
 
   def create
@@ -17,6 +17,11 @@ class Api::PostsController < ApplicationController
   end
 
   def show
+    post_feed = current_user.followings.ids
+    post_feed << current_user.id
+    # debugger
+    @posts = Post.order('created_at DESC').includes(:comments, :author, :likes, comments: [:author]).where(author_id: post_feed).limit(1).offset(params[:offset])
+    render :index
   end
 
   def update
