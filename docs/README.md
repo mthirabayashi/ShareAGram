@@ -2,20 +2,17 @@
 
 [Heroku Link](https://shareagram.herokuapp.com/)
 
-  * got ssh key connected and can push to Heroku
-  * can see app connected in terminal using heroku apps
-  * page can't be reached when opening heroku link
 
  [Trello Link](https://trello.com/b/evKyRSbN)
 
 ## Minimum Viable Product
   - [x] Hosting on Heroku
   - [x] New account creation, login, and guest/demo login
-  - [ ] Images
+  - [x] Images
   - [x] Likes
   - [x] Comments on images
-  - [ ] Following & photo feed
-  - [ ] Bonus: Infinite Scroll
+  - [x] Following & photo feed
+  - [x] Bonus: Infinite Scroll
   - [ ] Bonus: direct messaging
   - [ ] Bonus: hashtags
 
