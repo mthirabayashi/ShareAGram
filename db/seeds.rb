@@ -69,7 +69,13 @@ rand_images = [
   "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884304/ShareAGram/rdknsbkxre3xzk8hmx58.jpg",
   "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884321/ShareAGram/eiddvt9ap7ctg3m71d1q.jpg",
   "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884345/ShareAGram/oekkdyad7divemezjpgp.jpg",
-  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884477/ShareAGram/ejjah7cq8uftcoanhwwu.jpg"
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884477/ShareAGram/ejjah7cq8uftcoanhwwu.jpg",
+
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478903659/ShareAGram/b2oto8bww6xoqyhtqjod.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478903734/ShareAGram/cfu7nigayqw2rwqgulqn.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478903769/ShareAGram/dgtaak83jg5ls88jatmz.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478903794/ShareAGram/zl1nlkkf6sjsglmfanfc.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478903824/ShareAGram/cs4gwwuu3etwd185dfyl.jpg"
 
 ]
 
@@ -117,7 +123,8 @@ descriptions = [
   "Going here next week!",
   "Check this out",
   "One of my favorite photos",
-  "This is where I want to live"
+  "This is where I want to live",
+  "No Filter"
 ]
 
 comments = [
@@ -213,7 +220,7 @@ until num_likes >= 15
 end
 
 num_likes = 0
-until num_likes >= 100
+until num_likes >= 110
   num_users = User.last.id
   num_posts = Post.last.id
 
@@ -226,7 +233,7 @@ until num_likes >= 100
 end
 
 num_comments = 0
-until num_comments >= 50
+until num_comments >= 60
   num_users = User.last.id
   num_posts = Post.last.id
 
@@ -243,7 +250,7 @@ end
 
 num_follows = 0
 Follow.create!(followed_id: 2, follower_id: 1)
-until num_follows >= 8
+until num_follows >= 9
   user_count = User.last.id
   # make up to 30 random follows for guest account
   user1 = ((rand(user_count)*3 + rand(7)) % user_count) + 1
