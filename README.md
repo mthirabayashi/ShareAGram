@@ -8,7 +8,8 @@ ShareAGram is a full-stack web application inspired by Instagram.  It utilizes m
 
 
 ####Posts
-![ScreenShot](http://res.cloudinary.com/duep1w4tv/image/upload/v1478900551/ShareAGram/mxbx8ucngdo2pmhdjesv.png)
+![](http://res.cloudinary.com/duep1w4tv/image/upload/v1478900551/ShareAGram/mxbx8ucngdo2pmhdjesv.png)
+
 Features
 
 - Users can upload photos
@@ -33,7 +34,8 @@ Comments are stored in the database as part of a join table between a post and a
 
 
 ####Follows
-![ScreenShot](http://res.cloudinary.com/duep1w4tv/image/upload/v1478901427/ShareAGram/neiqmc42b7frvxvmml6j.png)
+![](http://res.cloudinary.com/duep1w4tv/image/upload/v1478901427/ShareAGram/neiqmc42b7frvxvmml6j.png)
+
 Features
 
 - A user can "follow" another user
@@ -74,7 +76,8 @@ Users can click the heart icon next to the comment section to create or delete a
 
 
 ####Search
-![ScreenShot](http://res.cloudinary.com/duep1w4tv/image/upload/v1478902876/ShareAGram/kneqwkph0cvjpmdsczcy.png)
+![](http://res.cloudinary.com/duep1w4tv/image/upload/v1478902876/ShareAGram/kneqwkph0cvjpmdsczcy.png)
+
 Features
 
 - Search for users
