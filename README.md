@@ -1,11 +1,11 @@
 # ShareAGram
-___
+
 [Heroku Link](https://shareagram.herokuapp.com/)
 
 ShareAGram is a full-stack web application inspired by Instagram.  It utilizes multiple technologies such as Ruby on Rails on the backend, PostgreSQL database, and React.js with a Redux architectural framework for the frontend.
 
 ## Features & Implementation
-___
+
 ####Posts
 - Users can upload photos
 - Users can edit and delete their own posts
