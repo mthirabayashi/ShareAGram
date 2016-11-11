@@ -19,7 +19,7 @@ Features
 
 Implementation
 
-Post images are stored on cloudinary.com.  In the backend, the post feed is contructed based on the users that the current user is following.  Deleting a post removes it from the database as well as removing it from the application state.
+Post images are stored on cloudinary.com.  In the backend, the post feed is constructed based on the users that the current user is following.  Deleting a post removes it from the database as well as removing it from the application state.
 
 
 ####Comments
@@ -81,6 +81,7 @@ Users can click the heart icon next to the comment section to create or delete a
 Features
 
 - Search for users
+- Clicking on a user in the search results allows users to navigate to user profiles
 
 Implementation
 
