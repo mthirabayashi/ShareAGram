@@ -217,8 +217,9 @@ class ProfilePostItem extends React.Component {
   }
 
   showComments() {
-    // console.log(this.props);
+    console.log(this.props);
     // console.log(this.props.currentUser);
+    const deleteButtonClass = this.props.currentUser.username===this.props.userProfile.author_username ? "comment-instance-button" : "comment-instance-button-hidden";
 
     if (this.props.post.comments) {
       return (
@@ -227,7 +228,7 @@ class ProfilePostItem extends React.Component {
             <div className='comment-instance' key={'comment' + comment.id}>
               <h4><Link to={'/user/' + comment.author_id} className='profile-link' >{comment.username}</Link></h4>
               <p> {comment.body}</p>
-              <button className={comment.username === this.props.currentUser.username ? "comment-instance-button" : "comment-instance-button-hidden"} onClick={this.deleteComment(comment.id)}>
+              <button className={comment.username === this.props.currentUser.username ? "comment-instance-button" : deleteButtonClass} onClick={this.deleteComment(comment.id)}>
                 X
               </button>
             </div>

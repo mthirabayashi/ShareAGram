@@ -58,14 +58,25 @@ rand_images = [
   "http://res.cloudinary.com/duep1w4tv/image/upload/v1478832400/ShareAGram/dtmlgngm0qpeyzfuwvlw.jpg",
   "http://res.cloudinary.com/duep1w4tv/image/upload/v1478832450/ShareAGram/g1zmntufqqgduc1xmpps.jpg",
   "http://res.cloudinary.com/duep1w4tv/image/upload/v1478832495/ShareAGram/xyeshqepjkmywryxslyu.jpg",
-  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478832541/ShareAGram/xwitm7z7khlmgkkimvv1.jpg"
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478832541/ShareAGram/xwitm7z7khlmgkkimvv1.jpg",
+
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884155/ShareAGram/vkxzmbbe0rvanhph9rcd.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884181/ShareAGram/u0o9nmqfgvdrub4kost3.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884206/ShareAGram/axtlcsxvpwtisgmhdvro.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884226/ShareAGram/atv8laickkj5qoky2yzm.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884259/ShareAGram/qbs49wc9mtvny3ihhz5d.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884281/ShareAGram/zca9kpuxmlweo41djv8l.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884304/ShareAGram/rdknsbkxre3xzk8hmx58.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884321/ShareAGram/eiddvt9ap7ctg3m71d1q.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884345/ShareAGram/oekkdyad7divemezjpgp.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478884477/ShareAGram/ejjah7cq8uftcoanhwwu.jpg"
 
 ]
 
 mike_images = [
   "http://res.cloudinary.com/duep1w4tv/image/upload/v1478336952/ShareAGram/ay3amk3wdyrjuimxkukk.jpg",
   "http://res.cloudinary.com/duep1w4tv/image/upload/v1478549338/ShareAGram/xybuoy1bwgtwyldaozpv.jpg",
-  "http://res.cloudinary.com/duep1w4tv/image/upload/c_scale,w_1152/v1478367842/vertical_hanging_camera_exuvlq.jpg",
+  "http://res.cloudinary.com/duep1w4tv/image/upload/v1478887936/ShareAGram/e7erhnauob9a5lxvxkf0.jpg",
 ]
 
 guest_images = [
@@ -214,23 +225,24 @@ until num_likes >= 100
   end
 end
 
-comments.each do |comment|
-  user_count = User.last.id
-  user_id = ((rand(user_count)*3 + rand(7)) % user_count) + 1
-  post_id = ((rand(user_count)*3 + rand(7)) % user_count) + 1
-  Comment.create!(post_id: post_id, user_id: user_id, body: comment)
+num_comments = 0
+until num_comments >= 50
+  num_users = User.last.id
+  num_posts = Post.last.id
+
+  post_id = ((rand(num_posts)*3 + rand(7)) % num_posts) + 1
+  user_id = ((rand(num_posts)*3 + rand(7)) % num_posts) + 1
+  post = Post.find(post_id)
+  next if post.comments.length > 3
+  next if post.comments.where(body: comments[(post_id - user_id) % comments.length]).length > 0
+  comment = Comment.new(user_id: user_id, post_id: post_id, body: comments[(post_id - user_id) % comments.length])
+  if comment.save
+    num_comments += 1
+  end
 end
 
-# 30.times do
-#   user_count = User.last.id
-#   # make up to 30 random follows for guest account
-#   user1 = rand(user_count) + 1
-#   user2 = 1
-#   next if (user1 === user2)
-#
-#   Follow.create(followed_id: user1, follower_id: user2)
-# end
 num_follows = 0
+Follow.create!(followed_id: 2, follower_id: 1)
 until num_follows >= 8
   user_count = User.last.id
   # make up to 30 random follows for guest account
