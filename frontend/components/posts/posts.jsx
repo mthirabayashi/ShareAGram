@@ -51,7 +51,7 @@ class Posts extends React.Component {
     // console.log(newProps.posts);
     // console.log(this.props.posts);
     if (this.props.posts.length < newProps.posts.length) {
-      this.setState({modalOpen: false});
+      this.closeModal();
     }
 
   }
