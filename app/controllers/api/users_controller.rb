@@ -2,6 +2,9 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    if @user.profile_pic.nil?
+      @user.profile_pic = "http://res.cloudinary.com/duep1w4tv/image/upload/v1478651158/ShareAGram/pzcgnvdxurnsefvhkr2l.png"
+    end
     if @user.save
       login(@user)
       render :show

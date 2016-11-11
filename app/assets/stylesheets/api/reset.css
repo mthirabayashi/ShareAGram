@@ -15,4 +15,7 @@ html, body {
 body {
   /*background-color: #fafafa;*/
   background-color: inherit;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 73px;
 }

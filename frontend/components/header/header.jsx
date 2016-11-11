@@ -95,7 +95,7 @@ class Header extends React.Component {
         <section className='search-bar'>
           <section>
             <section className='search-icon-container'>
-              <i className="fa fa-search" aria-hidden="true" ></i>
+              <i className="fa fa-search my-search" aria-hidden="true" ></i>
               <input type='text' value={this.state.search} placeholder='Search' onChange={this.updateSearch}></input>
             </section>
           </section>

@@ -5,7 +5,7 @@
 
 .footer {
   border-top: 1px solid lightgray;
-  position: relative;
+  position: absolute;
   bottom: 0;
   left: 0;
   display: flex;
@@ -75,15 +75,15 @@
 }
 
 .search-icon-container {
-  display: flex;
-  flex-direction: row;
+  // display: flex;
+  // flex-direction: row;
   align-items: center;
   border: 1px solid lightgray;
   margin-right: -10%;
-  border-radius: 5px;
+  // border-radius: 5px;
 }
 
-.fa.fa-search {
+.my-search {
   padding: 0 5%;
   color: lightgray;
 }
@@ -115,7 +115,8 @@
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: space-around;
+  // justify-content: space-around;
+  text-align: left;
   padding: 0px;
   margin: 0;
   height: 25px;
@@ -136,6 +137,7 @@
 
 .search-profile-username {
   font-weight: bold;
+  padding-left: 7%;
 }
 
 .navbar {
