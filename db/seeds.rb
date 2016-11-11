@@ -165,7 +165,7 @@ comments = [
   "Coolest photo ever!",
   "Absolutely amazing photo",
   "Lucky!",
-  "Was it that stunning in real life?",
+  "Was it that stunning in person?",
   "Looks professional",
   "Wow!",
   "Amazing!",
