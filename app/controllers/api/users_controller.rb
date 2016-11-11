@@ -6,6 +6,9 @@ class Api::UsersController < ApplicationController
       @user.profile_pic = "http://res.cloudinary.com/duep1w4tv/image/upload/v1478651158/ShareAGram/pzcgnvdxurnsefvhkr2l.png"
     end
     if @user.save
+      Follow.create(followed_id: 1, follower_id: @user.id)
+      login(@user)
+      Follow.create(followed_id: 2, follower_id: @user.id)
       login(@user)
       render :show
     else

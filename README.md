@@ -1,24 +1,54 @@
-# README
+# ShareAGram
+____
+[Heroku Link](https://shareagram.herokuapp.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ShareAGram is a full-stack web application inspired by Instagram.  It utilizes multiple technologies such as Ruby on Rails on the backend, PostgreSQL database, and React.js with a Redux architectural framework for the frontend.
 
-Things you may want to cover:
+## Features & Implementation
+____
+####Posts
+- Users can upload photos
+- Users can edit and delete their own posts
+- Posts automatically displayed on main page of all "followed" users
+- Users can view "unfollowed" posts through user profiles
 
-* Ruby version
+####Comments
+- Users can create comments on a specific post
+- Users can delete comments if they are the creator of the comment or the post author
 
-* System dependencies
+####Follows
+- A user can "follow" another user
+	- Posts from followed users will be displayed in the post feed (Home Page)
+- A user can "unfollow" a followed user
 
-* Configuration
+####User Profile
+- Users can navigate to other users profile pages
+- Displays all the posts of a user
+	- Clicking on a post will display a larger view of it with additional information
+- Displays the stats of the user
+	- Number of posts
+	- Number of followers
+	- Number of people following
+- Users can edit their own posts
 
-* Database creation
+####Likes
+- Users can "like" a post
+- Users can "unlike" a post
+- Total number of likes are displayed on the post
 
-* Database initialization
+####Search
+- Search for users
 
-* How to run the test suite
+####Authentication
+- User verification
+- Users must be logged in to use the application
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Future Features
+____
+There are still some features that will hopefully be added to ShareAgram in the near future.  These future features include the following:
+####Hashtags
 
-* ...
+####Direct Messaging
+
+####Discover Page
