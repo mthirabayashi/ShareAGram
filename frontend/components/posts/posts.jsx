@@ -30,14 +30,12 @@ class Posts extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllPosts();
-    // window.addEventListener("scroll", console.log('scrolling!!!!'));
     $(document).on('scroll', () => {
       console.log('Scrolling!');
-      // console.log(document.body.offsetHeight);
-      // console.log(window.scrollY);
-      // console.log(document.body.offsetHeight - window.scrollY);
       if (document.body.offsetHeight - window.scrollY < 1000) {
         console.log('reached bottom of page');
+        console.log(this.props.posts.length);
+        this.props.fetchMorePosts(this.props.posts.length);
       }
     });
   }
@@ -47,12 +45,6 @@ class Posts extends React.Component {
   }
 
   componentDidUpdate() {
-    // if (this.props.errors.createPost.length ===1 && this.props.errors.createPost[0] === 'Successfully uploaded post') {
-    //   this.props.router.replace('/');
-    // }
-    if (document.body.offsetHeight - window.scrollY < 1500) {
-      console.log('close to end of screen?');
-    }
   }
 
   componentWillReceiveProps(newProps) {
@@ -61,6 +53,7 @@ class Posts extends React.Component {
     if (this.props.posts.length < newProps.posts.length) {
       this.setState({modalOpen: false});
     }
+
   }
 
   displayAllPosts() {

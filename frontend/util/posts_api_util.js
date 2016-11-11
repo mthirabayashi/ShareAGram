@@ -15,6 +15,14 @@ export const fetchPost = (id, success, error) => {
     error
   });
 };
+export const fetchMorePosts = (offset, success) => {
+  $.ajax({
+    method: 'get',
+    url: `api/posts/${offset}`,
+    data: {offset: offset},
+    success
+  });
+};
 export const createPost = (post, success, error) => {
   $.ajax({
     method: 'post',
