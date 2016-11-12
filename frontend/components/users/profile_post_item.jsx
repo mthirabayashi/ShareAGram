@@ -6,7 +6,6 @@ import merge from 'lodash/merge';
 class ProfilePostItem extends React.Component {
 
   constructor(props){
-    // console.log(props);
     super(props);
     this.state = {
       modalOpen: false,
@@ -69,10 +68,6 @@ class ProfilePostItem extends React.Component {
   }
 
   updateEditModal(e) {
-    // console.log('post description updated');
-    // console.log(e);
-    // console.log(e.target);
-    // console.log(e.target.value);
     const newState = merge({}, this.state.editModal, {['description']: e.target.value});
     this.setState({
       editModal: newState
@@ -84,8 +79,6 @@ class ProfilePostItem extends React.Component {
   }
 
   updatePost() {
-    // console.log('update post with');
-    // console.log(this.state.editModal);
     this.props.updatePost(this.state.editModal);
     this.setState({
       editModalOpen: false
@@ -105,20 +98,14 @@ class ProfilePostItem extends React.Component {
   }
 
   toggleLike () {
-    // console.log('toggle like');
-    // debugger
     if (this.props.currentUser.likedPosts.includes(this.props.post.id)) {
-      // console.log('delete like for post' + this.props.post.id);
       this.props.deleteLike(this.props.post.id);
     } else {
-      // console.log('create like for post' + this.props.post.id);
       this.props.createLike(this.props.post.id);
     }
   }
 
   updateComment(e) {
-    // console.log("comment body updated");
-    // console.log(e.target.value);
     const newState = merge({}, this.state.comment, {['body']: e.target.value});
     this.setState({
       comment: newState
@@ -126,8 +113,6 @@ class ProfilePostItem extends React.Component {
   }
 
   addComment(e) {
-    // console.log('creating comment with ');
-    // console.log(this.state.comment);
     if (this.state.comment.body === '') {
       return;
     }
@@ -178,7 +163,6 @@ class ProfilePostItem extends React.Component {
   }
 
   commentLikeContainer() {
-    // console.log(this.props);
     const userLiked = (this.props.currentUser.likedPosts.includes(this.props.post.id));
     let heartColor;
     if (userLiked) {
@@ -186,13 +170,7 @@ class ProfilePostItem extends React.Component {
     } else {
       heartColor = 'lightgray';
     }
-    // if (userLiked) {
-    //   heartColor = 'like-button-red';
-    // } else {
-    //   heartColor = 'like-button';
-    // }
     const currentProfile = this.props.currentUser.id === this.props.userProfile.author_id ? 'comment-profile-admin-toggle' : 'hidden';
-    // <button className={heartColor} onClick={this.toggleLike}></button>
     return (
       <section className='comment-like-container'>
 
@@ -217,8 +195,6 @@ class ProfilePostItem extends React.Component {
   }
 
   showComments() {
-    console.log(this.props);
-    // console.log(this.props.currentUser);
     const deleteButtonClass = this.props.currentUser.username===this.props.userProfile.author_username ? "comment-instance-button" : "comment-instance-button-hidden";
 
     if (this.props.post.comments) {
