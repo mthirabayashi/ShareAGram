@@ -42,7 +42,6 @@ export default ({ getState, dispatch }) => next => action => {
       fetchAllPosts(fetchAllPostsSuccessCallback, ErrorCallback);
       return next(action);
     case FETCH_MORE_POSTS:
-      console.log('fetching more posts from middleware');
       fetchMorePosts(action.offset, fetchMorePostsSuccessCallback);
       return next(action);
     case CREATE_POST:

@@ -16,11 +16,9 @@ export default ({ getState, dispatch }) => next => action => {
   // debugger
   switch(action.type) {
     case FETCH_PROFILE:
-      console.log('got to users middleware profile fetch');
       fetchProfile(action.id, fetchProfileSuccessCallback, ErrorCallback);
       return next(action);
     case UPDATE_USER:
-      console.log('got to users middleware update user');
       updateUser(action.user, fetchProfileSuccessCallback);
       return next(action);
     default:
