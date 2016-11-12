@@ -8,7 +8,6 @@ import { createFollow, deleteFollow } from '../../actions/follows_actions';
 import { clearSearch } from '../../actions/searches_actions';
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return ({
     currentUser: state.session.currentUser,
     user: state.userProfile,
