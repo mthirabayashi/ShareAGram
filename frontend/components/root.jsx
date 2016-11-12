@@ -31,11 +31,9 @@ const Root = ({ store }) => {
   };
 
   const _clearErrors = () => {
-    console.log('clearing errors');
     store.dispatch(clearErrors());
   };
   const _clearSearch = () => {
-    console.log('clearing search');
     store.dispatch(clearSearch());
   };
 
