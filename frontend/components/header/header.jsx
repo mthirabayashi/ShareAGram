@@ -80,7 +80,6 @@ class Header extends React.Component {
   // <img src='http://res.cloudinary.com/duep1w4tv/image/upload/v1478393435/profile-icon_kc9txj.png' alt='Profile' onClick={this.goToProfile}/>
   // <button onClick={this.props.logout}>Logout</button>
   render() {
-    console.log(this.state.search);
     return(
       <div className='header' onClick={this.props.clearSearch}>
         <section className='logo-title'>
