@@ -8,7 +8,6 @@ class Profile extends React.Component {
 
   constructor(props){
     super(props);
-    // console.log(props);
     this.userPosts = this.userPosts.bind(this);
     this.toggleFollow = this.toggleFollow.bind(this);
     this.userStats = this.userStats.bind(this);
@@ -55,12 +54,8 @@ class Profile extends React.Component {
       window.cloudinary_options,
       (error, image) => {
         if (error===null) {
-          //success
-          // console.log(image[0]);
-          // console.log(image[0].thumbnail_url);
           const newState = merge({}, this.state.modal, {['profile_pic']: image[0].url, ['thumbnail_url']: image[0].thumbnail_url});
           this.setState({modal: newState});
-          // console.log(this.state);
         } else {
           // errors
         }
@@ -69,7 +64,6 @@ class Profile extends React.Component {
   }
 
   updateModalField(field) {
-    // console.log('updating full name');
     return (e) => {
       const newState = merge({}, this.state.modal, {[field]: e.target.value});
       this.setState({modal: newState});
@@ -77,7 +71,6 @@ class Profile extends React.Component {
   }
 
   imageThumbail() {
-    // console.log('image thumbnail_url');
     if (this.state.modal.thumbnail_url) {
       return (
         <div>
@@ -100,10 +93,6 @@ class Profile extends React.Component {
     if (this.state.modal.profile_pic === '') {
       updatedUser.profile_pic = this.props.user.profile_pic;
     }
-    // if (this.state.modal.full_name === '') {
-    //   updatedUser.full_name = this.props.user.full_name;
-    // }
-    // console.log(updatedUser);
     const newState = {profile_pic: '', thumbnail_url: ''};
     this.props.updateUser(updatedUser);
     this.setState({
@@ -135,7 +124,6 @@ class Profile extends React.Component {
   }
 
   userStats() {
-    // console.log(this.state);
     let followText;
     let followButtonClass;
     if (this.props.currentUser.following.includes(this.props.user.id)) {
@@ -183,7 +171,6 @@ class Profile extends React.Component {
   }
 
   render () {
-    console.log(this.props);
 
     const style = {
       overlay : {
