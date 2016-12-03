@@ -50,7 +50,7 @@ class Header extends React.Component {
   }
 
   updateSearch(e) {
-    console.log('updating state');
+    // console.log('updating state');
     if (this.state.search === '') {
       this.props.createSearch(this.state.search);
     }
@@ -103,10 +103,10 @@ class Header extends React.Component {
         <nav className='navbar'>
           <ul className='navbar-list'>
         		<li className='navbar-item'>
-              <i className="fa fa-user fa-2x" aria-hidden="true" onClick={this.goToProfile}></i>
+              <i className="fa fa-user fa-2x" aria-hidden="true" onClick={this.goToProfile}><div className='header-hover-profile'>Profile</div></i>
         		</li>
         		<li className='navbar-item'>
-              <i className="fa fa-sign-out fa-2x" aria-hidden="true" onClick={this.props.logout}></i>
+              <i className="fa fa-sign-out fa-2x" aria-hidden="true" onClick={this.props.logout}><div className='header-hover-logout'>Log Out</div></i>
         		</li>
           </ul>
         </nav>

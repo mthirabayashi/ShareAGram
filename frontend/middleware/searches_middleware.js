@@ -6,8 +6,6 @@ export default ({ getState, dispatch }) => next => action => {
   const SearchSuccessCallback = results => dispatch(receiveSearchResults(results));
   switch(action.type) {
     case CREATE_SEARCH:
-      console.log('create search - middleware');
-      // console.log('search ' + action.search);
       createSearch(action.search, SearchSuccessCallback);
       return next(action);
     default:

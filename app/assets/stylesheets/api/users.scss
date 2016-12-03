@@ -44,6 +44,28 @@
   // background-color: orange;
 }
 
+.header-hover-logout {
+  display: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.fa-sign-out:hover .header-hover-logout {
+  display: block;
+  position: absolute;
+}
+
+.header-hover-profile {
+  display: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.fa-user:hover .header-hover-profile {
+  display: block;
+  position: absolute;
+}
+
 .logo img {
   width: 40px;
   height: 40px;
@@ -80,7 +102,7 @@
   align-items: center;
   border: 1px solid lightgray;
   margin-right: -10%;
-  // border-radius: 5px;
+  border-radius: 10px;
 }
 
 .my-search {
@@ -89,7 +111,7 @@
 }
 
 .search-bar input {
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 16px;
   height: 20px;
   width: 110px;
@@ -251,6 +273,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   cursor: pointer;
+}
+
+.profile-stats-edit-button:hover {
+  background-color: #3897f0;
+  color: white;
 }
 
 .profile-stats {

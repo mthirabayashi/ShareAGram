@@ -32,6 +32,7 @@
   // border: 1px solid black;
   margin: 10px;
   background-color: transparent;
+  border-radius: 9px;
 }
 
 .session-input-box {
@@ -99,4 +100,8 @@
 
 .session-errors {
   color: red;
+}
+
+.session-font {
+  font-family: BlinkMacSystemFont;
 }

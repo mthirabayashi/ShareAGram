@@ -5,6 +5,7 @@ export const CREATE_POST = 'CREATE_POST';
 export const UPDATE_POST = 'UPDATE_POST';
 export const DELETE_POST = 'DELETE_POST';
 export const RECEIVE_MORE_POSTS = 'RECEIVE_MORE_POSTS';
+export const CLEAR_POSTS = 'CLEAR_POSTS';
 
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
@@ -48,4 +49,7 @@ export const receiveMorePosts = (posts) => ({
 export const receivePostErrors = (errors) => ({
   type: RECEIVE_POST_ERRORS,
   errors
+});
+export const clearPosts = () => ({
+  type: CLEAR_POSTS
 });

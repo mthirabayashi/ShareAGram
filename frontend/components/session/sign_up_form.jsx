@@ -73,7 +73,7 @@ class SignUpForm extends React.Component {
         </div>
         <div className='session-box'>
           <h2 className='session-app-title'>ShareAGram</h2>
-          <p>Sign up to see photos from your friends.</p>
+          <p className='session-font'>Sign up to see photos from your friends</p>
           <div className='session-input-box'>
             <button type='submit' className='session-input' onClick={this.handleGuestLogin}>Log in as guest</button>
             <br/>
@@ -104,7 +104,7 @@ class SignUpForm extends React.Component {
         </div>
 
         <div className='session-link'>
-          <label>Have an account?
+          <label className='session-font'>Have an account?
             <Link to='/login'> Log in</Link>
           </label>
         </div>
