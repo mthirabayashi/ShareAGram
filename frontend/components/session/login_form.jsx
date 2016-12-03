@@ -88,7 +88,7 @@ class LoginForm extends React.Component {
         </div>
         {this.renderSignInErrors()}
         <div className='session-link'>
-          <label>Don't have an account?
+          <label className='session-font'>Don't have an account?
             <Link to='/signup'> Sign Up</Link>
           </label>
         </div>

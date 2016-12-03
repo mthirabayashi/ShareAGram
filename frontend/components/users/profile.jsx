@@ -31,6 +31,10 @@ class Profile extends React.Component {
 
   }
 
+  componentWillUnmount() {
+    // console.log(this.props);
+  }
+
   closeModal() {
     const newState = {full_name: this.props.user.full_name};
     this.setState({

@@ -31,10 +31,10 @@ class Posts extends React.Component {
   componentDidMount() {
     this.props.fetchAllPosts();
     $(document).on('scroll', () => {
-      console.log('Scrolling!');
-      if (document.body.offsetHeight - window.scrollY < 1000) {
-        console.log('reached bottom of page');
-        console.log(this.props.posts.length);
+      // console.log('Scrolling!');
+      if (document.body.offsetHeight - window.scrollY < 1250) {
+        // console.log('reached bottom of page');
+        // console.log(this.props.posts.length);
         this.props.fetchMorePosts(this.props.posts.length);
       }
     });

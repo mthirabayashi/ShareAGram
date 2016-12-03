@@ -6,10 +6,12 @@ import { FETCH_ALL_POSTS,
          UPDATE_POST,
          DELETE_POST,
          RECEIVE_POST_ERRORS,
+         CLEAR_POSTS,
          receivePostErrors,
          receivePost,
          receiveAllPosts,
-         receiveMorePosts
+         receiveMorePosts,
+         clearPosts
        } from '../actions/posts_actions';
 
 import { fetchAllPosts, fetchPost, fetchMorePosts, createPost, updatePost, deletePost } from '../util/posts_api_util';
@@ -58,6 +60,9 @@ export default ({ getState, dispatch }) => next => action => {
       return next(action);
     case DELETE_LIKE:
       deleteLike(action.post_id, toggleLikeSuccessCallback, ErrorCallback);
+      return next(action);
+    case CLEAR_POSTS:
+      clearPosts(fetchAllPostsSuccessCallback);
       return next(action);
     default:
       return next(action);
