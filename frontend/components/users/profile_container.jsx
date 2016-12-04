@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Profile from './profile';
-import { deletePost, updatePost } from '../../actions/posts_actions';
+import { deletePost, updatePost, clearPosts } from '../../actions/posts_actions';
 import { fetchProfile, updateUser } from '../../actions/users_actions';
 import { createComment, deleteComment } from '../../actions/comments_actions';
 import { createLike, deleteLike } from '../../actions/likes_actions';
@@ -28,7 +28,8 @@ const mapDispatchToProps = (dispatch) => {
     createFollow: (id) => dispatch(createFollow(id)),
     deleteFollow: (id) => dispatch(deleteFollow(id)),
     clearSearch: () => dispatch(clearSearch()),
-    updateUser: (user) => dispatch(updateUser(user))
+    updateUser: (user) => dispatch(updateUser(user)),
+    clearPosts: () => dispatch(clearPosts())
   });
 };
 
