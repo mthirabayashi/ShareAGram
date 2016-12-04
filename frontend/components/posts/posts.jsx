@@ -42,6 +42,8 @@ class Posts extends React.Component {
 
   componentWillUnmount() {
     $(document).off( "scroll");
+    // console.log('clearing posts after leaving posts index');
+    this.props.clearPosts();
   }
 
   componentDidUpdate() {

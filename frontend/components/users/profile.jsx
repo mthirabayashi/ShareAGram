@@ -32,7 +32,7 @@ class Profile extends React.Component {
   }
 
   componentWillUnmount() {
-    // console.log(this.props);
+    this.props.clearPosts();
   }
 
   closeModal() {
@@ -188,8 +188,8 @@ class Profile extends React.Component {
       },
       content : {
         position        : 'fixed',
-        left            : '20%',
-        right           : '20%',
+        left            : '15%',
+        right           : '15%',
         top             : '20%',
         bottom          : '20%',
         border          : '1px solid #ccc',
@@ -197,8 +197,6 @@ class Profile extends React.Component {
         zIndex          : 11
       }
     };
-
-
 
 
     let followText;

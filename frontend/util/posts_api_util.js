@@ -51,10 +51,3 @@ export const deletePost = (id, success, error) => {
     error
   });
 };
-export const clearPosts = (success) => {
-  $.ajax({
-    method: 'get',
-    url: 'api/posts',
-    success
-  });
-};
