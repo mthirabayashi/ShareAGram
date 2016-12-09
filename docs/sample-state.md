@@ -33,6 +33,7 @@
         author_username: ''
       }
       likes: 3,
+      oldness: '28 days ago',
       comments: {
         '1': {id: 1, author_id: 1, username: 'user1', body: 'great pic'},
         '2': {id: 2, author_id: 2, username: 'user2', body: 'greadfaat pic'},
