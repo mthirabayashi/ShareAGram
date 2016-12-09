@@ -20,7 +20,7 @@ const Footer = () => {
   		</li>
   		<li className='footer-item'>
         <section>
-          <a href="https://angel.co/michael-hirabayashi" target='_blank'><img src='https://cdn0.iconfinder.com/data/icons/picons-social/57/69-angellist-128.png' alt='Github'/>
+          <a href="https://angel.co/michael-hirabayashi" target='_blank'><img src='https://cdn0.iconfinder.com/data/icons/picons-social/57/69-angellist-128.png' alt='Angellist'/>
           </a>
           <p>Angel</p>
         </section>
