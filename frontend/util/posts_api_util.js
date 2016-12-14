@@ -33,7 +33,6 @@ export const createPost = (post, success, error) => {
   });
 };
 export const updatePost = (post, success, error) => {
-  console.log('updating post');
   $.ajax({
     method: 'patch',
     url: `api/posts/${post.id}`,
