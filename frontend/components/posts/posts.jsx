@@ -111,6 +111,8 @@ class Posts extends React.Component {
 
   uploadImage(e) {
     e.preventDefault();
+    // console.log(ENV['CLOUD_NAME']);
+    // console.log(Figaro.env.CLOUD_NAME);
     window.cloudinary.openUploadWidget(
       window.cloudinary_options,
       (error, image) => {
