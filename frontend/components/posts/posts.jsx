@@ -30,13 +30,30 @@ class Posts extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllPosts();
-    $(document).on('scroll', () => {
-      // console.log('Scrolling!');
+    let waiting = false;
+    let endScrollHandle;
+    const fetchMore = () => {
       if (document.body.offsetHeight - window.scrollY < 1250) {
         // console.log('reached bottom of page');
         // console.log(this.props.posts.length);
+        // console.log('fetching more posts');
         this.props.fetchMorePosts(this.props.posts.length);
       }
+    };
+    $(document).on('scroll', () => {
+      if (waiting) {
+        return;
+      }
+      waiting = true;
+      clearTimeout(endScrollHandle);
+      // console.log('Scrolling!');
+      fetchMore();
+      setTimeout(() => {
+        waiting = false;
+      }, 300);
+      endScrollHandle = setTimeout(() => {
+        fetchMore();
+      }, 500);
     });
   }
 
