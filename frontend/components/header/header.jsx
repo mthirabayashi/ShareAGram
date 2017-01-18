@@ -60,7 +60,6 @@ class Header extends React.Component {
       });
     };
     const sendSearch = () => {
-      console.log('creating search');
       this.props.createSearch(this.state.search);
       this.setState({
         timer: null
