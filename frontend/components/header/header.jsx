@@ -13,6 +13,7 @@ class Header extends React.Component {
     this.goToSearchProfile = this.goToSearchProfile.bind(this);
     this.state = {
       search: '',
+      timer: null
     };
   }
 
@@ -50,16 +51,43 @@ class Header extends React.Component {
   }
 
   updateSearch(e) {
-    // console.log('updating state');
     if (this.state.search === '') {
       this.props.createSearch(this.state.search);
     }
+    const resetTimer = () => {
+      this.setState({
+        timer: 3
+      });
+    };
+    const sendSearch = () => {
+      console.log('creating search');
+      this.props.createSearch(this.state.search);
+      this.setState({
+        timer: null
+      });
+    };
+    const addtimer = () => {
+      const myVar = setInterval(() => {
+        const newtime = this.state.timer - 1;
+        this.setState({
+          timer: newtime
+        });
+        if (newtime === 0) {
+          sendSearch();
+          clearInterval(myVar);
+        }
+      }, 200);
+    };
+    if (this.state.timer === null) {
+      this.setState({
+        timer: 3
+      }, addtimer);
+    } else {
+      resetTimer();
+    }
     this.setState({
       search: e.target.value
-    }, () => this.props.createSearch(this.state.search));
-    // this.state.search = e.target.value;
-    // console.log(this.state.search);
-    // this.props.createSearch(this.state.search);
+    });
   }
 
   showSearchResults() {
